@@ -24,6 +24,7 @@
 		Point tl{};
 		Point br{};
 		float defectArea{};
+		int defectCat{};
 	};
 	vector<defectPoint> returnDefPoints;
 		//bitmap to mat
@@ -1248,8 +1249,49 @@
 		cv::Mat element = getStructuringElement(kernel_type, cv::Size(2 * size + 1, 2 * size + 1), anchor);
 		morphologyEx(src, dst, operation, element, anchor, iterCnt);
 	}
+	int get_avgInt(Mat image, Rect roi)
+	{
+		Scalar m = mean(image(roi));
+		return m[0];
+	}
+	int get_defectCategory(Mat imageIn, RotatedRect rr, int avg_fabricColor)
+	{
+		Rect br = rr.boundingRect();
+		Size brSz = br.size();
+		Size rrSz = rr.size;
+		int rrht = max(rr.size.height, rr.size.width);
+		int rrwd = min(rr.size.height, rr.size.width);
+		int orientation = (int)abs((rr.angle)) % 90;
+		if (brSz.width > 10 && brSz.width < 40 && (((float)brSz.width / (float)brSz.height) < 0.3))
+			return 0;//line marks // straight thin rects
+		else if (rrwd > 5 && (rrht > 3 * rrwd) && (orientation > 20 && orientation < 70))
+			return 1; // wrinkles // rotated thin rects
+		else
+		{
+			//cout << "br before " << br << endl;
+			if (br.x < 0)  //correct roi to eleminate exceptions
+				br.x = 0;
+			if (br.y < 0)
+				br.y = 0;
+			if (br.x + br.width >= imageIn.cols)
+				br.width = imageIn.cols - br.x - 1;
+			if (br.y + br.height >= imageIn.rows)
+				br.height = imageIn.rows - br.y - 1;
+			//cout << "br after " << br <<"  x2:"<< br.x+br.width<< " y2: "<< br.y+br.height << endl;
+			int avgCol = get_avgInt(imageIn, br);
+			if ((avg_fabricColor - avgCol) > 40)
+				return 2; // hole cut // darker area wrt fabric
+			else
+				return 3; // other defect
+		}
+
+
+	}
+
 	double par_minAr = 20;
 	int par_minSize = 20;
+	Rect avgIntensityROI;
+	vector <string> vec_defectCat = { "line Marks", "wrinkle", "hole or cut", "other" };
 	Mat processSandSG(Mat imageIn, int &defectCount, double &defectArea)
 	{
 		
@@ -1257,9 +1299,13 @@
 		Mat drawImg;
 		cvtColor(image, drawImg, COLOR_GRAY2BGR);
 		Mat cannyRes;
+		avgIntensityROI = Rect(250, 50, 600, 60);
+		//rectangle(drawImg, avgIntensityROI, Scalar(200, 0, 0), 2);
+		uchar intensityV = get_avgInt(image, avgIntensityROI);
+		putText(drawImg, "avg Intensity = " + to_string(intensityV), Point(250, 50), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 200), 1);
 
 		//cannyRes = getSobel(image,1,1, 3);
-		adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 121, 12);
+		adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 121, 12);//first1 should be odd 51-551 off set 0-255 
 		Morph(cannyRes, cannyRes, MORPH_ERODE, MORPH_ELLIPSE, 1, 1);
 		Morph(cannyRes, cannyRes, MORPH_DILATE, MORPH_ELLIPSE, 3, 1);
 		//----- finalDefects
@@ -1290,10 +1336,12 @@
 
 					pointLoc.tl = rr.boundingRect().tl() * 5;
 					pointLoc.br = rr.boundingRect().br() * 5;
-					
+					int defectCat = get_defectCategory(image, rr, intensityV);
+					pointLoc.defectCat = defectCat;
 					//cout << "This is off set " << offSet << endl;
 					pointLoc.defectArea = contAr * 25;
 					returnDefPoints.push_back(pointLoc);
+					putText(drawImg, vec_defectCat[defectCat], Point(rr.boundingRect().x, rr.boundingRect().y + 40), FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 100, 100), 1);
 				}
 			}
 		}
@@ -1696,7 +1744,7 @@
 	Mat fineGritDiff;
 	Rect br_fg;
 	Rect br_fg_shift;
-	System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^  bmp1)
+	System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^  bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3)
 	{clock_t begin, end;
 	float dist{};
 	counter=0;
@@ -1708,8 +1756,22 @@
 			outArr[k]=0;
 		 }
 
+		 cout << "Bmp to mat successful" << endl;
+
+		 imgC1 = BitmapToMat(bmp1);
+		 imgC2 = BitmapToMat(bmp2);
+		 combinedImg = BitmapToMat(bmp3);
+
 		 
-		 Mat finalImage = BitmapToMat(bmp1);
+		 int st1 = imgC1.cols - overlapC1C2Prop;
+		 //int st2 = (imgC1.cols) * 2 - (overlapC1C2Prop * 2) - (overlapC2C3Prop);
+		 imgC1.copyTo(combinedImg(Rect(0, 0, imgC1.cols - overlapC1C2Prop, imgC1.rows)));
+		 imgC2.copyTo(combinedImg(Rect(st1, 0, imgC2.cols, imgC2.rows)));
+
+		 
+		 //Mat finalImage = BitmapToMat(bmp1);
+		 Mat finalImage = combinedImg;
+
 
 		 Mat grayImage;
 		 cvtColor(finalImage, grayImage, COLOR_BGR2GRAY);
@@ -2094,7 +2156,7 @@ Mat croppedImage;
 resize(grayImage, imageIn, Size(), 0.2, 0.2);
 //cout << "gImage width "<<grayImage.cols << endl;
 
-cout << "Line exec" << endl;
+//cout << "Line exec" << endl;
 Rect roi = Rect(0.12 * imageIn.cols, 0, imageIn.cols - (0.24 * imageIn.cols), imageIn.rows);
 
 //cout <<"This is roi X" << roi.tl().x * 5<< endl;
@@ -2135,7 +2197,7 @@ cout << "Line exec" << endl;
 resize(img,finalImage , finalImage.size());
 cout << "Line exec Re" << endl;
 
-		return bmp1;
+		return bmp3;
 	} 
 
 	

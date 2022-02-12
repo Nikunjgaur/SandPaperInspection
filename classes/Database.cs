@@ -27,16 +27,17 @@ namespace SandPaperInspection.classes
         // Process process = new Process();
 
         public void InsertRecord(DateTime date, DateTime time, string srNum, Point locationPoint,
-                               string deftype, string imgPath, int productCode)
+                               string deftype, string imgPath, int productCode, Point defSize)
         {
 
             NpgsqlTypes.NpgsqlPoint location = new NpgsqlTypes.NpgsqlPoint(locationPoint.X, locationPoint.Y);
+            NpgsqlTypes.NpgsqlPoint defsize = new NpgsqlTypes.NpgsqlPoint(defSize.X, defSize.Y);
 
             using (NpgsqlConnection con = GetConnection())
             {
                 
-                string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, imagepath, productcode)
-                                values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode)";
+                string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, imagepath, productcode, defectsize)
+                                values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode, @defsize)";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
 
@@ -45,7 +46,7 @@ namespace SandPaperInspection.classes
                 cmd.Parameters.AddWithValue("@srNum", srNum);
                 cmd.Parameters.AddWithValue("@location", location);
                 cmd.Parameters.AddWithValue("@deftype", deftype);
-                //cmd.Parameters.AddWithValue("@defsize", defsize);
+                cmd.Parameters.AddWithValue("@defsize", defsize);
                 cmd.Parameters.AddWithValue("@imgPath", imgPath);
                 cmd.Parameters.AddWithValue("@productCode", productCode); 
 

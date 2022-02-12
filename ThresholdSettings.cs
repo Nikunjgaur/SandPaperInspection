@@ -73,7 +73,7 @@ namespace SandPaperInspection
         {
             
             UpdateDefaultSettings();
-           // CommonParameters.InspectionPage.UpdateLabel();
+           //CommonParameters.InspectionPage.UpdateLabel();
         }
 
         private void TextBox_Enter(object sender, EventArgs e)
@@ -94,6 +94,7 @@ namespace SandPaperInspection
         {
             txtth2.Text = trkBrTh2.Value.ToString();
             CommonParameters.algo.th2Prop = trkBrTh1.Value;
+            CommonParameters.algo.defBlockSizeProp = trkBrTh1.Value;
 
         }
 

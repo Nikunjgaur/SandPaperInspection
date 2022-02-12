@@ -51,7 +51,6 @@
             this.radioButtonChartView = new System.Windows.Forms.RadioButton();
             this.radioButtonGridView = new System.Windows.Forms.RadioButton();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBoxStartLen = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxEndLen = new System.Windows.Forms.ComboBox();
@@ -244,11 +243,6 @@
             this.dataGridViewReport.TabIndex = 14;
             this.dataGridViewReport.Visible = false;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 800;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // comboBoxStartLen
             // 
             this.comboBoxStartLen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -359,7 +353,6 @@
         private System.Windows.Forms.RadioButton radioButtonChartView;
         private System.Windows.Forms.RadioButton radioButtonGridView;
         private System.Windows.Forms.DataGridView dataGridViewReport;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBoxDefImage;
         private System.Windows.Forms.ComboBox comboBoxStartLen;
         private System.Windows.Forms.Label label6;

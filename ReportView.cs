@@ -22,8 +22,8 @@ namespace SandPaperInspection
         Bitmap reportImg;
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
-        Bitmap[] inputImages = new Bitmap[4];
-        string[] inputImagesPath = new string[4];
+       // Bitmap[] inputImages = new Bitmap[4];
+        //string[] inputImagesPath = new string[4];
         NpgsqlTypes.NpgsqlPoint point = new NpgsqlTypes.NpgsqlPoint(0, 0);
         public ReportView()
         {
@@ -32,7 +32,7 @@ namespace SandPaperInspection
             //chart1.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
             //chart1.ChartAreas[0].AxisX2.Enabled = AxisEnabled.True;
             chart1.ChartAreas[0].AxisX.Maximum = 16000;
-            chart1.ChartAreas[0].AxisY.Maximum = 20000;
+            chart1.ChartAreas[0].AxisY.Maximum = 3000;
             chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
@@ -41,10 +41,7 @@ namespace SandPaperInspection
             //inputImages[1] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\2.png");
             //inputImages[2] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\3.png");
             //inputImages[3] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\4.png");
-            inputImagesPath[0] = @"C:\Users\Admin\Desktop\1.png";
-            inputImagesPath[1] = @"C:\Users\Admin\Desktop\2.png";
-            inputImagesPath[2] = @"C:\Users\Admin\Desktop\3.png";
-            inputImagesPath[3] = @"C:\Users\Admin\Desktop\4.png";
+            
         }
 
         
@@ -53,7 +50,7 @@ namespace SandPaperInspection
             int imgIndex = rnd.Next(1,4);
 
             //InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), DateTime.Now.ToString("HH:mm:ss"), "SrNum", new NpgsqlTypes.NpgsqlPoint(rnd.Next(10, 8000), rnd.Next(20, 4000)), imgIndex.ToString(), inputImagesPath[imgIndex - 1], rnd.Next(0,11));
-            InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), DateTime.Now.ToString("HH:mm:ss"), "SrNum2", new NpgsqlTypes.NpgsqlPoint(8000,100), imgIndex.ToString(), inputImagesPath[0], rnd.Next(0,11));
+            //InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), DateTime.Now.ToString("HH:mm:ss"), "SrNum2", new NpgsqlTypes.NpgsqlPoint(8000,100), imgIndex.ToString(), inputImagesPath[0], rnd.Next(0,11));
 
         }
 
@@ -279,7 +276,7 @@ namespace SandPaperInspection
                 }
                 reader.Close();
                 query = @"select _location as ""Location"", deftype as ""Defect Type"",
-                                productcode ""Product Code"", imagepath from public.logreport where _date = @date and _location ~= @point";
+                                productcode ""Product Code"", imagepath, defectsize from public.logreport where _date = @date and _location ~= @point";
                 cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
                 cmd.Parameters.AddWithValue("@point", npPoint);
@@ -289,9 +286,12 @@ namespace SandPaperInspection
                 while (reader.Read())
                 {
                     Console.WriteLine("This is imgPath{0}", reader[3]);
+                    NpgsqlTypes.NpgsqlPoint loc = (NpgsqlTypes.NpgsqlPoint) reader[0];
+                    NpgsqlTypes.NpgsqlPoint size = (NpgsqlTypes.NpgsqlPoint) reader[4];
 
                     Bitmap defImage = new Bitmap(string.Format(@"{0}", reader[3]));
-                    pictureBoxDefImage.Image = defImage;
+                    Bitmap img = defImage.Clone(new Rectangle(new Point((int)loc.X, (int)loc.Y),new Size((int)size.X, (int)size.Y)), PixelFormat.Format24bppRgb);
+                    pictureBoxDefImage.Image = img;
                 }
 
             }
@@ -384,7 +384,7 @@ namespace SandPaperInspection
             dataGridViewReport.Visible = true;
             chart1.Visible = false;
         }
-       
+        
 
         private void comboBoxSrNum_MouseClick(object sender, MouseEventArgs e)
         {
@@ -395,11 +395,6 @@ namespace SandPaperInspection
 
             UpdateList();
 
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            UpdateLog();
         }
 
         private void label4_Click(object sender, EventArgs e)

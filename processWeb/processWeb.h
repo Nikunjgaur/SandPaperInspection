@@ -25,7 +25,7 @@ namespace processWeb {
 			System::Drawing::Bitmap^ processWeb::Class1::processOne(System::Drawing::Bitmap^  bmp1);
 			System::Drawing::Bitmap^ processWeb::Class1::showGuides(System::Drawing::Bitmap^ bitmap0);
 			System::Drawing::Bitmap^ processWeb::Class1::processAllFront(System::Drawing::Bitmap^  bmp1);
-			System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1);
+			System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
 			int Class1::output();
 			System::Drawing::Point Class1::getTopLeftPoint(int sectorNum);
 			System::Drawing::Point Class1::getBottomRightPoint(int sectorNum);
@@ -128,6 +128,19 @@ namespace processWeb {
 			void set(int value)
 			{
 				defectCount = value;
+			}
+		};
+
+		static int defBlockSize = 0;
+		property int defBlockSizeProp
+		{
+			int get()
+			{
+				return defBlockSize;
+			}
+			void set(int value)
+			{
+				defBlockSize = value;
 			}
 		};
 
