@@ -1,4 +1,4 @@
-  // processWeb.h
+// processWeb.h
 // opencvwithcsharp_in_one_project.h
 
 #pragma once
@@ -17,56 +17,59 @@ namespace processWeb {
 	public ref class Class1
 	{
 
-		public:
-		
-			int processWeb::Class1::loadData();
-			System::Drawing::Bitmap^ processWeb::Class1::processAll(System::Drawing::Bitmap^  bmp1);
-			System::Drawing::Bitmap^ processWeb::Class1::processAllBack(System::Drawing::Bitmap^  bmp1);
-			System::Drawing::Bitmap^ processWeb::Class1::processOne(System::Drawing::Bitmap^  bmp1);
-			System::Drawing::Bitmap^ processWeb::Class1::showGuides(System::Drawing::Bitmap^ bitmap0);
-			System::Drawing::Bitmap^ processWeb::Class1::processAllFront(System::Drawing::Bitmap^  bmp1);
-			System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
-			int Class1::output();
-			System::Drawing::Point Class1::getTopLeftPoint(int sectorNum);
-			System::Drawing::Point Class1::getBottomRightPoint(int sectorNum);
-			Double Class1::getDefectArea(int sectorNum);
+	public:
+
+		int processWeb::Class1::loadData();
+		System::Drawing::Bitmap^ processWeb::Class1::processAll(System::Drawing::Bitmap^ bmp1);
+		System::Drawing::Bitmap^ processWeb::Class1::processAllBack(System::Drawing::Bitmap^ bmp1);
+		System::Drawing::Bitmap^ processWeb::Class1::processOne(System::Drawing::Bitmap^ bmp1);
+		System::Drawing::Bitmap^ processWeb::Class1::showGuides(System::Drawing::Bitmap^ bitmap0);
+		System::Drawing::Bitmap^ processWeb::Class1::processAllFront(System::Drawing::Bitmap^ bmp1);
+		System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1);
+		//System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
+		System::Drawing::Bitmap^ processWeb::Class1::mergeImagesCpp(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
+		int Class1::output();
+		System::Drawing::Point Class1::getTopLeftPoint(int sectorNum);
+		System::Drawing::Point Class1::getBottomRightPoint(int sectorNum);
+		Double Class1::getDefectArea(int sectorNum);
+		int Class1::getDefectCat(int sectorNum);
 		// TODO: Add your methods for this class here.
-			static bool fineGrit=false;
+		static bool fineGrit = false;
 		property bool fineGritProp
 		{
 			bool get()
 			{
-			return fineGrit;
+				return fineGrit;
 			}
 			void set(bool value)
 			{
-			fineGrit=value;
+				fineGrit = value;
 			}
 		};
 
-			static double mmperPix=0.1660;
+		static double mmperPix = 0.1660;
 		property double mmperPixProp
 		{
 			double get()
 			{
-			return mmperPix;
+				return mmperPix;
 			}
 			void set(double value)
 			{
-			mmperPix=value;
+				mmperPix = value;
 			}
 		};
 
-		static double pixPermm=6.1;
+		static double pixPermm = 6.1;
 		property double pixPermmProp
 		{
 			double get()
 			{
-			return pixPermm;
+				return pixPermm;
 			}
 			void set(double value)
 			{
-			pixPermm=value;
+				pixPermm = value;
 			}
 		};
 		static int defAreaVectorSize = 0;
@@ -81,16 +84,16 @@ namespace processWeb {
 				defAreaVectorSize = value;
 			}
 		};
-		static double jumboWidth=0;
+		static double jumboWidth = 0;
 		property double jumboWidthProp
 		{
 			double get()
 			{
-			return jumboWidth;
+				return jumboWidth;
 			}
 			void set(double value)
 			{
-			jumboWidth=value;
+				jumboWidth = value;
 			}
 		};
 		static double defectArea = 0;
@@ -106,16 +109,16 @@ namespace processWeb {
 			}
 		};
 		//edge trimming
-		static int edgeTrim=5;
+		static int edgeTrim = 5;
 		property int edgeTrimProp
 		{
 			int get()
 			{
-			return edgeTrim;
+				return edgeTrim;
 			}
 			void set(int value)
 			{
-			edgeTrim=value;
+				edgeTrim = value;
 			}
 		};
 		static int defectCount = 0;
@@ -157,272 +160,272 @@ namespace processWeb {
 			}
 		};
 
-		static int sheetsInaRow=6;
+		static int sheetsInaRow = 6;
 		property int sheetsInaRowProp
 		{
 			int get()
 			{
-			return sheetsInaRow;
+				return sheetsInaRow;
 			}
 			void set(int value)
 			{
-			sheetsInaRow=value;
+				sheetsInaRow = value;
 			}
 		};
 		//-----------overlap settingVars
-		static int overlapC1C2=86;
+		static int overlapC1C2 = 86;
 		property int overlapC1C2Prop
 		{
 			int get()
 			{
-			return overlapC1C2;
+				return overlapC1C2;
 			}
 			void set(int value)
 			{
-			overlapC1C2=value;
+				overlapC1C2 = value;
 			}
 		};
-			static int overlapC2C3=50;
+		static int overlapC2C3 = 50;
 		property int overlapC2C3Prop
 		{
 			int get()
 			{
-			return overlapC2C3;
+				return overlapC2C3;
 			}
 			void set(int value)
 			{
-			overlapC2C3=value;
+				overlapC2C3 = value;
 			}
 		};
 		//------------processing function thresholds-----------------
-		static int th1=72;//72;
+		static int th1 = 72;//72;
 		property int th1Prop
 		{
-				int get()
+			int get()
 			{
-			return th1;
+				return th1;
 			}
 			void set(int value)
 			{
-			th1=value;
+				th1 = value;
 			}
 		}
-		static int th2=26;//15;
+		static int th2 = 26;//15;
 		property int th2Prop
 		{
-				int get()
+			int get()
 			{
-			return th2;
+				return th2;
 			}
 			void set(int value)
 			{
-			th2=value;
+				th2 = value;
 			}
 		}
-		static int th3=250;
+		static int th3 = 250;
 		property int th3Prop
 		{
-				int get()
+			int get()
 			{
-			return th3;
+				return th3;
 			}
 			void set(int value)
 			{
-			th3=value;
+				th3 = value;
 			}
 		}
-		static int th4=14000;
+		static int th4 = 14000;
 		property int th4Prop
 		{
-				int get()
+			int get()
 			{
-			return th4;
+				return th4;
 			}
 			void set(int value)
 			{
-			th4=value;
+				th4 = value;
 			}
 		}
-		static int th5=10;
+		static int th5 = 10;
 		property int th5Prop
 		{
-				int get()
+			int get()
 			{
-			return th5;
+				return th5;
 			}
 			void set(int value)
 			{
-			th5=value;
+				th5 = value;
 			}
 		}
 
-		static int minAr=0;
+		static int minAr = 0;
 		property int minArProp
 		{
-				int get()
+			int get()
 			{
-			return minAr;
+				return minAr;
 			}
 			void set(int value)
 			{
-			minAr=value;
+				minAr = value;
 			}
 		}
 
-		static int maxAr=10000000;
+		static int maxAr = 10000000;
 		property int maxArProp
 		{
-				int get()
+			int get()
 			{
-			return maxAr;
+				return maxAr;
 			}
 			void set(int value)
 			{
-			maxAr=value;
+				maxAr = value;
 			}
 		}
 		//------------------------------
-		static bool trainTEST=false;
+		static bool trainTEST = false;
 		property bool trainTESTProp
 		{
 			bool get()
 			{
-			return trainTEST;
+				return trainTEST;
 			}
 			void set(bool value)
 			{
-			trainTEST=value;
+				trainTEST = value;
 			}
 		};
 
-			static double sheetStartWidth=100;
+		static double sheetStartWidth = 100;
 		property double sheetStartWidthProp
 		{
 			double get()
 			{
-			return sheetStartWidth;
+				return sheetStartWidth;
 			}
 			void set(double value)
 			{
-			sheetStartWidth=value;
+				sheetStartWidth = value;
 			}
 		};
 
-		static int thresholdV=40;
+		static int thresholdV = 40;
 		property int thresholdVProp
 		{
 			int get()
 			{
-			return thresholdV;
+				return thresholdV;
 			}
 			void set(int value)
 			{
-			thresholdV=value;
+				thresholdV = value;
 			}
 		};
 
 
 
-			static int sheetWidth=870;
+		static int sheetWidth = 870;
 		property int sheetWidthProp
 		{
 			int get()
 			{
-			return sheetWidth;
+				return sheetWidth;
 			}
 			void set(int value)
 			{
-			sheetWidth=value;
+				sheetWidth = value;
 			}
 		};
 
 
-		static int out1=1;
+		static int out1 = 1;
 		property int out1Prop
 		{
 			int get()
 			{
-			return out1;
+				return out1;
 			}
 			void set(int value)
 			{
-			out1=value;
+				out1 = value;
 			}
 		};
 
-				static int out2=1;
+		static int out2 = 1;
 		property int out2Prop
 		{
 			int get()
 			{
-			return out2;
+				return out2;
 			}
 			void set(int value)
 			{
-			out2=value;
+				out2 = value;
 			}
 		};
 
-				static int out3=1;
+		static int out3 = 1;
 		property int out3Prop
 		{
 			int get()
 			{
-			return out3;
+				return out3;
 			}
 			void set(int value)
 			{
-			out3=value;
+				out3 = value;
 			}
 		};
 
-				static int out4=1;
+		static int out4 = 1;
 		property int out4Prop
 		{
 			int get()
 			{
-			return out4;
+				return out4;
 			}
 			void set(int value)
 			{
-			out4=value;
+				out4 = value;
 			}
 		};
-				static int out5=1;
+		static int out5 = 1;
 		property int out5Prop
 		{
 			int get()
 			{
-			return out5;
+				return out5;
 			}
 			void set(int value)
 			{
-			out5=value;
+				out5 = value;
 			}
 		};
-		static int out6=1;
+		static int out6 = 1;
 		property int out6Prop
 		{
 			int get()
 			{
-			return out6;
+				return out6;
 			}
 			void set(int value)
 			{
-			out6=value;
+				out6 = value;
 			}
 		};
 
-				static int out7=1;
+		static int out7 = 1;
 		property int out7Prop
 		{
 			int get()
 			{
-			return out7;
+				return out7;
 			}
 			void set(int value)
 			{
-			out7=value;
+				out7 = value;
 			}
 		};
 

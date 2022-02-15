@@ -70,17 +70,21 @@ namespace SandPaperInspection
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
-                    Directory.CreateDirectory(path+ @"\Images");
+                    Directory.CreateDirectory(path + @"\Images");
+                    Directory.CreateDirectory(path + @"\DefectImages");
 
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Model already exists. Overwrite model data and delete model Images?","Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogResult = MessageBox.Show("Model already exists. Overwrite model data and delete model Images?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        Cursor.Current = Cursors.WaitCursor;
                         DeleteDirectoryRecursively(path);
                         Directory.CreateDirectory(path);
                         Directory.CreateDirectory(path + @"\Images");
+                        Directory.CreateDirectory(path + @"\DefectImages");
+                        Cursor.Current = Cursors.Default;
 
                     }
                     else

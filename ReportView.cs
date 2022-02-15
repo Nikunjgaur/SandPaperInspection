@@ -185,7 +185,18 @@ namespace SandPaperInspection
                 DataRow r = dtNew.NewRow();
                 r[0] = dt.Columns[k].ToString();
                 for (int j = 1; j <= dt.Rows.Count; j++)
-                    r[j] = dt.Rows[j - 1][k];
+                {
+                    if (j == 1 && k == 2)
+                    {
+                        r[j] = dt.Rows[j - 1][k];
+
+                    }
+                    else
+                    {
+                        r[j] = dt.Rows[j - 1][k];
+
+                    }
+                }
                 dtNew.Rows.Add(r);
             }
 

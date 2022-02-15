@@ -55,15 +55,32 @@ namespace SandPaperInspection
         List<Bitmap> bitmapsMerge1 = new List<Bitmap>();
         List<Bitmap> bitmapsMerge2 = new List<Bitmap>();
 
-        //struct DefectImageData
-        //{
-        //    public Bitmap image { get; set; }
-        //    public string path {get; set;}
-        //    public DefectImageData()
-        //    {
+        class DefectImageData
+        {
+            public Rectangle cropRect { get; set; }
+            public double defectArea { get; set; }
+            public int defectCode { get; set; }
+            public string[] defectType = new string[] { "", "", "", "" };
+            public Bitmap image { get; set; }
+            public string path { get; set; }
+            public DefectImageData(DefectImageData did)
+            {
+                this.cropRect = did.cropRect;
+                this.defectArea = did.defectArea;
+                this.defectCode = did.defectCode;
+                this.defectType = did.defectType;
+                this.image = did.image;
+                this.path = did.path;
+                
+            }
+            public DefectImageData()
+            {
 
-        //    }
-        //}
+            }
+        }
+        
+        DefectImageData imageData = new DefectImageData();
+        List<DefectImageData> defectImageDataList = new List<DefectImageData>();
 
         NpgsqlTypes.NpgsqlPoint loc = new NpgsqlTypes.NpgsqlPoint(1200, 2000);
         Size defSize = new Size(40, 50);
@@ -883,7 +900,12 @@ namespace SandPaperInspection
             modelData = JsonConvert.DeserializeObject<ModelData>(File.ReadAllText(string.Format(@"{0}\Models\{1}\thresholds.json", CommonParameters.projectDirectory, CommonParameters.selectedModel)));
             Console.WriteLine(ModelData.cam1Expo);
             clock.Start();
+            string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
             if (allCameras.Count == 2)
             {
                 StartCamera1();
@@ -953,13 +975,14 @@ namespace SandPaperInspection
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStop.Enabled = true;
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
             if (allCameras.Count == 2)
             {
-                timerSpeed.Start();
+               // timerSpeed.Start();
                 captureImages = true;
                 //camera1.Parameters[PLCamera.TriggerMode].SetValue("Off");
                 //camera2.Parameters[PLCamera.TriggerMode].SetValue("Off");
+                UpdateCameraPara();
 
                 //ContinuousShot(camera1);
                 //ContinuousShot(camera2);
@@ -977,61 +1000,111 @@ namespace SandPaperInspection
                 });
 
                 doProcess = true;
-                //processThread = new Thread(delegate ()
-                //{
-                //    while (doProcess)
-                //    {
-                //        Stopwatch sw = new Stopwatch();
-                //        sw.Start();
-                //        //labelDefType.Invoke((Action) delegate 
-                //        //{
-                //        //    //labelDefType.Text = bitmapsMerge1.Count.ToString();
+                processThread = new Thread(delegate ()
+                {
+                    while (doProcess)
+                    {
+                        try
+                        {
+                            Stopwatch sw = new Stopwatch();
+                            sw.Start();
+                            //labelDefType.Invoke((Action) delegate 
+                            //{
+                            //    //labelDefType.Text = bitmapsMerge1.Count.ToString();
 
-                //        //});
-                //        //labelDefArea.Invoke((Action)delegate
-                //        //{
-                //        //    //labelDefArea.Text = bitmapsMerge2.Count.ToString();
-                //        //});
-                //        //Console.WriteLine("Thread Running");
+                            //});
+                            //labelDefArea.Invoke((Action)delegate
+                            //{
+                            //    //labelDefArea.Text = bitmapsMerge2.Count.ToString();
+                            //});
+                            //Console.WriteLine("Thread Running");
 
-                //        if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
-                //        {
-                //            Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+                            if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
+                            {
+                                Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+                                algo.overlapC1C2Prop = GetListValueById("Overlap");
+                                int height = bitmapsMerge1[0].Height;
+                                int width = (bitmapsMerge1[0].Width * 2) - algo.overlapC1C2Prop;
+                                Bitmap fullImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+                                //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
+                                fullImage = algo.mergeImagesCpp(
+                                                    bitmapsMerge1[0].Clone(new Rectangle(0, 0, bitmapsMerge1[0].Width - algo.overlapC1C2Prop, bitmapsMerge1[0].Height), PixelFormat.Format24bppRgb),
+                                                    bitmapsMerge2[0].Clone(new Rectangle(0, 0, bitmapsMerge2[0].Width, bitmapsMerge2[0].Height), PixelFormat.Format24bppRgb),
+                                                    (Bitmap)fullImage.Clone());
+                                Bitmap algoImage = algo.processAllFrontThick((Bitmap)fullImage.Clone());
+                                string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
-                //            Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
-                //            Bitmap algoImage = algo.processAllFrontThick((Bitmap)fullImage.Clone());
 
-                //            if (pictureBox5.InvokeRequired)
-                //            {
-                //                pictureBox5.BeginInvoke((Action)delegate
-                //                {
-                //                    pictureBox5.Image = algoImage  ;
-                //                    Console.WriteLine("Images Updated");
-                                    
-                //                    //image1Grabbed = false;
-                //                    //image2Grabbed = false;
+                                bool defectFound = false;
+                                path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
 
-                //                });
-                //            }
-                //            else
-                //            {
-                //                pictureBox5.Image = algoImage;
-                                
-                //            }
-                //            Thread.Sleep(50);
-                //            bitmapsMerge1.RemoveAt(0);
-                //            bitmapsMerge2.RemoveAt(0);
-                //        }
+                                for (int i = 0; i < algo.defectCountProp; i++)
+                                {
+
+                                    int width1 = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
+                                    int height1 = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
+                                    double area = algo.getDefectArea(i);
+                                    int cat = algo.getDefectCat(i);
+                                    Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width1, height1));
+                                    Console.WriteLine(i.ToString());
+                                    Console.WriteLine("This is crop rect {0} {1}", cropRect, i);
+                                    if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
+                                    {
+                                        imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
+
+                                        imageData.image.Save(path + DateTime.Now.Millisecond.ToString() + ".bmp");
+
+                                    }
+                                    defectFound = true;
+                                }
+
+                                //if (defectFound)
+                                //{
+                                //    fullImage.Save(path);
+                                //}
+
+                                if (pictureBox5.InvokeRequired)
+                                {
+                                    pictureBox5.BeginInvoke((Action)delegate
+                                    {
+                                        pbFrame++;
+                                        pictureBox5.Image = algoImage;
+                                        Console.WriteLine("Images Updated");
+
+                                        //image1Grabbed = false;
+                                        //image2Grabbed = false;
+
+                                    });
+                                }
+                                else
+                                {
+                                    pbFrame++;
+                                    pictureBox5.Image = algoImage;
+
+                                }
+                                //Thread.Sleep(50);
+                                bitmapsMerge1.RemoveAt(0);
+                                bitmapsMerge2.RemoveAt(0);
+                                sw.Stop();
+                                Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
+                            }
+
+
                         
-                //        sw.Stop();
-                //        Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
-                //    }
-                //});
-                //processThread.Start();
+                        }
+                        catch (Exception ex)
+                        {
+                            doProcess = false;
+                            Console.WriteLine(ex.Message);
+                            MessageBox.Show("Error occured! Inspection Stopped. Start Inspection again");
+                        }
+                    }  
+                });
+                processThread.Start();
 
 
-                timer1.Enabled = true;
-                timer1.Start();
+                //timer1.Enabled = true;
+                //timer1.Start();
 
             }
             else
@@ -1049,6 +1122,15 @@ namespace SandPaperInspection
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            doProcess = false;
+
+            captureImages = false;
+            if (processThread.IsAlive && processThread != null)
+            {
+                processThread.Abort();
+
+            }
+            
             btnStart.Enabled = true;
             timerSpeed.Stop();
             timer1.Stop();
@@ -1226,7 +1308,7 @@ namespace SandPaperInspection
                     algo.overlapC1C2Prop = GetListValueById("Overlap");
 
                     Bitmap fullImage = new Bitmap(width, height);
-                    Bitmap algoImage = algo.processAllFrontThick((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), (Bitmap)fullImage.Clone());
+                    Bitmap algoImage = algo.processAllFrontThick((Bitmap)fullImage.Clone());
                     Console.WriteLine("Image List 1  {0}  Image List 2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
                     //Bitmap fullImage = new Bitmap(bitmapsMerge1.Last().Width*2, bitmapsMerge1.Last().Height);
                     UpdateCameraPara();
@@ -1684,6 +1766,104 @@ namespace SandPaperInspection
                 FrameCount = 0;
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Bitmap bmpLeft = new Bitmap(@"C:\software\Norton Pc\1 (3).jpg");
+            Bitmap bmpRight = new Bitmap(@"C:\software\Norton Pc\1 (2).jpg");
+
+            captureImages = true;
+
+            doProcess = true;
+            processThread = new Thread(delegate ()
+            {
+                while (doProcess)
+                {
+                    Stopwatch sw = new Stopwatch();
+                    sw.Start();
+                    //labelDefType.Invoke((Action) delegate 
+                    //{
+                    //    //labelDefType.Text = bitmapsMerge1.Count.ToString();
+
+                    //});
+                    //labelDefArea.Invoke((Action)delegate
+                    //{
+                    //    //labelDefArea.Text = bitmapsMerge2.Count.ToString();
+                    //});
+                    //Console.WriteLine("Thread Running");
+
+                    if (bmpLeft != null)
+                    {
+                        //Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+                        algo.overlapC1C2Prop = GetListValueById("Overlap");
+
+                        int height = bmpLeft.Height;
+                        int width = (bmpLeft.Width * 2) - algo.overlapC1C2Prop;
+                        Console.WriteLine("Overlap c# {0}", GetListValueById("Overlap"));
+
+                        Bitmap fullImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+                        Stopwatch sw1 = new Stopwatch();
+                        sw1.Start();
+                        //Bitmap algoImage = (Bitmap)bmpLeft.Clone();
+                        //Bitmap MergeImage = MergeImagesSidewaysOverlap((Bitmap)bmpLeft.Clone(), (Bitmap)bmpRight.Clone(), GetListValueById("Overlap"));
+                        fullImage = algo.mergeImagesCpp((Bitmap)bmpLeft.Clone(new Rectangle(0, 0, bmpLeft.Width - algo.overlapC1C2Prop, bmpLeft.Height), PixelFormat.Format24bppRgb), (Bitmap)bmpRight.Clone(new Rectangle(0, 0, bmpRight.Width, bmpRight.Height), PixelFormat.Format24bppRgb), (Bitmap)fullImage.Clone());
+
+                        //Bitmap algoImage = algo.processAllFrontThick(fullImage.Clone(new Rectangle(0,0, fullImage.Width, bmpLeft.Height), PixelFormat.Format24bppRgb));
+                        Bitmap algoImage = algo.processAllFrontThick( (Bitmap)fullImage.Clone());
+                        //Bitmap algoImage = algo.mergeImagesCpp((Bitmap)bmpLeft.Clone(new Rectangle(0,0, bmpLeft.Width, bmpLeft.Height), PixelFormat.Format24bppRgb), (Bitmap)bmpRight.Clone(new Rectangle(0, 0, bmpRight.Width, bmpRight.Height), PixelFormat.Format24bppRgb), (Bitmap)fullImage.Clone());
+                        //Bitmap algoImage = MergeImagesSidewaysOverlap((Bitmap)bmpLeft.Clone(), (Bitmap)bmpLeft.Clone(), GetListValueById("Overlap"));
+
+                        sw1.Stop();
+                        Console.WriteLine("Time taken by algo {0}", sw1.ElapsedMilliseconds);
+                        for (int i = 0; i < algo.defectCountProp; i++)
+                        {
+                            int width1 = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
+                            int height1 = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
+                            double area = algo.getDefectArea(i);
+                            int cat = algo.getDefectCat(i);
+                            Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width1, height1));
+                            Console.WriteLine(i.ToString());
+                            Console.WriteLine("This is crop rect {0} {1}", cropRect, i);
+                            if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
+                            {
+                                Bitmap imgSave = algoImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
+
+                                imgSave.Save(string.Format(@"C:\software\Norton Pc\New folder\{0}.bmp", i));
+
+                            }
+                        }
+
+                        
+                        //Console.WriteLine("Image List 1  {0}  Image List 2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+
+                        if (pictureBox5.InvokeRequired)
+                        {
+                            pictureBox5.BeginInvoke((Action)delegate
+                            {
+                                pictureBox5.Image = algoImage;
+                                Console.WriteLine("Images Updated");
+
+                                //image1Grabbed = false;
+                                //image2Grabbed = false;
+
+                            });
+                        }
+                        else
+                        {
+                            pictureBox5.Image = algoImage;
+
+                        }
+                        //Thread.Sleep(50);
+                        //bitmapsMerge1.RemoveAt(0);
+                        //bitmapsMerge2.RemoveAt(0);
+                    }
+
+                    sw.Stop();
+                    Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
+                }
+            });
+            processThread.Start();
         }
     }
 }
