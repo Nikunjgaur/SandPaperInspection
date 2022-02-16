@@ -28,6 +28,7 @@ namespace processWeb {
 		System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1);
 		//System::Drawing::Bitmap^ processWeb::Class1::processAllFrontThick(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
 		System::Drawing::Bitmap^ processWeb::Class1::mergeImagesCpp(System::Drawing::Bitmap^ bmp1, System::Drawing::Bitmap^ bmp2, System::Drawing::Bitmap^ bmp3);
+		Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& defectArea);
 		int Class1::output();
 		System::Drawing::Point Class1::getTopLeftPoint(int sectorNum);
 		System::Drawing::Point Class1::getBottomRightPoint(int sectorNum);
@@ -134,7 +135,7 @@ namespace processWeb {
 			}
 		};
 
-		static int defBlockSize = 0;
+		static int defBlockSize = 121;
 		property int defBlockSizeProp
 		{
 			int get()
@@ -144,6 +145,19 @@ namespace processWeb {
 			void set(int value)
 			{
 				defBlockSize = value;
+			}
+		};
+
+		static int defMinSize = 20;
+		property int defMinSizeProp
+		{
+			int get()
+			{
+				return defMinSize;
+			}
+			void set(int value)
+			{
+				defMinSize = value;
 			}
 		};
 

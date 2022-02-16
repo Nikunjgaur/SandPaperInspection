@@ -48,9 +48,9 @@ namespace SandPaperInspection
             txtExpC2.Text = ModelData.cam2Expo.ToString();
 
             txtTH1.Text = trkBrTh1.Value.ToString();
-            CommonParameters.algo.th1Prop = trkBrTh1.Value;
+            CommonParameters.algo.defMinSizeProp = trkBrTh1.Value;
             txtth2.Text = trkBrTh2.Value.ToString();
-            CommonParameters.algo.th2Prop = trkBrTh1.Value;
+            CommonParameters.algo.defBlockSizeProp = trkBrTh2.Value;
             txtth3.Text = trkBrTh3.Value.ToString();
             CommonParameters.algo.th3Prop = trkBrTh1.Value;
             txtth4.Text = trkBrTh4.Value.ToString();
@@ -86,14 +86,13 @@ namespace SandPaperInspection
         private void trkBrTh1_Scroll(object sender, EventArgs e)
         {
             txtTH1.Text = trkBrTh1.Value.ToString();
-            CommonParameters.algo.th1Prop = trkBrTh1.Value;
+            CommonParameters.algo.defMinSizeProp = trkBrTh1.Value;
 
         }
 
         private void trkBrTh2_Scroll(object sender, EventArgs e)
         {
             txtth2.Text = trkBrTh2.Value.ToString();
-            CommonParameters.algo.th2Prop = trkBrTh1.Value;
             CommonParameters.algo.defBlockSizeProp = trkBrTh1.Value;
 
         }

@@ -236,5 +236,40 @@ namespace SandPaperInspection
 
         }
 
+        public void ResetSettings()
+        {
+            CameraParameters.List = JsonConvert.DeserializeObject<List<Settings>>(File.ReadAllText(String.Format(@"{0}\bin\x64\Release\CamSettings.json", CommonParameters.projectDirectory)));
+            var tb = GetAll(this, typeof(TextBox));
+
+            foreach (TextBox textBox in tb)
+            {
+                for (int i = 0; i < CameraParameters.List.Count; i++)
+                {
+                    if (textBox.Name.Remove(0, 7) == CameraParameters.List[i].nodeName)
+                    {
+                        textBox.Text = CameraParameters.List[i].nodeVal.ToString();
+                    }
+                }
+
+            }
+
+            var trackBars = GetAll(this, typeof(TrackBar));
+
+            foreach (TrackBar trackBar in trackBars)
+            {
+                for (int i = 0; i < CameraParameters.List.Count; i++)
+                {
+                    if (trackBar.Name.Remove(0, 8) == CameraParameters.List[i].nodeName)
+                    {
+                        trackBar.Value = (int)CameraParameters.List[i].nodeVal;
+                    }
+                }
+            }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            ResetSettings();
+        }
     }
 }

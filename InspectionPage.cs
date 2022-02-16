@@ -60,9 +60,10 @@ namespace SandPaperInspection
             public Rectangle cropRect { get; set; }
             public double defectArea { get; set; }
             public int defectCode { get; set; }
-            public string[] defectType = new string[] { "", "", "", "" };
+            public string[] defectType = new string[] { "line Marks", "wrinkle", "hole or cut", "other" };
             public Bitmap image { get; set; }
             public string path { get; set; }
+            public string time { get; set; }
             public DefectImageData(DefectImageData did)
             {
                 this.cropRect = did.cropRect;
@@ -80,7 +81,7 @@ namespace SandPaperInspection
         }
         
         DefectImageData imageData = new DefectImageData();
-        List<DefectImageData> defectImageDataList = new List<DefectImageData>();
+        static List<DefectImageData> defectImageDataList = new List<DefectImageData>();
 
         NpgsqlTypes.NpgsqlPoint loc = new NpgsqlTypes.NpgsqlPoint(1200, 2000);
         Size defSize = new Size(40, 50);
@@ -1008,16 +1009,7 @@ namespace SandPaperInspection
                         {
                             Stopwatch sw = new Stopwatch();
                             sw.Start();
-                            //labelDefType.Invoke((Action) delegate 
-                            //{
-                            //    //labelDefType.Text = bitmapsMerge1.Count.ToString();
-
-                            //});
-                            //labelDefArea.Invoke((Action)delegate
-                            //{
-                            //    //labelDefArea.Text = bitmapsMerge2.Count.ToString();
-                            //});
-                            //Console.WriteLine("Thread Running");
+                            
 
                             if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
                             {
@@ -1046,22 +1038,47 @@ namespace SandPaperInspection
                                     double area = algo.getDefectArea(i);
                                     int cat = algo.getDefectCat(i);
                                     Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width1, height1));
-                                    Console.WriteLine(i.ToString());
-                                    Console.WriteLine("This is crop rect {0} {1}", cropRect, i);
+                                   
                                     if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
                                     {
+                                        
+                                        imageData.path = path + DateTime.Now.Millisecond.ToString() + ".bmp";
                                         imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
-
-                                        imageData.image.Save(path + DateTime.Now.Millisecond.ToString() + ".bmp");
+                                        db.InsertRecord(
+                                            Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                                            Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
+                                            CommonParameters.selectedModel,
+                                            algo.getTopLeftPoint(i),
+                                            imageData.defectType[algo.getDefectCat(i)],
+                                            imageData.path,
+                                            2,
+                                            (Point)cropRect.Size);
+                                        imageData.image.Save(imageData.path);
 
                                     }
                                     defectFound = true;
                                 }
 
+                                
                                 //if (defectFound)
                                 //{
                                 //    fullImage.Save(path);
                                 //}
+
+                                if (CommonParameters.saveImages)
+                                {
+                                    path = string.Format(@"{0}\Models\{1}\Images", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+                                    if (!Directory.Exists(path))
+                                    {
+                                        Directory.CreateDirectory(path);
+                                    }
+                                    Bitmap bitmap = (Bitmap)fullImage.Clone();
+                                    path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
+
+                                    //bitmap.Save(path + @"\"+ DateTime.Now.Date.ToString("dd_MM_yyyy")+ DateTime.Now.TimeOfDay.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString() +".bmp");
+                                    Console.WriteLine(path + DateTime.Now.ToString("dd_MM_yyyy") + DateTime.Now.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString());
+                                    bitmap.Save(path + DateTime.Now.Millisecond.ToString() + ".bmp");
+                                }
 
                                 if (pictureBox5.InvokeRequired)
                                 {
@@ -1082,9 +1099,17 @@ namespace SandPaperInspection
                                     pictureBox5.Image = algoImage;
 
                                 }
+
+
                                 //Thread.Sleep(50);
                                 bitmapsMerge1.RemoveAt(0);
                                 bitmapsMerge2.RemoveAt(0);
+
+                                labelJumboWidth.Invoke((Action)delegate
+                                {
+                                    labelJumboWidth.Text = algo.sheetWidthProp.ToString();
+                                });
+                                //Console.WriteLine("Thread Running");
                                 sw.Stop();
                                 Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
                             }
@@ -1101,8 +1126,38 @@ namespace SandPaperInspection
                     }  
                 });
                 processThread.Start();
+                //Thread saveData = new Thread(() => {
 
+                //    while (true)
+                //    {
+                //        Console.WriteLine("Save thread running.");
+                //        Console.WriteLine("List size {0}", defectImageDataList.Count);
+                //        if (defectImageDataList.Count > 0)
+                //        {
+                //            Console.WriteLine("If condition entered");
+                //            foreach (DefectImageData did in defectImageDataList)
+                //            {
+                //                Console.WriteLine(defectImageDataList[0].time);
+                //            }
 
+                //            //defectImageDataList[0].
+                //            db.InsertRecord(
+                //                Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                //                Convert.ToDateTime(defectImageDataList[0].time),
+                //                CommonParameters.selectedModel,
+                //                new Point(defectImageDataList[0].cropRect.X, defectImageDataList[0].cropRect.X),
+                //                defectImageDataList[0].defectType[defectImageDataList[0].defectCode],
+                //                defectImageDataList[0].path,
+                //                2,
+                //                (Point)defectImageDataList[0].cropRect.Size);
+                //            defectImageDataList[0].image.Save(defectImageDataList[0].path);
+                //            defectImageDataList.RemoveAt(0);
+
+                //        }
+                //        Thread.Sleep(100);
+                //    }
+                //});
+                //saveData.Start();
                 //timer1.Enabled = true;
                 //timer1.Start();
 
@@ -1112,6 +1167,41 @@ namespace SandPaperInspection
                 MessageBox.Show("Please connect all cameras", "Cameras not connected");
             }
 
+        }
+
+        DataTable dt = new DataTable();
+
+        public void ShowReport()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
+            {
+                con.Open();
+                string query = @"select * from public.logreport where _date = @date and _time between @time1 and @time2 and serialnum = @srnum order by _date asc";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
+                cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss")));
+                cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                cmd.Parameters.AddWithValue("@srnum", CommonParameters.selectedModel.ToString());
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                
+
+                if (reader.HasRows)
+                {
+                    dt.Clear();
+                    dt.Load(reader);
+                    dataGridViewReport.DataSource = dt;
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        NpgsqlTypes.NpgsqlPoint point = (NpgsqlTypes.NpgsqlPoint)reader[3];
+                    }
+
+                }
+                
+                reader.Close();
+
+            }
         }
 
         void ProcessImages()
@@ -1204,7 +1294,7 @@ namespace SandPaperInspection
 
         private void InspectionPage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CloseAllOpenForm(this);
+            doProcess = false;
             setCardDO(0, false);
 
             err = instantDiCtrl1.SnapStop();
@@ -1215,6 +1305,8 @@ namespace SandPaperInspection
             }
             DestroyCamera(camera1, converter1);
             DestroyCamera(camera2, converter2);
+            CloseAllOpenForm(this);
+            
             CommonParameters.InspectionPage = null;
         }
         public ThresholdSettings thresholdSettings = null;
@@ -1257,6 +1349,7 @@ namespace SandPaperInspection
         {
             labelDateTime.Text = DateTime.Now.ToString("dd/MM/yyyy")+ " " + DateTime.Now.ToString("HH:mm:ss");
             labelDateTime.Visible = true;
+            ShowReport();
         }
 
         public IoMonitor ioMonitor = null;
@@ -1516,8 +1609,7 @@ namespace SandPaperInspection
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(@"C:\Users\Admin\Desktop\1.png");
-            pictureBox5.Image = algo.showGuides((Bitmap)bmp.Clone());
+           
         }
 
         private void labelDateTime_Click(object sender, EventArgs e)

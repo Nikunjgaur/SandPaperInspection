@@ -296,12 +296,11 @@ namespace SandPaperInspection
 
                 while (reader.Read())
                 {
-                    Console.WriteLine("This is imgPath{0}", reader[3]);
                     NpgsqlTypes.NpgsqlPoint loc = (NpgsqlTypes.NpgsqlPoint) reader[0];
                     NpgsqlTypes.NpgsqlPoint size = (NpgsqlTypes.NpgsqlPoint) reader[4];
 
                     Bitmap defImage = new Bitmap(string.Format(@"{0}", reader[3]));
-                    Bitmap img = defImage.Clone(new Rectangle(new Point((int)loc.X, (int)loc.Y),new Size((int)size.X, (int)size.Y)), PixelFormat.Format24bppRgb);
+                    Bitmap img = (Bitmap)defImage.Clone();
                     pictureBoxDefImage.Image = img;
                 }
 

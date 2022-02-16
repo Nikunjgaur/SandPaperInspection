@@ -1302,7 +1302,7 @@ double par_minAr = 20;
 int par_minSize = 20;
 Rect avgIntensityROI;
 vector <string> vec_defectCat = { "line Marks", "wrinkle", "hole or cut", "other" };
-Mat processSandSG(Mat imageIn, int& defectCount, double& defectArea)
+Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& defectArea)
 {
 
 	Mat image = imageIn.clone();
@@ -1315,7 +1315,7 @@ Mat processSandSG(Mat imageIn, int& defectCount, double& defectArea)
 	putText(drawImg, "avg Intensity = " + to_string(intensityV), Point(250, 50), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 200), 1);
 
 	//cannyRes = getSobel(image,1,1, 3);
-	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, 121, 12);//first1 should be odd 51-551 off set 0-255 
+	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, defBlockSize, 12);//first1 should be odd 51-551 off set 0-255 
 	Morph(cannyRes, cannyRes, MORPH_ERODE, MORPH_ELLIPSE, 1, 1);
 	Morph(cannyRes, cannyRes, MORPH_DILATE, MORPH_ELLIPSE, 3, 1);
 	//----- finalDefects
@@ -1330,7 +1330,7 @@ Mat processSandSG(Mat imageIn, int& defectCount, double& defectArea)
 	for (int i = 0; i < (int)contours.size(); i++)
 	{
 		contAr = contourArea(contours[i]);
-		if (contAr > par_minAr)
+		if (contAr > defMinSize)
 		{
 			rr = minAreaRect(contours[i]);
 
