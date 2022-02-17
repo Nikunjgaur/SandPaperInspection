@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionPage));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStop = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.labelDefType = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@
             this.timerSpeed = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
+            this.checkBoxLog = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -604,32 +605,32 @@
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(1593, 656);
             this.chart1.Name = "chart1";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series16.Legend = "Legend1";
-            series16.MarkerSize = 10;
-            series16.Name = "Defect 1";
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series17.Legend = "Legend1";
-            series17.MarkerSize = 15;
-            series17.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
-            series17.Name = "Defect 2";
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series18.Legend = "Legend1";
-            series18.MarkerSize = 15;
-            series18.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series18.Name = "Defect 3";
-            this.chart1.Series.Add(series16);
-            this.chart1.Series.Add(series17);
-            this.chart1.Series.Add(series18);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Legend = "Legend1";
+            series4.MarkerSize = 10;
+            series4.Name = "Defect 1";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 15;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            series5.Name = "Defect 2";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.Legend = "Legend1";
+            series6.MarkerSize = 15;
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series6.Name = "Defect 3";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(283, 392);
             this.chart1.TabIndex = 87;
             this.chart1.Text = "chart1";
@@ -660,11 +661,11 @@
             // labelSaveImage
             // 
             this.labelSaveImage.AutoSize = true;
-            this.labelSaveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.labelSaveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSaveImage.ForeColor = System.Drawing.Color.Red;
             this.labelSaveImage.Location = new System.Drawing.Point(19, 923);
             this.labelSaveImage.Name = "labelSaveImage";
-            this.labelSaveImage.Size = new System.Drawing.Size(260, 33);
+            this.labelSaveImage.Size = new System.Drawing.Size(190, 25);
             this.labelSaveImage.TabIndex = 89;
             this.labelSaveImage.Text = "Save Images: OFF";
             // 
@@ -691,12 +692,27 @@
             this.dataGridViewReport.Size = new System.Drawing.Size(1115, 392);
             this.dataGridViewReport.TabIndex = 91;
             // 
+            // checkBoxLog
+            // 
+            this.checkBoxLog.AutoSize = true;
+            this.checkBoxLog.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxLog.Checked = true;
+            this.checkBoxLog.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLog.Location = new System.Drawing.Point(230, 923);
+            this.checkBoxLog.Name = "checkBoxLog";
+            this.checkBoxLog.Size = new System.Drawing.Size(142, 29);
+            this.checkBoxLog.TabIndex = 89;
+            this.checkBoxLog.Text = "Update Log";
+            this.checkBoxLog.UseVisualStyleBackColor = true;
+            // 
             // InspectionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.checkBoxLog);
             this.Controls.Add(this.dataGridViewReport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.labelSaveImage);
@@ -794,6 +810,7 @@
         private System.Windows.Forms.Label labelDefCount;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridViewReport;
+        private System.Windows.Forms.CheckBox checkBoxLog;
     }
 }
 

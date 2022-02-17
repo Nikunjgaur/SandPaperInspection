@@ -92,8 +92,12 @@ namespace SandPaperInspection
 
         private void trkBrTh2_Scroll(object sender, EventArgs e)
         {
-            txtth2.Text = trkBrTh2.Value.ToString();
-            CommonParameters.algo.defBlockSizeProp = trkBrTh1.Value;
+            if (trkBrTh2.Value % 2 != 0)
+            {
+                txtth2.Text = trkBrTh2.Value.ToString();
+                CommonParameters.algo.defBlockSizeProp = trkBrTh2.Value;
+
+            }
 
         }
 

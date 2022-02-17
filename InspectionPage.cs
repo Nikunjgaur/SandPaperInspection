@@ -1176,12 +1176,20 @@ namespace SandPaperInspection
             using (NpgsqlConnection con = db.GetConnection())
             {
                 con.Open();
-                string query = @"select * from public.logreport where _date = @date and _time between @time1 and @time2 and serialnum = @srnum order by _date asc";
-
+                string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Color"",
+                                    _location as ""Location"", deftype as ""Defect Type"",
+                                    defectsize as ""Defect Size"" 
+                                    from public.logreport where _date = '{0}'
+                                    and _time between '{1}' and '{2}' 
+                                    and serialnum = @srnum order by _date asc, _time desc", 
+                                    DateTime.Now.ToString("yyyy-MM-dd"),
+                                    DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
+                                    DateTime.Now.ToString("HH:mm:ss")
+                                    );
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
-                cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss")));
-                cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                //cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
                 cmd.Parameters.AddWithValue("@srnum", CommonParameters.selectedModel.ToString());
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 
@@ -1349,7 +1357,11 @@ namespace SandPaperInspection
         {
             labelDateTime.Text = DateTime.Now.ToString("dd/MM/yyyy")+ " " + DateTime.Now.ToString("HH:mm:ss");
             labelDateTime.Visible = true;
-            ShowReport();
+            if (checkBoxLog.Checked)
+            {
+                ShowReport();
+
+            }
         }
 
         public IoMonitor ioMonitor = null;

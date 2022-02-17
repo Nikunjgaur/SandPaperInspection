@@ -233,12 +233,12 @@
             // trkBrTh2
             // 
             this.trkBrTh2.Location = new System.Drawing.Point(104, 77);
-            this.trkBrTh2.Maximum = 255;
-            this.trkBrTh2.Minimum = 1;
+            this.trkBrTh2.Maximum = 551;
+            this.trkBrTh2.Minimum = 51;
             this.trkBrTh2.Name = "trkBrTh2";
             this.trkBrTh2.Size = new System.Drawing.Size(183, 45);
             this.trkBrTh2.TabIndex = 21;
-            this.trkBrTh2.Value = 1;
+            this.trkBrTh2.Value = 51;
             this.trkBrTh2.Scroll += new System.EventHandler(this.trkBrTh2_Scroll);
             // 
             // trkBrTh1
