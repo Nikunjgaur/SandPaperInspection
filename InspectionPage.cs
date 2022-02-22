@@ -979,7 +979,7 @@ namespace SandPaperInspection
             //timer1.Enabled = true;
             if (allCameras.Count == 2)
             {
-               // timerSpeed.Start();
+                timerSpeed.Start();
                 captureImages = true;
                 //camera1.Parameters[PLCamera.TriggerMode].SetValue("Off");
                 //camera2.Parameters[PLCamera.TriggerMode].SetValue("Off");
@@ -1051,7 +1051,7 @@ namespace SandPaperInspection
                                             algo.getTopLeftPoint(i),
                                             imageData.defectType[algo.getDefectCat(i)],
                                             imageData.path,
-                                            2,
+                                            algo.getDefectCat(i),
                                             (Point)cropRect.Size);
                                         imageData.image.Save(imageData.path);
 
@@ -1084,8 +1084,18 @@ namespace SandPaperInspection
                                 {
                                     pictureBox5.BeginInvoke((Action)delegate
                                     {
+                                        //Pen pen = new Pen(Color.LimeGreen, 20);
+
+                                        //using (var graphics = Graphics.FromImage(algoImage))
+                                        //{
+                                        //    graphics.DrawLine(pen, new Point(algo.out1Prop, 300), new Point(algo.out2Prop, 300));
+                                        //    pictureBox5.Image = algoImage;
+                                        //    pbFrame++;
+                                        //    pictureBox5.Invalidate();
+                                        //}
                                         pbFrame++;
                                         pictureBox5.Image = algoImage;
+                                        pictureBox5.Invalidate();
                                         Console.WriteLine("Images Updated");
 
                                         //image1Grabbed = false;
@@ -1177,8 +1187,9 @@ namespace SandPaperInspection
             {
                 con.Open();
                 string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Color"",
-                                    _location as ""Location"", deftype as ""Defect Type"",
-                                    defectsize as ""Defect Size"" 
+                                    point(_location[0] * 0.1000, _location[1] * 0.1000) as ""Location"", 
+                                    deftype as ""Defect Type"",
+                                    point(defectsize[0] * 0.1000, defectsize[1] * 0.1000) as ""Defect Size"" 
                                     from public.logreport where _date = '{0}'
                                     and _time between '{1}' and '{2}' 
                                     and serialnum = @srnum order by _date asc, _time desc", 
@@ -1199,11 +1210,7 @@ namespace SandPaperInspection
                     dt.Clear();
                     dt.Load(reader);
                     dataGridViewReport.DataSource = dt;
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        NpgsqlTypes.NpgsqlPoint point = (NpgsqlTypes.NpgsqlPoint)reader[3];
-                    }
+                    
 
                 }
                 
@@ -1864,8 +1871,8 @@ namespace SandPaperInspection
                 distance = (jumboHeight * FrameCount/2) * 2;
 
                 labelSpeed.Text = ((distance / 100)).ToString("N2") + " mtr/min";
-                Console.WriteLine("Num of frames {0}", FrameCount);
-                Console.WriteLine("Num of Pb frames {0}", pbFrame);
+                //Console.WriteLine("Num of frames {0}", FrameCount);
+                //Console.WriteLine("Num of Pb frames {0}", pbFrame);
                 pbFrame = 0;
                 FrameCount = 0;
             }

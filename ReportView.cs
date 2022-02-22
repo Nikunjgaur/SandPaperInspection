@@ -143,7 +143,7 @@ namespace SandPaperInspection
                     {
                         NpgsqlTypes.NpgsqlPoint point = (NpgsqlTypes.NpgsqlPoint)reader[3];
                         Console.WriteLine("This is Point X {0} and this is Point Y {1}", point.X, point.Y);
-                        chart1.Series[Convert.ToInt32(reader[6])-1].Points.AddXY(point.X, point.Y);
+                        chart1.Series[Convert.ToInt32(reader[6])].Points.AddXY(point.X, point.Y);
                     }
 
                     labeltotalDef.Text = dt.Rows.Count.ToString();
@@ -259,8 +259,10 @@ namespace SandPaperInspection
             using (NpgsqlConnection con = db.GetConnection())
             {
                 con.Open();
-                string query = @"select _location as ""Location"", deftype as ""Defect Type"",
-                                productcode ""Product Code"", imagepath from public.logreport where _date = @date and _location ~= @point";
+                string query = @"select point(_location[0] * 0.1000, _location[1] * 0.1000) as ""Location"",
+                                point(defectsize[0] * 0.1000, defectsize[1] * 0.1000) as ""Defect Size"",
+                                deftype as ""Defect Type"",
+                                imagepath from public.logreport where _date = @date and _location ~= @point";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
                 cmd.Parameters.AddWithValue("@point", npPoint);

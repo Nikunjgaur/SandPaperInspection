@@ -1251,7 +1251,7 @@ void resShow(string name, Mat img, float scale = 0.2) {
 	Mat res;
 	resize(img, res, Size(), scale, scale);
 	imshow(name, res);
-	waitKey(0);
+	waitKey(5);
 }
 void Morph(const cv::Mat& src, cv::Mat& dst, int operation, int kernel_type, int size, int iterCnt = 1)
 {
@@ -1657,7 +1657,6 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 	clock_t begin, end;
 	begin = clock();
 	Mat src = inImgGr;
-	// resShow("inImg", inImgGr);
 	vector<int> graph(src.cols);
 	Mat roi;
 	for (int c = 0; c < src.cols - 1; c++)
@@ -1666,10 +1665,10 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 		graph[c] = int(mean(roi)[0]);
 	}
 	Mat mgraph = Mat::zeros(260, src.cols + 10, CV_8UC3);
-	//for (int c=0; c<src.cols-1; c++)
-	//{
-	//    line( mgraph, Point(c+5,259-0), Point(c+5,259-graph[c]), Scalar(255,0,0), 1, CV_AA);    
-	//}
+	/*for (int c=0; c<src.cols-1; c++)
+	{
+	    line( mgraph, Point(c+5,259-0), Point(c+5,259-graph[c]), Scalar(255,0,0), 1, CV_AA);    
+	}*/
 	graph[0] = 0;
 	graph[graph.size() - 1] = 0;
 
@@ -1705,10 +1704,11 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 	*endx = paperEnd * 4;
 	line(mgraph, Point(paperStart + 5, 259 - 0), Point(paperStart + 5, 0), Scalar(0, 255, 0), 20);
 	line(mgraph, Point(paperEnd + 5, 259 - 0), Point(paperEnd + 5, 0), Scalar(0, 0, 255), 20);
-	*dist = distPoint(Point(paperStart + 5, -0), Point(paperEnd + 360, 259 - 0)) * 20;
+	*dist = distPoint(Point(paperStart + 5, 0), Point(paperEnd + 5, 0)) * 4;
+	
 	end = clock();
 	cout << "time taken " << (double)(end - begin) / CLOCKS_PER_SEC << endl;
-	//	resShow("M Graph", mgraph);
+    resShow("M Graph", mgraph);
 		// resize(inImgGr, inImgGr, Size(), 4, 4);
 
 	return inImgGr;
@@ -1875,7 +1875,7 @@ if (combinedImg.channels()>2)
 	int pprEnd = inImage.cols - 1;
 	//-----------------------------------------------------------  
 	getPaperEdges(inImgTh, &pprStrt, &pprEnd, &dist);  //get paper edges
-	sheetWidthProp = dist / 9;
+	sheetWidthProp = dist * 0.1142857142857143;
 
 
 	////.......................................find largest contour for paper boundaries...............................................
@@ -1891,16 +1891,19 @@ if (combinedImg.channels()>2)
 	{
 		boundingRectPriv = bounding_rect;
 
-		//line( img_1 , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 60, LINE_AA);
+	//	line( img , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 60, LINE_AA);
 		out1Prop = pprStrt * 5;
 		out2Prop = pprEnd * 5;
-		//resShow("img_1", img_1);
+	//	resShow("img_1", img);
 	//	line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(0,0,255), 20, LINE_AA);
 
 	}
 	else
 	{
 		bounding_rect = boundingRectPriv;
+		//line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 60, LINE_AA);
+		
+
 		//line( img , Point(bounding_rect.x,0), Point(bounding_rect.x,img.rows), Scalar(0,255,0), 20, CV_AA);    
 	 //   line( img , Point(bounding_rect.x+bounding_rect.width ,0), Point(bounding_rect.x+bounding_rect.width,img.rows), Scalar(0,0,255), 20, CV_AA);
 		//line( img , Point(pprStrt,0), Point(pprStrt,img.rows), Scalar(120,205,0), 20, CV_AA);    
@@ -2158,7 +2161,7 @@ else
 	//img_1(bounding_rect) = detections.clone();
 
 	//detections.copyTo(img_1(roi));
-
+	//line(img, Point(pprStrt * 4, 50), Point(pprEnd * 4, 50), Scalar(0, 255, 0), 5);
 	//resize(img,resizedImage , resizedImage.size());
 	resize(img, finalImage, finalImage.size());
 	end = clock();
