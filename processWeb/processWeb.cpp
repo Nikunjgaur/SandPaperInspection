@@ -1700,15 +1700,17 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 		}
 
 	}
-	*startx = paperStart * 4;
-	*endx = paperEnd * 4;
-	line(mgraph, Point(paperStart + 5, 259 - 0), Point(paperStart + 5, 0), Scalar(0, 255, 0), 20);
-	line(mgraph, Point(paperEnd + 5, 259 - 0), Point(paperEnd + 5, 0), Scalar(0, 0, 255), 20);
-	*dist = distPoint(Point(paperStart + 5, 0), Point(paperEnd + 5, 0)) * 4;
+	cout << "Image size 0.4" << src.size() << endl;
+	cout << "Paper start " << paperStart << endl;
+	cout << "Paper End " << paperEnd << endl;
+	*startx = paperStart ;
+	*endx = paperEnd ;
+	line(src, Point(paperStart + 5, 259 - 0), Point(paperStart + 5, 0), Scalar(0, 255, 0), 20);
+	line(src, Point(paperEnd + 5, 259 - 0), Point(paperEnd + 5, 0), Scalar(0, 0, 255), 20);
+	*dist = distPoint(Point(paperStart + 5, 0), Point(paperEnd + 5, 0)) ;
 	
 	end = clock();
 	cout << "time taken " << (double)(end - begin) / CLOCKS_PER_SEC << endl;
-    resShow("M Graph", mgraph);
 		// resize(inImgGr, inImgGr, Size(), 4, 4);
 
 	return inImgGr;
@@ -1875,7 +1877,8 @@ if (combinedImg.channels()>2)
 	int pprEnd = inImage.cols - 1;
 	//-----------------------------------------------------------  
 	getPaperEdges(inImgTh, &pprStrt, &pprEnd, &dist);  //get paper edges
-	sheetWidthProp = dist * 0.1142857142857143;
+	cout << "Dist width " << (dist * 5) * mmperPixProp << endl;
+	sheetWidthProp = (dist * 5) * mmperPixProp;
 
 
 	////.......................................find largest contour for paper boundaries...............................................
@@ -1891,7 +1894,7 @@ if (combinedImg.channels()>2)
 	{
 		boundingRectPriv = bounding_rect;
 
-	//	line( img , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 60, LINE_AA);
+	///	line( img , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 10, 8);
 		out1Prop = pprStrt * 5;
 		out2Prop = pprEnd * 5;
 	//	resShow("img_1", img);
@@ -1901,7 +1904,7 @@ if (combinedImg.channels()>2)
 	else
 	{
 		bounding_rect = boundingRectPriv;
-		//line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 60, LINE_AA);
+	//	line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 10, 8);
 		
 
 		//line( img , Point(bounding_rect.x,0), Point(bounding_rect.x,img.rows), Scalar(0,255,0), 20, CV_AA);    
@@ -1909,215 +1912,11 @@ if (combinedImg.channels()>2)
 		//line( img , Point(pprStrt,0), Point(pprStrt,img.rows), Scalar(120,205,0), 20, CV_AA);    
 	 //   line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(120,0,205), 20, CV_AA);
 	}
-
+	//resShow("img", img);
 	jumboWidthProp = bounding_rect.width * mmperPixProp;
 	sheetStartWidthProp = bounding_rect.x / (combinedImg.cols / 100); //in percent for display in UI
 
-//	//Mat src_gray=imgGrey.clone();
-//
-//	  /* Mat grad_x, grad_y;
-//    Mat abs_grad_x, abs_grad_y;
-//	int ksize=1;
-//	double scale=1;
-//	double delta = 0;*/
-//	trimWidth=edgeTrimProp*pixPermmProp ;
-//	if (bounding_rect.width>2*trimWidth )//&& ((bounding_rect.width +2*trimWidth)< inImgTh.cols )
-//	{
-//	bounding_rect =Rect(bounding_rect.x+trimWidth,bounding_rect.y,bounding_rect.width-(2*trimWidth),bounding_rect.height); //change width of bounding rect to leave edges
-//		cout<<"con1::"<<trimWidth <<endl;
-//	}
-//	else
-//	{
-//	bounding_rect =Rect(bounding_rect.x,bounding_rect.y,bounding_rect.width,bounding_rect.height); //change width of bounding rect to leave edges
-//	cout<<"con222::"<<trimWidth <<endl;
-//	}
-//		 grad=imgGrey(bounding_rect).clone();
-//		 fineGritDiff=Mat::zeros(grad.size(),grad.type());
-//		 if(fineGritProp==true)
-//		 {
-//		 Rect br_fg=Rect(bounding_rect.x,bounding_rect.y,bounding_rect.width,bounding_rect.height-th2Prop );
-//			Rect br_fg_shift=Rect(bounding_rect.x,bounding_rect.y+th2Prop ,bounding_rect.width,bounding_rect.height-th2Prop );
-//			absdiff(imgGrey(br_fg),imgGrey(br_fg_shift),fineGritDiff );
-//		 }
-//			//rectangle(img, bounding_rect,  Scalar(200,10,100),8, 8,0);  
-////	GaussianBlur(src_gray(bounding_rect),src_gray(bounding_rect),Size(3,3),0,0);
-////		GaussianBlur(src_gray(bounding_rect),src_gray(bounding_rect),Size(3,3),0,0);
-////    Sobel(src_gray(bounding_rect), grad_x, CV_16S , 1, 0, ksize, scale, delta, BORDER_DEFAULT);
-////    Sobel(src_gray(bounding_rect), grad_y, CV_16S, 0, 1, ksize, scale, delta, BORDER_DEFAULT);
-////    // converting back to CV_8U
-////    convertScaleAbs(grad_x, abs_grad_x);
-////    convertScaleAbs(grad_y, abs_grad_y);
-////    addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
-//////grad=grad;
-////	threshold(grad,grad,thresholdVProp,255,CV_THRESH_BINARY);//12
-////	contours.clear();
-////	hierarchy.clear();
-//
-//
-//	Rect centerCont;
-//	inImgTh(bounding_rect).copyTo(black);
-//
-//
-//
-//
-////	adaptiveThreshold(src_gray(bounding_rect),grad,255,CV_ADAPTIVE_THRESH_GAUSSIAN_C,CV_THRESH_BINARY,91,0);
-////	cvtColor(grad,img,CV_GRAY2BGR);
-//	//------------------------------------
-//	int blockSize=th2Prop;//26
-	//float percentNG=(0.20*blockSize *blockSize );
-	//Rect window;//,wl,wr,wu,wd;
-	////Mat m1,ml,mr,mu,md;
-	//float myMAtMean;
-	//float fineGritMean=0;
-	////float al,ar,au,ad;
-	// Scalar m,mfgVal;
-	//int blackCnt=0;
-	//Mat m1,mfg;
-	//		for (int row=blockSize;row<(grad.rows-2*blockSize);row=row+blockSize)
-	//	{
-	//		for(int col=blockSize;col<(grad.cols-2*blockSize);col=col+blockSize)
-	//		{ window=Rect(col,row,blockSize,blockSize);
-	//		//wl=Rect(col-blockSize,row,blockSize,blockSize);
-	//		//wr=Rect(col+blockSize,row,blockSize,blockSize);
-	//		//wu=Rect(col,row-blockSize,blockSize,blockSize);
-	//		//wd=Rect(col,row+blockSize,blockSize,blockSize);
-	//		//m2=imgGrey(window);
-	///*		m1=grad(window);
-	//		ml=grad(wl);
-	//		mr=grad(wr);
-	//		mu=grad(wu);
-	//		md=grad(wd);*/
-	//		if (fineGritProp==true)
-	//		{
-	//			mfg=fineGritDiff (window);
-	//			mfgVal = mean(mfg);
-	//		fineGritMean=mfgVal.val[0];
-	//	
-	//		}
-	//	
 
-	//		m1=grad(window);
-	//		  m = mean(m1);
-	//		  myMAtMean =m.val[0];
-	//		 // myMAtMean =countNonZero(grad(window));
-	//	
-	//		  blackCnt=countNonZero(black(window));
-	//	/*	  al=countNonZero(grad(wl));
-	//			ar=countNonZero(grad(wr));
-	//			au=countNonZero(grad(wu));
-	//			  ad=countNonZero(grad(wd));*/
-	//			/*Scalar r = mean(m2);
-	//		 float myMAtMean_roi = r.val[0];*/
-	//	// cout<<"myMAtMean_roi"<<m <<endl;
-	//	 //cout<<"myMAtMean"<<r<<endl;   
-	//
-	//		//Scalar mssim=getMSSIM(m1,m2);
-	//		//cout<<"mssim::"<<mssim[0]<<endl;
-	//	//	if (mssim[0]<0.1)											
-	//			//if  ((blackCnt>10)||((myMAtMean>thresholdVProp)/*&&((al>percentNG)||(ar>percentNG)||(au>percentNG)||(ad>percentNG))*/))	//0.22
-	//	  		if ((blackCnt>20)|| (myMAtMean>th3Prop) || ((fineGritMean>th5Prop) && fineGritProp==true ))/*&&((al>percentNG)||(ar>percentNG)||(au>percentNG)||(ad>percentNG))*/	//0.22
-	//			{// cout<<"myMAtMean_roi cond=="<<myMAtMean <<endl;
-	//				if (blackCnt>0)
-	//				rectangle(img,Rect(window.x+bounding_rect.x,window.y+bounding_rect.y,window.width,window.height),Scalar(0,180,120),2);
-	//				else
-	//				rectangle(img,Rect(window.x+bounding_rect.x,window.y+bounding_rect.y,window.width,window.height),Scalar(0,0,255),2);
-
-	//				if(fineGritMean>th5Prop)
-	//				{
-	//					rectangle(img,Rect(window.x+bounding_rect.x,window.y+bounding_rect.y,window.width,window.height),Scalar(0,165,255),2);
-	//				}
-	//			
-	//			//rectangle(img,Rect(window.x,window.y,window.width,window.height),Scalar(0,0,255),2);
-	//				defCount +=1;
-	//				int position=(int)((window.x)/sheetWidthProp);//-bounding_rect.x
-	////	  cout<<"position::"<<position<<endl;
-	//				  if (position<sheetsInaRowProp )
-	//				  { //drawContours(combinedImgColor, contours, i, Scalar(0,  0,255), -1, 8, hierarchy, 0, Point());
-
-	//					 outArr[position]+=1;
-	//				  }
-	//				//outCodeProp=1;
-	//			}
-	//			else
-	//			{
-	//			}
-
-	//		}
-	//	}
-//	//		//-----------------------------------------------------------------
-//			
-//	// findContours( grad, contours, hierarchy,CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(bounding_rect.x,bounding_rect.y) );
-// //  for( int i = 0; i< contours.size(); i++ )
-// // {if (contourArea(contours[i])>80)
-// //  {
-// // //drawContours(img, contours, i, Scalar (0,0,255), 3 ,8,  hierarchy, 0, Point() );
-// //  centerCont=boundingRect(contours[i]);
-// //  int position=(int)(((centerCont.x-centerCont.width/2)-bounding_rect.x)/sheetWidthProp);
-//	////	  cout<<"position::"<<position<<endl;
-//	//				  if (position<7)
-//	//				  { drawContours(img, contours, i, Scalar(0,  0,255), -1, 8, hierarchy, 0, Point());
-//	//
-//	//					 outArr[position]+=1;
-//	//				  }
-//	//				  defCount+=1;
-// //  }
-// //  }
-//
-// //...........................................................read & write.................................................... 
-// 
-//  	
-//
-// S
-
-/* if(defCount<2)
-{
- putText(img, "OK", cv::Point(500, 300), FONT_HERSHEY_SIMPLEX, 3, Scalar(0, 255, 0), 2);
- cout << "Def count is less than two" << endl;
-}
-else
-{
-	putText(img, "NOT OK", cv::Point(500, 300), FONT_HERSHEY_SIMPLEX, 3, Scalar(0, 0,255), 2);
-	cout << "Def count " << defCount << endl;
-
-}*/
-// 
-// for(int i=0; i<=sheetsInaRowProp;i++ )
-// {
-// line(img,Point(bounding_rect.x + (i*sheetWidthProp),0),Point(bounding_rect.x+(i*sheetWidthProp),img.rows-1),Scalar(255,0,0),4);
-// 
-// }
-//
-//	/*line(img,Point(sheetStartX  +sheetWidthProp,0),Point(sheetStartX+sheetWidthProp,img.rows-1),Scalar(255,0,0),4);
-//	line(img,Point(sheetStartX+2*sheetWidthProp,0),Point(sheetStartX+2*sheetWidthProp,img.rows-1),Scalar(255,0,0),4);
-//	line(img,Point(sheetStartX+3*sheetWidthProp,0),Point(sheetStartX+3*sheetWidthProp,img.rows-1),Scalar(255,0,0),4);
-//	line(img,Point(sheetStartX+4*sheetWidthProp,0),Point(sheetStartX+4*sheetWidthProp,img.rows-1),Scalar(255,0,0),4);
-//	line(img,Point(sheetStartX+5*sheetWidthProp,0),Point(sheetStartX+5*sheetWidthProp,img.rows-1),Scalar(255,0,0),4);
-//	line(img,Point(sheetStartX+6*sheetWidthProp,0),Point(sheetStartX+6*sheetWidthProp,img.rows-1),Scalar(255,0,0),4);*/
-//	//line(combinedImgColor,Point(sheetWidthProp,0),Point(sheetWidthProp,combinedImgColor.rows-1),Scalar(255,0,0),2);
-//
-//		out1Prop=outArr[0];
-//		out2Prop=outArr[1];
-//		out3Prop=outArr[2];
-//	    out4Prop=outArr[3];
-//		out5Prop=outArr[4];
-//		out6Prop=outArr[5];
-//		out7Prop=outArr[6];
-//
-//
-//
-//
-//  //-----------------------------
-//	
-	//resize(img_1,img_1,img_1.size());
-//
-//	//string  path2 ="D:/imgs/res/" +to_string ( frameCount) +".bmp";
-//	//imwrite(path2,img);
-////	out=1;
-//		//imgC1=img;
-//		end = clock();
-//	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-//	cout<<"Proc Time  in sec "<< time_spent <<endl;
-//    resize(detections, finalImage, finalImage.size());
 
 	int defectCount = 0;
 	double defectArea = 0;
@@ -2127,7 +1926,7 @@ else
 	//cout << "gImage width "<<grayImage.cols << endl;
 	imageIn = grayImage.clone();
 	//cout << "Line exec" << endl;
-	Rect roi = Rect(0.12 * imageIn.cols, 0, imageIn.cols - (0.24 * imageIn.cols), imageIn.rows);
+	Rect roi = Rect(0.15 * imageIn.cols, 0, imageIn.cols - (0.27 * imageIn.cols), imageIn.rows);
 
 	//cout <<"This is roi X" << roi.tl().x * 5<< endl;
 
@@ -2145,7 +1944,7 @@ else
 	Mat detections = processSandSG(croppedImage, defectCount, defectArea);
 	defectCountProp = defectCount;
 	defAreaSizeProp = returnDefPoints.size();
-	defectArea *= 5;
+	defectArea *= 25;
 	float defectAreamm = defectArea * pow(mmperPixProp, 2);
 	defectAreaProp = defectAreamm;
 	brect = Rect(Point(roi.tl().x, roi.tl().y), Point(roi.br().x, roi.br().y));
@@ -2159,6 +1958,7 @@ else
 	out1 = brect.tl().x * 5;
 	//resize(detections, detections, Size(), 1, 1);
 	//img_1(bounding_rect) = detections.clone();
+	line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 10, 8);
 
 	//detections.copyTo(img_1(roi));
 	//line(img, Point(pprStrt * 4, 50), Point(pprEnd * 4, 50), Scalar(0, 255, 0), 5);

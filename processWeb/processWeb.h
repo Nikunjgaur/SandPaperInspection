@@ -48,7 +48,7 @@ namespace processWeb {
 			}
 		};
 
-		static double mmperPix = 0.1660;
+		static double mmperPix = 0.114259598; //0.114259598 0.1660
 		property double mmperPixProp
 		{
 			double get()
@@ -212,7 +212,7 @@ namespace processWeb {
 			}
 		};
 		//------------processing function thresholds-----------------
-		static int th1 = 72;//72;
+		static int th1 = 87;//72;
 		property int th1Prop
 		{
 			int get()

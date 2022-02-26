@@ -28,8 +28,8 @@ namespace SandPaperInspection
         int FrameCount = 0;
         CameraParameters CameraParameters = new CameraParameters();
         Database db = new Database();
-        Class1 algo = new Class1();
-
+        //Class1 algo = new Class1();
+        
         private Camera camera1 = null;
         private PixelDataConverter converter1;
         Bitmap imgCam1;
@@ -51,6 +51,7 @@ namespace SandPaperInspection
         Bitmap finalImage;
         static Bitmap imageCam1;
         static Bitmap imageCam2;
+        int heightAddon = 0;
 
         List<Bitmap> bitmapsMerge1 = new List<Bitmap>();
         List<Bitmap> bitmapsMerge2 = new List<Bitmap>();
@@ -253,6 +254,7 @@ namespace SandPaperInspection
                     if (captureImages == true)
                     {
                         bitmapsMerge1.Add(bmpNew);
+                        heightAddon += bmpNew.Height;
                         imageCam1 = bmpNew;
                     }
                     image1Grabbed = true;
@@ -1014,45 +1016,53 @@ namespace SandPaperInspection
                             if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
                             {
                                 Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
-                                algo.overlapC1C2Prop = GetListValueById("Overlap");
+                                CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
                                 int height = bitmapsMerge1[0].Height;
-                                int width = (bitmapsMerge1[0].Width * 2) - algo.overlapC1C2Prop;
+                                int width = (bitmapsMerge1[0].Width * 2) - CommonParameters.algo.overlapC1C2Prop;
                                 Bitmap fullImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
                                 //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
-                                fullImage = algo.mergeImagesCpp(
-                                                    bitmapsMerge1[0].Clone(new Rectangle(0, 0, bitmapsMerge1[0].Width - algo.overlapC1C2Prop, bitmapsMerge1[0].Height), PixelFormat.Format24bppRgb),
+                                fullImage = CommonParameters.algo.mergeImagesCpp(
+                                                    bitmapsMerge1[0].Clone(new Rectangle(0, 0, bitmapsMerge1[0].Width - CommonParameters.algo.overlapC1C2Prop, bitmapsMerge1[0].Height), PixelFormat.Format24bppRgb),
                                                     bitmapsMerge2[0].Clone(new Rectangle(0, 0, bitmapsMerge2[0].Width, bitmapsMerge2[0].Height), PixelFormat.Format24bppRgb),
                                                     (Bitmap)fullImage.Clone());
-                                Bitmap algoImage = algo.processAllFrontThick((Bitmap)fullImage.Clone());
+                                Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
 
                                 bool defectFound = false;
                                 path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
 
-                                for (int i = 0; i < algo.defectCountProp; i++)
+                                for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
                                 {
 
-                                    int width1 = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
-                                    int height1 = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
-                                    double area = algo.getDefectArea(i);
-                                    int cat = algo.getDefectCat(i);
-                                    Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width1, height1));
+                                    int width1 = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
+                                    int height1 = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
+                                    double area = CommonParameters.algo.getDefectArea(i);
+                                    int cat = CommonParameters.algo.getDefectCat(i);
+                                    Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width1, height1));
                                    
                                     if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
                                     {
                                         
                                         imageData.path = path + DateTime.Now.Millisecond.ToString() + ".bmp";
                                         imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
+
+                                        Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
+
+                                        defectLoc.Y += (int)((heightAddon - fullImage.Height) * CommonParameters.algo.mmperPixProp);
+                                        defectLoc.X = (int)((defectLoc.X) * CommonParameters.algo.mmperPixProp);
+
+                                        Point defSize = new Point((int)(cropRect.Width * CommonParameters.algo.mmperPixProp),
+                                                        (int)(cropRect.Height * CommonParameters.algo.mmperPixProp));
                                         db.InsertRecord(
                                             Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                             Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
                                             CommonParameters.selectedModel,
-                                            algo.getTopLeftPoint(i),
-                                            imageData.defectType[algo.getDefectCat(i)],
+                                            defectLoc,
+                                            imageData.defectType[CommonParameters.algo.getDefectCat(i)],
                                             imageData.path,
-                                            algo.getDefectCat(i),
-                                            (Point)cropRect.Size);
+                                            CommonParameters.algo.getDefectCat(i),
+                                            defSize);
                                         imageData.image.Save(imageData.path);
 
                                     }
@@ -1117,7 +1127,7 @@ namespace SandPaperInspection
 
                                 labelJumboWidth.Invoke((Action)delegate
                                 {
-                                    labelJumboWidth.Text = algo.sheetWidthProp.ToString();
+                                    labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString();
                                 });
                                 //Console.WriteLine("Thread Running");
                                 sw.Stop();
@@ -1417,10 +1427,10 @@ namespace SandPaperInspection
                     //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
                     int height = bitmapsMerge1[0].Height;
                     int width = bitmapsMerge1[0].Width - GetListValueById("Overlap");
-                    algo.overlapC1C2Prop = GetListValueById("Overlap");
+                    CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
 
                     Bitmap fullImage = new Bitmap(width, height);
-                    Bitmap algoImage = algo.processAllFrontThick((Bitmap)fullImage.Clone());
+                    Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                     Console.WriteLine("Image List 1  {0}  Image List 2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
                     //Bitmap fullImage = new Bitmap(bitmapsMerge1.Last().Width*2, bitmapsMerge1.Last().Height);
                     UpdateCameraPara();
@@ -1473,9 +1483,9 @@ namespace SandPaperInspection
                             pictureBox5.Invalidate();
                         }
 
-                        labelJumboWidth.Text = algo.sheetWidthProp.ToString("0.00");
-                        labelDefCount.Text = algo.defectCountProp.ToString();
-                        labelDefArea.Text = algo.defectAreaProp.ToString();
+                        labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
+                        labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
+                        labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
                         //labelLength.Text = sheetLength.ToString();
                         bitmapsMerge1.RemoveAt(0);
                         bitmapsMerge2.RemoveAt(0);
@@ -1696,17 +1706,17 @@ namespace SandPaperInspection
                     bool defFound = false;
                     path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp";
 
-                    for (int i = 0; i < algo.defectCountProp; i++)
+                    for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
                     {
-                        int width = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
-                        int height = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
+                        int width = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
+                        int height = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
 
-                        Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width, height));
+                        Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width, height));
 
                         if ((cropRect.Height + cropRect.Y) < bitmap.Height && (cropRect.Width + cropRect.X) < bitmap.Width && cropRect.X > 0 && cropRect.Y > 0)
                         {
                             defFound = true;
-                            db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
+                            db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, CommonParameters.algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
                         }
                     }
 
@@ -1839,9 +1849,9 @@ namespace SandPaperInspection
 
 
                     //sheetLength += (sheetLength + (2600 / 9));
-                    labelJumboWidth.Text = algo.sheetWidthProp.ToString("0.00");
-                    labelDefCount.Text = algo.defectCountProp.ToString();
-                    labelDefArea.Text = algo.defectAreaProp.ToString();
+                    labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
+                    labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
+                    labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
                     //labelLength.Text = sheetLength.ToString();
                 
             }
@@ -1871,8 +1881,8 @@ namespace SandPaperInspection
                 distance = (jumboHeight * FrameCount/2) * 2;
 
                 labelSpeed.Text = ((distance / 100)).ToString("N2") + " mtr/min";
-                //Console.WriteLine("Num of frames {0}", FrameCount);
-                //Console.WriteLine("Num of Pb frames {0}", pbFrame);
+                Console.WriteLine("Num of frames {0}", FrameCount);
+                Console.WriteLine("Num of Pb frames {0}", pbFrame);
                 pbFrame = 0;
                 FrameCount = 0;
             }
@@ -1907,10 +1917,10 @@ namespace SandPaperInspection
                     if (bmpLeft != null)
                     {
                         //Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
-                        algo.overlapC1C2Prop = GetListValueById("Overlap");
+                        CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
 
                         int height = bmpLeft.Height;
-                        int width = (bmpLeft.Width * 2) - algo.overlapC1C2Prop;
+                        int width = (bmpLeft.Width * 2) - CommonParameters.algo.overlapC1C2Prop;
                         Console.WriteLine("Overlap c# {0}", GetListValueById("Overlap"));
 
                         Bitmap fullImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
@@ -1918,22 +1928,22 @@ namespace SandPaperInspection
                         sw1.Start();
                         //Bitmap algoImage = (Bitmap)bmpLeft.Clone();
                         //Bitmap MergeImage = MergeImagesSidewaysOverlap((Bitmap)bmpLeft.Clone(), (Bitmap)bmpRight.Clone(), GetListValueById("Overlap"));
-                        fullImage = algo.mergeImagesCpp((Bitmap)bmpLeft.Clone(new Rectangle(0, 0, bmpLeft.Width - algo.overlapC1C2Prop, bmpLeft.Height), PixelFormat.Format24bppRgb), (Bitmap)bmpRight.Clone(new Rectangle(0, 0, bmpRight.Width, bmpRight.Height), PixelFormat.Format24bppRgb), (Bitmap)fullImage.Clone());
+                        fullImage = CommonParameters.algo.mergeImagesCpp((Bitmap)bmpLeft.Clone(new Rectangle(0, 0, bmpLeft.Width - CommonParameters.algo.overlapC1C2Prop, bmpLeft.Height), PixelFormat.Format24bppRgb), (Bitmap)bmpRight.Clone(new Rectangle(0, 0, bmpRight.Width, bmpRight.Height), PixelFormat.Format24bppRgb), (Bitmap)fullImage.Clone());
 
                         //Bitmap algoImage = algo.processAllFrontThick(fullImage.Clone(new Rectangle(0,0, fullImage.Width, bmpLeft.Height), PixelFormat.Format24bppRgb));
-                        Bitmap algoImage = algo.processAllFrontThick( (Bitmap)fullImage.Clone());
+                        Bitmap algoImage = CommonParameters.algo.processAllFrontThick( (Bitmap)fullImage.Clone());
                         //Bitmap algoImage = algo.mergeImagesCpp((Bitmap)bmpLeft.Clone(new Rectangle(0,0, bmpLeft.Width, bmpLeft.Height), PixelFormat.Format24bppRgb), (Bitmap)bmpRight.Clone(new Rectangle(0, 0, bmpRight.Width, bmpRight.Height), PixelFormat.Format24bppRgb), (Bitmap)fullImage.Clone());
                         //Bitmap algoImage = MergeImagesSidewaysOverlap((Bitmap)bmpLeft.Clone(), (Bitmap)bmpLeft.Clone(), GetListValueById("Overlap"));
 
                         sw1.Stop();
                         Console.WriteLine("Time taken by algo {0}", sw1.ElapsedMilliseconds);
-                        for (int i = 0; i < algo.defectCountProp; i++)
+                        for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
                         {
-                            int width1 = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
-                            int height1 = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
-                            double area = algo.getDefectArea(i);
-                            int cat = algo.getDefectCat(i);
-                            Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width1, height1));
+                            int width1 = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
+                            int height1 = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
+                            double area = CommonParameters.algo.getDefectArea(i);
+                            int cat = CommonParameters.algo.getDefectCat(i);
+                            Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width1, height1));
                             Console.WriteLine(i.ToString());
                             Console.WriteLine("This is crop rect {0} {1}", cropRect, i);
                             if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)

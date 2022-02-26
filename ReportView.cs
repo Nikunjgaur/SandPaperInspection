@@ -141,6 +141,7 @@ namespace SandPaperInspection
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
+
                         NpgsqlTypes.NpgsqlPoint point = (NpgsqlTypes.NpgsqlPoint)reader[3];
                         Console.WriteLine("This is Point X {0} and this is Point Y {1}", point.X, point.Y);
                         chart1.Series[Convert.ToInt32(reader[6])].Points.AddXY(point.X, point.Y);
