@@ -61,7 +61,7 @@ namespace SandPaperInspection
             public Rectangle cropRect { get; set; }
             public double defectArea { get; set; }
             public int defectCode { get; set; }
-            public string[] defectType = new string[] { "line Marks", "wrinkle", "hole or cut", "other" };
+            public string[] defectType = new string[] { "line Marks", "wrinkle", "hole or cut","Tape", "other" };
             public Bitmap image { get; set; }
             public string path { get; set; }
             public string time { get; set; }
@@ -1683,7 +1683,7 @@ namespace SandPaperInspection
             try
             {
 
-                Bitmap fullImage = new Bitmap(@"C:\software\Norton Pc\SandPaperInspection\Models\defImageSam.bmp");
+                Bitmap fullImage = new Bitmap(@"C:\software\Norton Pc\SandPaperInspection\Models\Peach\Images\28_02_2022_04_26_41_611.bmp");
                 string path = string.Format(@"{0}\Models\sam.bmp", CommonParameters.projectDirectory);
 
                 Bitmap bitmap = (Bitmap)fullImage.Clone();
@@ -1691,9 +1691,9 @@ namespace SandPaperInspection
 
                 try
                 {
-                    algoImage = fullImage;/*algo.processAllFrontThick((Bitmap)fullImage.Clone());*/
+                    algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                     Pen pen = new Pen(Color.LimeGreen, 20);
-                    //algoImage.Save(@"C:\software\Norton Pc\SandPaperInspection\Models\defImageAlgo.bmp");
+                    algoImage.Save(@"C:\software\Norton Pc\SandPaperInspection\Models\defImageAlgo.bmp");
                     //path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
                     path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
@@ -1706,25 +1706,25 @@ namespace SandPaperInspection
                     bool defFound = false;
                     path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp";
 
-                    for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
-                    {
-                        int width = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
-                        int height = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
+                    //for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
+                    //{
+                    //    int width = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
+                    //    int height = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
 
-                        Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width, height));
+                    //    Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width, height));
 
-                        if ((cropRect.Height + cropRect.Y) < bitmap.Height && (cropRect.Width + cropRect.X) < bitmap.Width && cropRect.X > 0 && cropRect.Y > 0)
-                        {
-                            defFound = true;
-                            db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, CommonParameters.algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
-                        }
-                    }
+                    //    if ((cropRect.Height + cropRect.Y) < bitmap.Height && (cropRect.Width + cropRect.X) < bitmap.Width && cropRect.X > 0 && cropRect.Y > 0)
+                    //    {
+                    //        defFound = true;
+                    //        db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, CommonParameters.algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
+                    //    }
+                    //}
 
-                    if (defFound)
-                    {
-                        bitmap.Save(path);
+                    //if (defFound)
+                    //{
+                    //    bitmap.Save(path);
 
-                    }
+                    //}
                     //if (!Directory.Exists(path))
                     //{
                     //    Directory.CreateDirectory(path);

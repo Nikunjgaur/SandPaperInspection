@@ -1276,6 +1276,8 @@ int get_defectCategory(Mat imageIn, RotatedRect rr, int avg_fabricColor)
 		return 0;//line marks // straight thin rects
 	else if (rrwd > 5 && (rrht > 3 * rrwd) && (orientation > 20 && orientation < 70))
 		return 1; // wrinkles // rotated thin rects
+	else if (rrht > imageIn.cols * 0.75 && rrwd > 100)
+		return 3;
 	else
 	{
 		//cout << "br before " << br << endl;
@@ -1292,7 +1294,7 @@ int get_defectCategory(Mat imageIn, RotatedRect rr, int avg_fabricColor)
 		if ((avg_fabricColor - avgCol) > 40)
 			return 2; // hole cut // darker area wrt fabric
 		else
-			return 3; // other defect
+			return 4; // other defect
 	}
 
 
@@ -1301,7 +1303,7 @@ int get_defectCategory(Mat imageIn, RotatedRect rr, int avg_fabricColor)
 double par_minAr = 20;
 int par_minSize = 20;
 Rect avgIntensityROI;
-vector <string> vec_defectCat = { "line Marks", "wrinkle", "hole or cut", "other" };
+vector <string> vec_defectCat = { "line Marks", "wrinkle", "hole or cut","Tape", "other" };
 Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& defectArea)
 {
 
@@ -1313,9 +1315,12 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 	//rectangle(drawImg, avgIntensityROI, Scalar(200, 0, 0), 2);
 	uchar intensityV = get_avgInt(image, avgIntensityROI);
 	putText(drawImg, "avg Intensity = " + to_string(intensityV), Point(250, 50), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 200), 1);
+	cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" << endl;
+	cout << "This is defectBlockSize " << defBlockSize << "This is defectMinSize " << defMinSize << endl;
 
+	cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" << endl;
 	//cannyRes = getSobel(image,1,1, 3);
-	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, defBlockSize, 12);//first1 should be odd 51-551 off set 0-255 
+	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, defBlockSize, defMinSize);//first1 should be odd 51-551 off set 0-255 
 	Morph(cannyRes, cannyRes, MORPH_ERODE, MORPH_ELLIPSE, 1, 1);
 	Morph(cannyRes, cannyRes, MORPH_DILATE, MORPH_ELLIPSE, 3, 1);
 	//----- finalDefects
@@ -1952,6 +1957,7 @@ if (combinedImg.channels()>2)
 	//img(bounding_rect) = detections;
 	//cvtColor(img, img, COLOR_GRAY2BGR);
 
+	
 
 	detections.copyTo(img(brect));
 
