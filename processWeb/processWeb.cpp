@@ -1315,16 +1315,14 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 	//rectangle(drawImg, avgIntensityROI, Scalar(200, 0, 0), 2);
 	uchar intensityV = get_avgInt(image, avgIntensityROI);
 	putText(drawImg, "avg Intensity = " + to_string(intensityV), Point(250, 50), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 200), 1);
-	cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" << endl;
-	cout << "This is defectBlockSize " << defBlockSize << "This is defectMinSize " << defMinSize << endl;
-
-	cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" << endl;
+	
 	//cannyRes = getSobel(image,1,1, 3);
 	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, defBlockSize, defMinSize);//first1 should be odd 51-551 off set 0-255 
 	Morph(cannyRes, cannyRes, MORPH_ERODE, MORPH_ELLIPSE, 1, 1);
 	Morph(cannyRes, cannyRes, MORPH_DILATE, MORPH_ELLIPSE, 3, 1);
 	//----- finalDefects
 	Mat contImgIn = cannyRes.clone();
+	//resShow("contImgIn", contImgIn);
 	vector< vector<Point> > contours;
 	vector<Vec4i> hierarchy;
 	findContours(contImgIn, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_NONE);

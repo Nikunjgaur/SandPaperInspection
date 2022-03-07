@@ -260,8 +260,8 @@ namespace SandPaperInspection
             using (NpgsqlConnection con = db.GetConnection())
             {
                 con.Open();
-                string query = @"select _location as ""Location"",
-                                defectsize as ""Defect Size"",
+                string query = @"select point(_location[0] * 0.114259598, _location[1] * 0.114259598) as ""Location"",
+                                point(defectsize[0] * 0.114259598, defectsize[1] * 0.114259598) as ""Defect Size"",
                                 deftype as ""Defect Type"",
                                 imagepath from public.logreport where _date = @date and _location ~= @point";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);

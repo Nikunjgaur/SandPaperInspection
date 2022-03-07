@@ -1011,7 +1011,6 @@ namespace SandPaperInspection
                         {
                             Stopwatch sw = new Stopwatch();
                             sw.Start();
-                            
 
                             if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
                             {
@@ -1027,7 +1026,6 @@ namespace SandPaperInspection
                                                     (Bitmap)fullImage.Clone());
                                 Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
-
 
                                 bool defectFound = false;
                                 path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
@@ -1047,33 +1045,36 @@ namespace SandPaperInspection
                                         imageData.path = path + DateTime.Now.Millisecond.ToString() + ".bmp";
                                         imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
 
-                                        Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
+                                        //Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
 
-                                        defectLoc.Y += (int)((heightAddon - fullImage.Height) * CommonParameters.algo.mmperPixProp);
-                                        defectLoc.X = (int)((defectLoc.X) * CommonParameters.algo.mmperPixProp);
+                                        //defectLoc.Y += (int)((heightAddon - fullImage.Height) * CommonParameters.algo.mmperPixProp);
+                                        //defectLoc.X = (int)((defectLoc.X) * CommonParameters.algo.mmperPixProp);
 
-                                        Point defSize = new Point((int)(cropRect.Width * CommonParameters.algo.mmperPixProp),
-                                                        (int)(cropRect.Height * CommonParameters.algo.mmperPixProp));
+                                        //Point defSize = new Point((int)(cropRect.Width * CommonParameters.algo.mmperPixProp),
+                                        //                (int)(cropRect.Height * CommonParameters.algo.mmperPixProp));
                                         db.InsertRecord(
                                             Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                             Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
                                             CommonParameters.selectedModel,
-                                            defectLoc,
+                                            CommonParameters.algo.getTopLeftPoint(i),
                                             imageData.defectType[CommonParameters.algo.getDefectCat(i)],
                                             imageData.path,
                                             CommonParameters.algo.getDefectCat(i),
-                                            defSize);
+                                            (Point)cropRect.Size);
                                         imageData.image.Save(imageData.path);
 
                                     }
                                     defectFound = true;
                                 }
 
-                                
-                                //if (defectFound)
-                                //{
-                                //    fullImage.Save(path);
-                                //}
+                                if (defectFound)
+                                {
+                                    setCardDO(1, true);
+                                }
+                                else
+                                {
+                                    setCardDO(1, false);
+                                }
 
                                 if (CommonParameters.saveImages)
                                 {
@@ -1125,6 +1126,13 @@ namespace SandPaperInspection
                                 bitmapsMerge1.RemoveAt(0);
                                 bitmapsMerge2.RemoveAt(0);
 
+                                labelLength.Invoke((Action)delegate
+                                {
+                                    labelLength.Text = (heightAddon * 0.114259598).ToString("N2");
+
+                                });
+
+
                                 labelJumboWidth.Invoke((Action)delegate
                                 {
                                     labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString();
@@ -1141,7 +1149,7 @@ namespace SandPaperInspection
                         {
                             doProcess = false;
                             Console.WriteLine(ex.Message);
-                            MessageBox.Show("Error occured! Inspection Stopped. Start Inspection again");
+                            MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
                         }
                     }  
                 });
@@ -1238,6 +1246,8 @@ namespace SandPaperInspection
         private void btnStop_Click(object sender, EventArgs e)
         {
             doProcess = false;
+            setCardDO(1, false);
+            setCardDO(0, false);
 
             captureImages = false;
             if (processThread.IsAlive && processThread != null)
@@ -1261,7 +1271,6 @@ namespace SandPaperInspection
                 ////camera1.Parameters[PLCamera.TriggerMode].SetValue("On");
                 ////camera2.Parameters[PLCamera.TriggerMode].SetValue("On");
                 //doProcess = false;
-                setCardDO(0, false);
 
                 Parallel.Invoke(() =>
                 {
@@ -1321,6 +1330,7 @@ namespace SandPaperInspection
         {
             doProcess = false;
             setCardDO(0, false);
+            setCardDO(1, false);
 
             err = instantDiCtrl1.SnapStop();
 
@@ -1485,7 +1495,8 @@ namespace SandPaperInspection
 
                         labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
                         labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
-                        labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
+                        //labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
+
                         //labelLength.Text = sheetLength.ToString();
                         bitmapsMerge1.RemoveAt(0);
                         bitmapsMerge2.RemoveAt(0);
@@ -1638,7 +1649,8 @@ namespace SandPaperInspection
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-           
+
+
         }
 
         private void labelDateTime_Click(object sender, EventArgs e)
@@ -1851,7 +1863,7 @@ namespace SandPaperInspection
                     //sheetLength += (sheetLength + (2600 / 9));
                     labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
                     labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
-                    labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
+                    //labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
                     //labelLength.Text = sheetLength.ToString();
                 
             }
@@ -1860,7 +1872,7 @@ namespace SandPaperInspection
 
                 Console.WriteLine(ex.Message);
                 timer1.Stop();
-                MessageBox.Show("An Error occured. Closing Inspection");
+                MessageBox.Show("Inspection closed unexpectedly.");
                 this.Close();
             }
 
@@ -1869,16 +1881,16 @@ namespace SandPaperInspection
         }
 
 
-        double jumboHeight = 0;
+        double frameHeight = 0;
         double distance = 0;
         private void timerSpeed_Tick(object sender, EventArgs e)
         {
             //double mmppx = algo.mmperPixProp;
             if (pictureBox5.Image != null)
             {
-                jumboHeight = 2600 * 0.1000;
+                frameHeight = 2600 * 0.1000;
 
-                distance = (jumboHeight * FrameCount/2) * 2;
+                distance = (frameHeight * FrameCount);
 
                 labelSpeed.Text = ((distance / 100)).ToString("N2") + " mtr/min";
                 Console.WriteLine("Num of frames {0}", FrameCount);
@@ -1985,6 +1997,11 @@ namespace SandPaperInspection
                 }
             });
             processThread.Start();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

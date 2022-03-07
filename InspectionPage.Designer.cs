@@ -36,19 +36,16 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStop = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelDefType = new System.Windows.Forms.Label();
             this.btnSetThresholds = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxLog = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelLength = new System.Windows.Forms.Label();
             this.labelJumboLength = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblRun = new System.Windows.Forms.Label();
-            this.labelDefArea = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.labelJumboWidth = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnCameraSettings = new System.Windows.Forms.Button();
@@ -88,7 +85,6 @@
             this.timerSpeed = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
-            this.checkBoxLog = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -114,28 +110,6 @@
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 25);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Defect Type:";
-            // 
-            // labelDefType
-            // 
-            this.labelDefType.AutoSize = true;
-            this.labelDefType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDefType.ForeColor = System.Drawing.Color.White;
-            this.labelDefType.Location = new System.Drawing.Point(274, 58);
-            this.labelDefType.Name = "labelDefType";
-            this.labelDefType.Size = new System.Drawing.Size(38, 25);
-            this.labelDefType.TabIndex = 34;
-            this.labelDefType.Text = "00";
             // 
             // btnSetThresholds
             // 
@@ -165,16 +139,13 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.SteelBlue;
+            this.groupBox2.Controls.Add(this.checkBoxLog);
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.labelLength);
             this.groupBox2.Controls.Add(this.labelJumboLength);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.lblRun);
-            this.groupBox2.Controls.Add(this.labelDefArea);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.labelDefType);
-            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.labelJumboWidth);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -185,12 +156,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parameters ";
             // 
+            // checkBoxLog
+            // 
+            this.checkBoxLog.AutoSize = true;
+            this.checkBoxLog.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxLog.Checked = true;
+            this.checkBoxLog.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLog.Location = new System.Drawing.Point(21, 287);
+            this.checkBoxLog.Name = "checkBoxLog";
+            this.checkBoxLog.Size = new System.Drawing.Size(142, 29);
+            this.checkBoxLog.TabIndex = 89;
+            this.checkBoxLog.Text = "Update Log";
+            this.checkBoxLog.UseVisualStyleBackColor = true;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(233, 31);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 285);
+            this.panel3.Size = new System.Drawing.Size(2, 220);
             this.panel3.TabIndex = 88;
             // 
             // labelLength
@@ -198,7 +183,7 @@
             this.labelLength.AutoSize = true;
             this.labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLength.ForeColor = System.Drawing.Color.White;
-            this.labelLength.Location = new System.Drawing.Point(274, 222);
+            this.labelLength.Location = new System.Drawing.Point(274, 122);
             this.labelLength.Name = "labelLength";
             this.labelLength.Size = new System.Drawing.Size(38, 25);
             this.labelLength.TabIndex = 50;
@@ -209,7 +194,7 @@
             this.labelJumboLength.AutoSize = true;
             this.labelJumboLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumboLength.ForeColor = System.Drawing.Color.White;
-            this.labelJumboLength.Location = new System.Drawing.Point(11, 223);
+            this.labelJumboLength.Location = new System.Drawing.Point(8, 122);
             this.labelJumboLength.Name = "labelJumboLength";
             this.labelJumboLength.Size = new System.Drawing.Size(212, 25);
             this.labelJumboLength.TabIndex = 51;
@@ -220,7 +205,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(11, 275);
+            this.label11.Location = new System.Drawing.Point(6, 196);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(214, 25);
             this.label11.TabIndex = 43;
@@ -231,51 +216,29 @@
             this.lblRun.AutoSize = true;
             this.lblRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRun.ForeColor = System.Drawing.Color.White;
-            this.lblRun.Location = new System.Drawing.Point(274, 163);
+            this.lblRun.Location = new System.Drawing.Point(274, 60);
             this.lblRun.Name = "lblRun";
             this.lblRun.Size = new System.Drawing.Size(38, 25);
             this.lblRun.TabIndex = 17;
             this.lblRun.Text = "00";
-            // 
-            // labelDefArea
-            // 
-            this.labelDefArea.AutoSize = true;
-            this.labelDefArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDefArea.ForeColor = System.Drawing.Color.White;
-            this.labelDefArea.Location = new System.Drawing.Point(274, 114);
-            this.labelDefArea.Name = "labelDefArea";
-            this.labelDefArea.Size = new System.Drawing.Size(38, 25);
-            this.labelDefArea.TabIndex = 25;
-            this.labelDefArea.Text = "00";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(11, 166);
+            this.label14.Location = new System.Drawing.Point(11, 60);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(184, 25);
             this.label14.TabIndex = 49;
             this.label14.Text = "Defect Location:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(11, 107);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 25);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "Defect Area:";
             // 
             // labelJumboWidth
             // 
             this.labelJumboWidth.AutoSize = true;
             this.labelJumboWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumboWidth.ForeColor = System.Drawing.Color.Chartreuse;
-            this.labelJumboWidth.Location = new System.Drawing.Point(274, 274);
+            this.labelJumboWidth.Location = new System.Drawing.Point(274, 196);
             this.labelJumboWidth.Name = "labelJumboWidth";
             this.labelJumboWidth.Size = new System.Drawing.Size(38, 25);
             this.labelJumboWidth.TabIndex = 44;
@@ -413,6 +376,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 60;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // panel1
             // 
@@ -656,6 +620,7 @@
             this.button1.TabIndex = 88;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelSaveImage
@@ -682,6 +647,7 @@
             this.button2.TabIndex = 90;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewReport
@@ -692,27 +658,12 @@
             this.dataGridViewReport.Size = new System.Drawing.Size(625, 392);
             this.dataGridViewReport.TabIndex = 91;
             // 
-            // checkBoxLog
-            // 
-            this.checkBoxLog.AutoSize = true;
-            this.checkBoxLog.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxLog.Checked = true;
-            this.checkBoxLog.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxLog.Location = new System.Drawing.Point(230, 923);
-            this.checkBoxLog.Name = "checkBoxLog";
-            this.checkBoxLog.Size = new System.Drawing.Size(142, 29);
-            this.checkBoxLog.TabIndex = 89;
-            this.checkBoxLog.Text = "Update Log";
-            this.checkBoxLog.UseVisualStyleBackColor = true;
-            // 
             // InspectionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.checkBoxLog);
             this.Controls.Add(this.dataGridViewReport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.labelSaveImage);
@@ -758,8 +709,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelDefType;
         private System.Windows.Forms.Button btnSetThresholds;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label16;
@@ -790,8 +739,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label labelLength;
         private System.Windows.Forms.Label labelJumboLength;
-        private System.Windows.Forms.Label labelDefArea;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
