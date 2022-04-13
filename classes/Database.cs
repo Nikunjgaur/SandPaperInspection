@@ -27,7 +27,8 @@ namespace SandPaperInspection.classes
         // Process process = new Process();
 
         public void InsertRecord(DateTime date, DateTime time, string srNum, Point locationPoint,
-                               string deftype, string imgPath, int productCode, Point defSize)
+                               string deftype, string imgPath, int productCode, Point defSize, string finish,
+                               string operation, string rollNumber, string batchNum)
         {
 
             NpgsqlTypes.NpgsqlPoint location = new NpgsqlTypes.NpgsqlPoint(locationPoint.X, locationPoint.Y);
@@ -36,8 +37,10 @@ namespace SandPaperInspection.classes
             using (NpgsqlConnection con = GetConnection())
             {
                 
-                string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, imagepath, productcode, defectsize)
-                                values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode, @defsize)";
+                string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, 
+                                imagepath, productcode, defectsize, finish, operation, rollnumber)
+                                values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode, @defsize,
+                                @finish, @operation, @rollnumber, @batchNum)";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
 
@@ -49,6 +52,10 @@ namespace SandPaperInspection.classes
                 cmd.Parameters.AddWithValue("@defsize", defsize);
                 cmd.Parameters.AddWithValue("@imgPath", imgPath);
                 cmd.Parameters.AddWithValue("@productCode", productCode); 
+                cmd.Parameters.AddWithValue("@finish", finish);
+                cmd.Parameters.AddWithValue("@operation", operation); 
+                cmd.Parameters.AddWithValue("@rollnumber", rollNumber); 
+                cmd.Parameters.AddWithValue("@batchNum", batchNum); 
 
                 con.Open();
                 int n = cmd.ExecuteNonQuery();

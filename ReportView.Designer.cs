@@ -58,6 +58,16 @@
             this.comboBoxEndLen = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxDefImage = new System.Windows.Forms.PictureBox();
+            this.comboBoxDefect = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxFinish = new System.Windows.Forms.ComboBox();
+            this.comboBoxBatch = new System.Windows.Forms.ComboBox();
+            this.comboBoxRollNum = new System.Windows.Forms.ComboBox();
+            this.comboBoxOperation = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -142,23 +152,24 @@
             this.comboBoxSrNum.Name = "comboBoxSrNum";
             this.comboBoxSrNum.Size = new System.Drawing.Size(125, 21);
             this.comboBoxSrNum.TabIndex = 6;
+            this.comboBoxSrNum.SelectedIndexChanged += new System.EventHandler(this.comboBoxSrNum_SelectedIndexChanged);
             this.comboBoxSrNum.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxSrNum_MouseClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1628, 179);
+            this.label2.Location = new System.Drawing.Point(1607, 179);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Select Model";
+            this.label2.Text = "Select Color";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1628, 142);
+            this.label3.Location = new System.Drawing.Point(1607, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 7;
@@ -177,7 +188,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1629, 389);
+            this.dataGridView1.Location = new System.Drawing.Point(1629, 619);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,7 +200,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1625, 290);
+            this.label4.Location = new System.Drawing.Point(1625, 520);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 25);
             this.label4.TabIndex = 10;
@@ -200,7 +211,7 @@
             // 
             this.labeltotalDef.AutoSize = true;
             this.labeltotalDef.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltotalDef.Location = new System.Drawing.Point(1776, 290);
+            this.labeltotalDef.Location = new System.Drawing.Point(1776, 520);
             this.labeltotalDef.Name = "labeltotalDef";
             this.labeltotalDef.Size = new System.Drawing.Size(36, 25);
             this.labeltotalDef.TabIndex = 10;
@@ -210,7 +221,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1624, 343);
+            this.label5.Location = new System.Drawing.Point(1624, 573);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 25);
             this.label5.TabIndex = 10;
@@ -219,7 +230,7 @@
             // buttonShowData
             // 
             this.buttonShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowData.Location = new System.Drawing.Point(1742, 225);
+            this.buttonShowData.Location = new System.Drawing.Point(1742, 455);
             this.buttonShowData.Name = "buttonShowData";
             this.buttonShowData.Size = new System.Drawing.Size(117, 44);
             this.buttonShowData.TabIndex = 11;
@@ -230,7 +241,7 @@
             // radioButtonChartView
             // 
             this.radioButtonChartView.AutoSize = true;
-            this.radioButtonChartView.Location = new System.Drawing.Point(1636, 227);
+            this.radioButtonChartView.Location = new System.Drawing.Point(1636, 457);
             this.radioButtonChartView.Name = "radioButtonChartView";
             this.radioButtonChartView.Size = new System.Drawing.Size(76, 17);
             this.radioButtonChartView.TabIndex = 12;
@@ -242,7 +253,7 @@
             // radioButtonGridView
             // 
             this.radioButtonGridView.AutoSize = true;
-            this.radioButtonGridView.Location = new System.Drawing.Point(1636, 263);
+            this.radioButtonGridView.Location = new System.Drawing.Point(1636, 493);
             this.radioButtonGridView.Name = "radioButtonGridView";
             this.radioButtonGridView.Size = new System.Drawing.Size(70, 17);
             this.radioButtonGridView.TabIndex = 13;
@@ -269,7 +280,6 @@
             this.comboBoxStartLen.Size = new System.Drawing.Size(125, 21);
             this.comboBoxStartLen.TabIndex = 6;
             this.comboBoxStartLen.Visible = false;
-            this.comboBoxStartLen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxSrNum_MouseClick);
             // 
             // label6
             // 
@@ -291,7 +301,6 @@
             this.comboBoxEndLen.Size = new System.Drawing.Size(125, 21);
             this.comboBoxEndLen.TabIndex = 6;
             this.comboBoxEndLen.Visible = false;
-            this.comboBoxEndLen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxSrNum_MouseClick);
             // 
             // label7
             // 
@@ -306,18 +315,119 @@
             // 
             // pictureBoxDefImage
             // 
-            this.pictureBoxDefImage.Location = new System.Drawing.Point(1650, 583);
+            this.pictureBoxDefImage.Location = new System.Drawing.Point(1650, 813);
             this.pictureBoxDefImage.Name = "pictureBoxDefImage";
             this.pictureBoxDefImage.Size = new System.Drawing.Size(247, 203);
             this.pictureBoxDefImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDefImage.TabIndex = 15;
             this.pictureBoxDefImage.TabStop = false;
             // 
+            // comboBoxDefect
+            // 
+            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDefect.FormattingEnabled = true;
+            this.comboBoxDefect.Location = new System.Drawing.Point(1742, 216);
+            this.comboBoxDefect.Name = "comboBoxDefect";
+            this.comboBoxDefect.Size = new System.Drawing.Size(125, 21);
+            this.comboBoxDefect.TabIndex = 6;
+            this.comboBoxDefect.SelectedIndexChanged += new System.EventHandler(this.comboBoxDefect_SelectedIndexChanged_1);
+            this.comboBoxDefect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBoxDefect_MouseClick);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1607, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(106, 20);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Select Defect";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1609, 282);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 20);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Select Batch";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1609, 318);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(122, 20);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Select Roll Num";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1609, 354);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(128, 20);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Select Operation";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(1609, 250);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 20);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Select Finish";
+            // 
+            // comboBoxFinish
+            // 
+            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFinish.FormattingEnabled = true;
+            this.comboBoxFinish.Location = new System.Drawing.Point(1742, 251);
+            this.comboBoxFinish.Name = "comboBoxFinish";
+            this.comboBoxFinish.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxFinish.TabIndex = 16;
+            // 
+            // comboBoxBatch
+            // 
+            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBatch.FormattingEnabled = true;
+            this.comboBoxBatch.Location = new System.Drawing.Point(1743, 287);
+            this.comboBoxBatch.Name = "comboBoxBatch";
+            this.comboBoxBatch.Size = new System.Drawing.Size(124, 21);
+            this.comboBoxBatch.TabIndex = 17;
+            // 
+            // comboBoxRollNum
+            // 
+            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRollNum.FormattingEnabled = true;
+            this.comboBoxRollNum.Location = new System.Drawing.Point(1743, 323);
+            this.comboBoxRollNum.Name = "comboBoxRollNum";
+            this.comboBoxRollNum.Size = new System.Drawing.Size(125, 21);
+            this.comboBoxRollNum.TabIndex = 18;
+            // 
+            // comboBoxOperation
+            // 
+            this.comboBoxOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOperation.FormattingEnabled = true;
+            this.comboBoxOperation.Location = new System.Drawing.Point(1742, 359);
+            this.comboBoxOperation.Name = "comboBoxOperation";
+            this.comboBoxOperation.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxOperation.TabIndex = 19;
+            // 
             // ReportView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.comboBoxOperation);
+            this.Controls.Add(this.comboBoxRollNum);
+            this.Controls.Add(this.comboBoxBatch);
+            this.Controls.Add(this.comboBoxFinish);
             this.Controls.Add(this.pictureBoxDefImage);
             this.Controls.Add(this.radioButtonGridView);
             this.Controls.Add(this.radioButtonChartView);
@@ -330,9 +440,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEndLen);
             this.Controls.Add(this.comboBoxStartLen);
+            this.Controls.Add(this.comboBoxDefect);
             this.Controls.Add(this.comboBoxSrNum);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.panel1);
@@ -375,5 +491,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxEndLen;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxDefect;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBoxFinish;
+        private System.Windows.Forms.ComboBox comboBoxBatch;
+        private System.Windows.Forms.ComboBox comboBoxRollNum;
+        private System.Windows.Forms.ComboBox comboBoxOperation;
     }
 }

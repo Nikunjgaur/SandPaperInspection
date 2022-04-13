@@ -108,28 +108,57 @@ namespace SandPaperInspection
                 cmd.Parameters.AddWithValue("@srnum", comboBoxSrNum.SelectedItem.ToString());
                 NpgsqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    if (chart1.ChartAreas[0].AxisX.Maximum < (double)reader[0])
+                    while (reader.Read())
                     {
-                        chart1.ChartAreas[0].AxisX.Maximum = (double)reader[0] + 50;
-                        chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+                        if (chart1.ChartAreas[0].AxisX.Maximum < (double)reader[0])
+                        {
+                            chart1.ChartAreas[0].AxisX.Maximum = (double)reader[0] + 50;
+                            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
 
-                    }
-                    if (chart1.ChartAreas[0].AxisY.Maximum < (double)reader[1])
-                    {
-                        chart1.ChartAreas[0].AxisY.Maximum = (double)reader[1];
-                        chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+                        }
+                        if (chart1.ChartAreas[0].AxisY.Maximum < (double)reader[1])
+                        {
+                            chart1.ChartAreas[0].AxisY.Maximum = (double)reader[1];
+                            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
 
+                        }
                     }
                 }
+               
 
                 reader.Close();
+                if (comboBoxDefect.SelectedItem.ToString() == "All")
+                {
+                    query = @"select * from public.logreport where _date = @date and serialnum = @srnum";
 
-                query = @"select * from public.logreport where _date = @date and serialnum = @srnum";
+                }
+                else
+                {
+                    query = @"select * from public.logreport where _date = @date and serialnum = @srnum and deftype = @dtype";
+
+                }
+                if (comboBoxBatch.SelectedItem != null)
+                {
+                    query += string.Format(" and batchnum = {0} ", comboBoxBatch.SelectedItem.ToString());
+                }
+                if (comboBoxRollNum.SelectedItem != null)
+                {
+                    query += string.Format(" and rollnumber = {0} ", comboBoxRollNum.SelectedItem.ToString());
+                }
+                if (comboBoxFinish.SelectedItem != null)
+                {
+                    query += string.Format(" and finish = {0} ", comboBoxFinish.SelectedItem.ToString());
+                }
+                if (comboBoxOperation.SelectedItem != null)
+                {
+                    query += string.Format(" and operation = {0} ", comboBoxOperation.SelectedItem.ToString());
+                }
                 cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
                 cmd.Parameters.AddWithValue("@srnum", comboBoxSrNum.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@dtype", comboBoxDefect.SelectedItem.ToString());
 
                 reader = cmd.ExecuteReader();
 
@@ -151,7 +180,7 @@ namespace SandPaperInspection
                 }
                 else
                 {
-                    MessageBox.Show("No Data Found for this date and shift");
+                    MessageBox.Show("No Data Found");
                 }
                 reader.Close();
 
@@ -213,7 +242,7 @@ namespace SandPaperInspection
 
         }
 
-        void UpdateList()
+        void UpdateModelList()
         {
             using (NpgsqlConnection con = db.GetConnection())
             {
@@ -235,13 +264,143 @@ namespace SandPaperInspection
                 }
                 else
                 {
-                    MessageBox.Show("No Data Found for this date and shift");
+                    MessageBox.Show("No Data Found");
                 }
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        void UpdateDefectList()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
             {
+                con.Open();
+                string query = @"select deftype from public.logreport where _date = @date group by (deftype)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    comboBoxDefect.Items.Add("All");
+
+                    while (reader.Read())
+                    {
+                        comboBoxDefect.Items.Add(reader[0]);
+                    }
+                    comboBoxDefect.SelectedIndex = 0;
+
+                }
+
+            }
+        }
+
+
+        void UpdateBatchList()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
+            {
+                con.Open();
+                string query = @"select batchNum from public.logreport where _date = @date group by (batchNum)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        comboBoxBatch.Items.Add(reader[0]);
+                    }
+                    comboBoxBatch.SelectedIndex = 0;
+
+                }
+
+            }
+        }
+        void UpdateRollList()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
+            {
+                con.Open();
+                string query = @"select rollnumber from public.logreport where _date = @date group by (rollnumber)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        comboBoxRollNum.Items.Add(reader[0]);
+                    }
+                    comboBoxRollNum.SelectedIndex = 0;
+
+                }
+
+            }
+        }
+        void UpdateOperationList()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
+            {
+                con.Open();
+                string query = @"select operation from public.logreport where _date = @date group by (operation)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        comboBoxOperation.Items.Add(reader[0]);
+                    }
+                    comboBoxOperation.SelectedIndex = 0;
+
+                }
+
+            }
+        }
+
+        void UpdateFinishList()
+        {
+            using (NpgsqlConnection con = db.GetConnection())
+            {
+                con.Open();
+                string query = @"select finish from public.logreport where _date = @date group by (finish)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        comboBoxOperation.Items.Add(reader[0]);
+                    }
+                    comboBoxOperation.SelectedIndex = 0;
+
+                }
+
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
       
         }
 
@@ -286,7 +445,7 @@ namespace SandPaperInspection
                 }
                 else
                 {
-                    MessageBox.Show("No Data Found for this date and shift");
+                    MessageBox.Show("No Data Found");
                 }
                 reader.Close();
                 query = @"select _location as ""Location"", deftype as ""Defect Type"",
@@ -405,8 +564,18 @@ namespace SandPaperInspection
             {
                 comboBoxSrNum.Items.Clear();
             }
+            if (comboBoxDefect.Items.Count > 0)
+            {
+                comboBoxDefect.Items.Clear();
+            }
 
-            UpdateList();
+            UpdateModelList();
+            UpdateDefectList();
+            UpdateBatchList();
+            UpdateOperationList();
+            UpdateRollList();
+            UpdateFinishList();
+            
 
         }
 
@@ -418,6 +587,46 @@ namespace SandPaperInspection
         private void ReportView_FormClosing(object sender, FormClosingEventArgs e)
         {
             CommonParameters.InspectionPage.reportView = null;
+        }
+
+        private void comboBoxSrNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxDefect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxDefect_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void comboBoxOperation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxRollNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxFinish_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxDefect_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBatch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

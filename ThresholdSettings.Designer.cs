@@ -156,6 +156,7 @@
             this.label12.Size = new System.Drawing.Size(84, 17);
             this.label12.TabIndex = 29;
             this.label12.Text = "Threshold 1";
+            this.label12.Visible = false;
             // 
             // label11
             // 
@@ -166,6 +167,7 @@
             this.label11.Size = new System.Drawing.Size(84, 17);
             this.label11.TabIndex = 28;
             this.label11.Text = "Threshold 2";
+            this.label11.Visible = false;
             // 
             // label10
             // 
@@ -176,6 +178,7 @@
             this.label10.Size = new System.Drawing.Size(65, 17);
             this.label10.TabIndex = 27;
             this.label10.Text = "OK Limit:";
+            this.label10.Visible = false;
             // 
             // label9
             // 
@@ -193,9 +196,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(5, 36);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 17);
+            this.label8.Size = new System.Drawing.Size(84, 17);
             this.label8.TabIndex = 25;
-            this.label8.Text = "Web Detection:";
+            this.label8.Text = "Defect Size:";
             // 
             // trkBrTh5
             // 
@@ -206,6 +209,7 @@
             this.trkBrTh5.Size = new System.Drawing.Size(183, 45);
             this.trkBrTh5.TabIndex = 24;
             this.trkBrTh5.Value = 1;
+            this.trkBrTh5.Visible = false;
             this.trkBrTh5.Scroll += new System.EventHandler(this.trkBrTh5_Scroll);
             // 
             // trkBrTh4
@@ -217,6 +221,7 @@
             this.trkBrTh4.Size = new System.Drawing.Size(183, 45);
             this.trkBrTh4.TabIndex = 23;
             this.trkBrTh4.Value = 1;
+            this.trkBrTh4.Visible = false;
             this.trkBrTh4.Scroll += new System.EventHandler(this.trkBrTh4_Scroll);
             // 
             // trkBrTh3
@@ -228,6 +233,7 @@
             this.trkBrTh3.Size = new System.Drawing.Size(183, 45);
             this.trkBrTh3.TabIndex = 22;
             this.trkBrTh3.Value = 1;
+            this.trkBrTh3.Visible = false;
             this.trkBrTh3.Scroll += new System.EventHandler(this.trkBrTh3_Scroll);
             // 
             // trkBrTh2
@@ -276,6 +282,7 @@
             this.txtth5.Tag = "- - - - -";
             this.txtth5.Text = "12";
             this.txtth5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtth5.Visible = false;
             // 
             // txtTH1
             // 
@@ -300,6 +307,7 @@
             this.txtth4.TabIndex = 18;
             this.txtth4.Text = "12";
             this.txtth4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtth4.Visible = false;
             // 
             // txtth3
             // 
@@ -312,6 +320,7 @@
             this.txtth3.TabIndex = 16;
             this.txtth3.Text = "255";
             this.txtth3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtth3.Visible = false;
             // 
             // txtFg_item_code
             // 

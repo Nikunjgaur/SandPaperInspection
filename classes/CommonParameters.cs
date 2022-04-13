@@ -22,11 +22,18 @@ namespace SandPaperInspection.classes
         public static processWeb.Class1 algo = new processWeb.Class1();
         public static string selectedModel { get; set; }
         public static bool saveImages {get; set;}
+
+        public static string finish = "0000";
+        public static string batchNum = "ABCD1234";
+        public static string operation = "Dipp Fill";
+        public static string rollNum = "0000";
     }
     public class ModelData
     {
-        public int webDetect = 56;
-        public int blockSize = 70;
+        [JsonProperty]
+        public static int webDetect = 56;
+        [JsonProperty]
+        public static int blockSize = 70;
         public int okLimit = 70;
         [JsonProperty]
         public static double cam1Expo = 100;
@@ -35,4 +42,6 @@ namespace SandPaperInspection.classes
         public int thresh1 = 90;
         public int thresh2 = 50;
     }
+
+
 }

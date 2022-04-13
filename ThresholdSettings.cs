@@ -36,9 +36,9 @@ namespace SandPaperInspection
         {
             modelData = new ModelData();
             modelData = JsonConvert.DeserializeObject<ModelData>(File.ReadAllText(string.Format(@"{0}\Models\{1}\thresholds.json", CommonParameters.projectDirectory, CommonParameters.selectedModel)));
-            Console.WriteLine("{0} , {1}", CommonParameters.selectedModel, modelData.webDetect);
-            trkBrTh1.Value = modelData.webDetect;
-            trkBrTh2.Value = modelData.blockSize;
+            Console.WriteLine("{0} , {1}", CommonParameters.selectedModel, ModelData.webDetect);
+            trkBrTh1.Value = ModelData.webDetect;
+            trkBrTh2.Value = ModelData.blockSize;
             trkBrTh3.Value = modelData.okLimit;
             trkBrTh4.Value = modelData.thresh1;
             trkBrTh5.Value = modelData.thresh2;
@@ -52,11 +52,11 @@ namespace SandPaperInspection
             txtth2.Text = trkBrTh2.Value.ToString();
             CommonParameters.algo.defBlockSizeProp = trkBrTh2.Value;
             txtth3.Text = trkBrTh3.Value.ToString();
-            CommonParameters.algo.th3Prop = trkBrTh1.Value;
+            //CommonParameters.algo.th3Prop = trkBrTh1.Value;
             txtth4.Text = trkBrTh4.Value.ToString();
-            CommonParameters.algo.th1Prop = trkBrTh4.Value;
+            //CommonParameters.algo.th1Prop = trkBrTh4.Value;
             txtth5.Text = trkBrTh5.Value.ToString();
-            CommonParameters.algo.th5Prop = trkBrTh1.Value;
+            //CommonParameters.algo.th5Prop = trkBrTh1.Value;
 
             var textBoxes = GetAll(this, typeof(TextBox));
             foreach (TextBox textBox in textBoxes)
@@ -127,8 +127,8 @@ namespace SandPaperInspection
             DialogResult dialogResult = MessageBox.Show("Save settings for current model ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                modelData.webDetect = trkBrTh1.Value;
-                modelData.blockSize = trkBrTh2.Value;
+                ModelData.webDetect = trkBrTh1.Value;
+                ModelData.blockSize = trkBrTh2.Value;
                 modelData.okLimit = trkBrTh3.Value;
                 modelData.thresh1 = trkBrTh4.Value;
                 modelData.thresh2 = trkBrTh5.Value;

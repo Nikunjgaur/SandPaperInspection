@@ -22,8 +22,9 @@ namespace SandPaperInspection
 {
     public partial class InspectionPage : Form
     {
-        int counter1 = 0;
-        int counter2 = 0;
+        int counterOk = 0;
+        int counteDefect = 0;
+        int counterTotal = 0;
         ModelData modelData = new ModelData();
         int FrameCount = 0;
         CameraParameters CameraParameters = new CameraParameters();
@@ -55,7 +56,7 @@ namespace SandPaperInspection
 
         List<Bitmap> bitmapsMerge1 = new List<Bitmap>();
         List<Bitmap> bitmapsMerge2 = new List<Bitmap>();
-
+        
         class DefectImageData
         {
             public Rectangle cropRect { get; set; }
@@ -265,7 +266,6 @@ namespace SandPaperInspection
                         bitmapOld.Dispose();
                     }
 
-                    counter1++;
                     //labelDefType.Text = counter1.ToString();
 
                 }
@@ -552,7 +552,6 @@ namespace SandPaperInspection
 
                     // Console.WriteLine("Gray value of first pixel:{0}", pixelData[0]);
                     image2Grabbed = true;
-                    counter2++;
 
                     //labelDefArea.Text = counter2.ToString();
 
@@ -902,6 +901,12 @@ namespace SandPaperInspection
             labelModelName.Text = CommonParameters.selectedModel;
             modelData = JsonConvert.DeserializeObject<ModelData>(File.ReadAllText(string.Format(@"{0}\Models\{1}\thresholds.json", CommonParameters.projectDirectory, CommonParameters.selectedModel)));
             Console.WriteLine(ModelData.cam1Expo);
+            Console.WriteLine(ModelData.webDetect);
+            Console.WriteLine(ModelData.blockSize);
+            CommonParameters.algo.defMinSizeProp = ModelData.webDetect;
+            CommonParameters.algo.defBlockSizeProp = ModelData.blockSize;
+            comboBoxOperation.SelectedIndex = 0;
+
             clock.Start();
             string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
@@ -959,6 +964,62 @@ namespace SandPaperInspection
             {
                 HandleError(err);
             }
+            textBoxFinish.Text = CommonParameters.finish;
+            textBoxBatchNum.Text = CommonParameters.batchNum;
+            textBoxRollNum.Text = CommonParameters.rollNum;
+            comboBoxOperation.SelectedItem = CommonParameters.operation;
+            textBoxFinish.Leave += TextBoxModelData_Leave;
+            textBoxBatchNum.Leave += TextBoxModelData_Leave;
+            textBoxRollNum.Leave += TextBoxModelData_Leave;
+            textBoxFinish.TextChanged += TextBox_TextChanged;
+            textBoxBatchNum.TextChanged += TextBox_TextChanged;
+            textBoxRollNum.TextChanged += TextBox_TextChanged;
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            modelDataChanged = true;
+        }
+
+        bool modelDataChanged = false;
+        bool stopInspection = false;
+        private void TextBoxModelData_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (!stopInspection)
+            {
+                if (modelDataChanged)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Model Data Changed. Do you want to stop Inspection ?",
+                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Reopen Inspection form to reflect changes.");
+                        CommonParameters.finish = textBoxFinish.Text;
+                        CommonParameters.batchNum = textBoxBatchNum.Text;
+                        CommonParameters.rollNum = textBoxRollNum.Text;
+                        CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
+                        stopInspection = true;
+                        doProcess = false;
+                    }
+                    else
+                    {
+                        textBoxFinish.Text = CommonParameters.finish;
+                        textBoxBatchNum.Text = CommonParameters.batchNum;
+                        textBoxRollNum.Text = CommonParameters.rollNum;
+                        comboBoxOperation.SelectedItem = CommonParameters.operation;
+                        modelDataChanged = false;
+                    }
+                }
+            }
+            else
+            {
+                CommonParameters.finish = textBoxFinish.Text;
+                CommonParameters.batchNum = textBoxBatchNum.Text;
+                CommonParameters.rollNum = textBoxRollNum.Text;
+                CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
+            }
+
         }
 
         private void HandleError(ErrorCode err)
@@ -979,7 +1040,7 @@ namespace SandPaperInspection
         {
             btnStop.Enabled = true;
             //timer1.Enabled = true;
-            if (allCameras.Count == 2)
+            if (allCameras.Count == 2 && stopInspection == false)
             {
                 timerSpeed.Start();
                 captureImages = true;
@@ -1055,26 +1116,31 @@ namespace SandPaperInspection
                                         db.InsertRecord(
                                             Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                             Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
-                                            CommonParameters.selectedModel,
+                                            string.Format("{0}--{1}",CommonParameters.selectedModel, textBoxFinish.Text),
                                             CommonParameters.algo.getTopLeftPoint(i),
                                             imageData.defectType[CommonParameters.algo.getDefectCat(i)],
                                             imageData.path,
                                             CommonParameters.algo.getDefectCat(i),
-                                            (Point)cropRect.Size);
+                                            (Point)cropRect.Size,
+                                            CommonParameters.finish,
+                                            CommonParameters.operation,
+                                            CommonParameters.rollNum,
+                                            CommonParameters.batchNum);
+
                                         imageData.image.Save(imageData.path);
 
                                     }
                                     defectFound = true;
                                 }
 
-                                if (defectFound)
-                                {
-                                    setCardDO(1, true);
-                                }
-                                else
-                                {
-                                    setCardDO(1, false);
-                                }
+                                //if (defectFound)
+                                //{
+                                //    setCardDO(1, true);
+                                //}
+                                //else
+                                //{
+                                //    setCardDO(1, false);
+                                //}
 
                                 if (CommonParameters.saveImages)
                                 {
@@ -1147,7 +1213,7 @@ namespace SandPaperInspection
                         }
                         catch (Exception ex)
                         {
-                            doProcess = false;
+                            btnStop_Click(sender, e);
                             Console.WriteLine(ex.Message);
                             MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
                         }
@@ -1388,6 +1454,12 @@ namespace SandPaperInspection
             {
                 ShowReport();
 
+            }
+            for (int i = 0; i < dataGridViewReport.Columns.Count; i++)
+            {
+                DataGridViewCellStyle column = dataGridViewReport.Columns[i].HeaderCell.Style;
+                column.Font = new Font("Microsoft Sans Serif", 16);
+                column.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
 
@@ -1888,11 +1960,11 @@ namespace SandPaperInspection
             //double mmppx = algo.mmperPixProp;
             if (pictureBox5.Image != null)
             {
-                frameHeight = 2600 * 0.1000;
+                frameHeight = 2600 * 0.114259598;
 
-                distance = (frameHeight * FrameCount);
+                distance = (frameHeight * FrameCount) * 4;
 
-                labelSpeed.Text = ((distance / 100)).ToString("N2") + " mtr/min";
+                labelSpeed.Text = ((distance / 1000)+3).ToString("N2") + " mtr/min";
                 Console.WriteLine("Num of frames {0}", FrameCount);
                 Console.WriteLine("Num of Pb frames {0}", pbFrame);
                 pbFrame = 0;
@@ -2000,6 +2072,11 @@ namespace SandPaperInspection
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+            
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
