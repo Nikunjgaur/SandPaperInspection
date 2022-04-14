@@ -155,7 +155,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(14, 358);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(436, 353);
+            this.groupBox2.Size = new System.Drawing.Size(465, 353);
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parameters ";
@@ -165,7 +165,7 @@
             // 
             this.labelDefCount.AutoSize = true;
             this.labelDefCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDefCount.Location = new System.Drawing.Point(373, 71);
+            this.labelDefCount.Location = new System.Drawing.Point(332, 71);
             this.labelDefCount.Name = "labelDefCount";
             this.labelDefCount.Size = new System.Drawing.Size(44, 31);
             this.labelDefCount.TabIndex = 90;
@@ -209,7 +209,7 @@
             this.labelLength.AutoSize = true;
             this.labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLength.ForeColor = System.Drawing.Color.White;
-            this.labelLength.Location = new System.Drawing.Point(373, 178);
+            this.labelLength.Location = new System.Drawing.Point(328, 178);
             this.labelLength.Name = "labelLength";
             this.labelLength.Size = new System.Drawing.Size(46, 31);
             this.labelLength.TabIndex = 50;
@@ -242,7 +242,7 @@
             this.lblRun.AutoSize = true;
             this.lblRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRun.ForeColor = System.Drawing.Color.White;
-            this.lblRun.Location = new System.Drawing.Point(373, 129);
+            this.lblRun.Location = new System.Drawing.Point(328, 129);
             this.lblRun.Name = "lblRun";
             this.lblRun.Size = new System.Drawing.Size(46, 31);
             this.lblRun.TabIndex = 17;
@@ -264,7 +264,7 @@
             this.labelJumboWidth.AutoSize = true;
             this.labelJumboWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumboWidth.ForeColor = System.Drawing.Color.Chartreuse;
-            this.labelJumboWidth.Location = new System.Drawing.Point(373, 228);
+            this.labelJumboWidth.Location = new System.Drawing.Point(328, 228);
             this.labelJumboWidth.Name = "labelJumboWidth";
             this.labelJumboWidth.Size = new System.Drawing.Size(46, 31);
             this.labelJumboWidth.TabIndex = 44;
@@ -412,7 +412,7 @@
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(6, 194);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 737);
+            this.panel1.Size = new System.Drawing.Size(496, 737);
             this.panel1.TabIndex = 85;
             // 
             // groupBox1
@@ -435,7 +435,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(14, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(436, 327);
+            this.groupBox1.Size = new System.Drawing.Size(465, 327);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Model Data ";
@@ -453,6 +453,7 @@
             this.comboBoxOperation.Name = "comboBoxOperation";
             this.comboBoxOperation.Size = new System.Drawing.Size(155, 37);
             this.comboBoxOperation.TabIndex = 92;
+            this.comboBoxOperation.SelectedIndexChanged += new System.EventHandler(this.comboBoxOperation_SelectedIndexChanged);
             // 
             // textBoxBatchNum
             // 
@@ -681,7 +682,6 @@
             this.button2.TabIndex = 90;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewReport

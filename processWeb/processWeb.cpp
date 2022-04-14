@@ -1294,11 +1294,67 @@ int get_defectCategory(Mat imageIn, RotatedRect rr, int avg_fabricColor)
 		if ((avg_fabricColor - avgCol) > 40)
 			return 2; // hole cut // darker area wrt fabric
 		else
-			return 4; // other defect
+			return 4; // other defect // 5 nozzle //
 	}
 
-
 }
+
+
+struct defectData {
+	int idx;
+	Point center;
+	Rect br;
+};
+bool sortPositionX(defectData f1, defectData f2)
+{
+	defectData i = f1;
+	defectData j = f2;
+
+	return ((i.center.x < j.center.x));
+}
+int detectNozzleMarks(vector<defectData> vec, vector<Rect>& returnRects)
+{
+	int defCnt = 0;
+	std::sort(vec.begin(), vec.end(), sortPositionX);
+	vector<vector<Point>> defectRows;
+	vector<Point> row_of_defects;
+	row_of_defects.push_back(vec[0].center);
+	for (int i = 1; i < vec.size(); i++)
+	{
+		if (vec[i].br.width > 1.5 * vec[i].br.height)
+		{
+			if ((abs(vec[i].center.y - vec[i - 1].center.y)) < 10)
+			{
+				row_of_defects.push_back(vec[i].center);
+				cout << "same row" << endl;
+			}
+			else
+			{
+				if (row_of_defects.size() > 3)
+				{
+					defectRows.push_back(row_of_defects);
+					row_of_defects.clear();
+					row_of_defects.push_back(vec[i].center);
+					cout << "row break +++++++++++++ new row" << endl;
+				}
+
+			}
+		}
+
+	}
+	if (defectRows.size() > 0)
+	{
+		for (int k = 0; k < defectRows.size(); k++)
+		{
+			Rect br = boundingRect(defectRows[k]);
+			returnRects.push_back(br);
+			defCnt++;
+		}
+
+	}
+	return defCnt;
+}
+
 
 double par_minAr = 20;
 int par_minSize = 20;
@@ -1315,7 +1371,7 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 	//rectangle(drawImg, avgIntensityROI, Scalar(200, 0, 0), 2);
 	uchar intensityV = get_avgInt(image, avgIntensityROI);
 	putText(drawImg, "avg Intensity = " + to_string(intensityV), Point(250, 50), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 200), 1);
-	
+
 	//cannyRes = getSobel(image,1,1, 3);
 	adaptiveThreshold(image, cannyRes, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY_INV, defBlockSize, defMinSize);//first1 should be odd 51-551 off set 0-255 
 	Morph(cannyRes, cannyRes, MORPH_ERODE, MORPH_ELLIPSE, 1, 1);
@@ -1329,6 +1385,7 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 	double defArea{};
 	RotatedRect rr;
 	double contAr;
+	vector<defectData> vec_defects;
 	defectPoint pointLoc;
 	for (int i = 0; i < (int)contours.size(); i++)
 	{
@@ -1354,9 +1411,27 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 				//cout << "This is off set " << offSet << endl;
 				pointLoc.defectArea = contAr * 25;
 				returnDefPoints.push_back(pointLoc);
-				putText(drawImg, vec_defectCat[defectCat], Point(rr.boundingRect().x, rr.boundingRect().y + 40), FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 100, 100), 1);
+				//putText(drawImg, vec_defectCat[defectCat], Point(rr.boundingRect().x, rr.boundingRect().y + 40), FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 100, 100), 1);
+				vec_defects.push_back({ i,rr.center,rr.boundingRect() });
 			}
 		}
+	}
+	if (vec_defects.size() > 5) // logic for nozzme marks
+	{
+		vector<Rect> vec_nozzMk;
+		int defCnt = detectNozzleMarks(vec_defects, vec_nozzMk);
+		cout << "total nozzle marks" << defCnt << endl;
+		for (int z = 0; z < defCnt; z++)
+		{
+			rectangle(drawImg, vec_nozzMk[z], Scalar(0, 0, 255), 4);
+			pointLoc.tl = vec_nozzMk[z].tl() * 5;
+			pointLoc.br = vec_nozzMk[z].br() * 5;
+			pointLoc.defectCat = 5;// nozzle marks
+			pointLoc.defectArea = vec_nozzMk[z].area() * 25;
+			returnDefPoints.push_back(pointLoc);
+
+		}
+
 	}
 	defectArea = defArea;
 	//------------------
@@ -1670,7 +1745,7 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 	Mat mgraph = Mat::zeros(260, src.cols + 10, CV_8UC3);
 	/*for (int c=0; c<src.cols-1; c++)
 	{
-	    line( mgraph, Point(c+5,259-0), Point(c+5,259-graph[c]), Scalar(255,0,0), 1, CV_AA);    
+		line( mgraph, Point(c+5,259-0), Point(c+5,259-graph[c]), Scalar(255,0,0), 1, CV_AA);
 	}*/
 	graph[0] = 0;
 	graph[graph.size() - 1] = 0;
@@ -1706,15 +1781,15 @@ Mat getPaperEdges(Mat inImgGr, int* startx, int* endx, float* dist)
 	cout << "Image size 0.4" << src.size() << endl;
 	cout << "Paper start " << paperStart << endl;
 	cout << "Paper End " << paperEnd << endl;
-	*startx = paperStart ;
-	*endx = paperEnd ;
+	*startx = paperStart;
+	*endx = paperEnd;
 	line(src, Point(paperStart + 5, 259 - 0), Point(paperStart + 5, 0), Scalar(0, 255, 0), 20);
 	line(src, Point(paperEnd + 5, 259 - 0), Point(paperEnd + 5, 0), Scalar(0, 0, 255), 20);
-	*dist = distPoint(Point(paperStart + 5, 0), Point(paperEnd + 5, 0)) ;
-	
+	*dist = distPoint(Point(paperStart + 5, 0), Point(paperEnd + 5, 0));
+
 	end = clock();
 	cout << "time taken " << (double)(end - begin) / CLOCKS_PER_SEC << endl;
-		// resize(inImgGr, inImgGr, Size(), 4, 4);
+	// resize(inImgGr, inImgGr, Size(), 4, 4);
 
 	return inImgGr;
 
@@ -1897,23 +1972,23 @@ if (combinedImg.channels()>2)
 	{
 		boundingRectPriv = bounding_rect;
 
-	///	line( img , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 10, 8);
+		///	line( img , Point(pprStrt, img_1.size[0]/2), Point(pprEnd, img_1.size[0]/2), Scalar(0,255,0), 10, 8);
 		out1Prop = pprStrt * 5;
 		out2Prop = pprEnd * 5;
-	//	resShow("img_1", img);
-	//	line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(0,0,255), 20, LINE_AA);
+		//	resShow("img_1", img);
+		//	line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(0,0,255), 20, LINE_AA);
 
 	}
 	else
 	{
 		bounding_rect = boundingRectPriv;
-	//	line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 10, 8);
-		
+		//	line(img, Point(pprStrt, img_1.size[0] / 2), Point(pprEnd, img_1.size[0] / 2), Scalar(0, 255, 0), 10, 8);
 
-		//line( img , Point(bounding_rect.x,0), Point(bounding_rect.x,img.rows), Scalar(0,255,0), 20, CV_AA);    
-	 //   line( img , Point(bounding_rect.x+bounding_rect.width ,0), Point(bounding_rect.x+bounding_rect.width,img.rows), Scalar(0,0,255), 20, CV_AA);
-		//line( img , Point(pprStrt,0), Point(pprStrt,img.rows), Scalar(120,205,0), 20, CV_AA);    
-	 //   line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(120,0,205), 20, CV_AA);
+
+			//line( img , Point(bounding_rect.x,0), Point(bounding_rect.x,img.rows), Scalar(0,255,0), 20, CV_AA);    
+		 //   line( img , Point(bounding_rect.x+bounding_rect.width ,0), Point(bounding_rect.x+bounding_rect.width,img.rows), Scalar(0,0,255), 20, CV_AA);
+			//line( img , Point(pprStrt,0), Point(pprStrt,img.rows), Scalar(120,205,0), 20, CV_AA);    
+		 //   line( img , Point(pprEnd,0), Point(pprEnd,img.rows), Scalar(120,0,205), 20, CV_AA);
 	}
 	//resShow("img", img);
 	jumboWidthProp = bounding_rect.width * mmperPixProp;
@@ -1955,7 +2030,7 @@ if (combinedImg.channels()>2)
 	//img(bounding_rect) = detections;
 	//cvtColor(img, img, COLOR_GRAY2BGR);
 
-	
+
 
 	detections.copyTo(img(brect));
 

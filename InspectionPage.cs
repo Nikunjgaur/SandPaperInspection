@@ -1184,6 +1184,7 @@ namespace SandPaperInspection
                                 {
                                     pbFrame++;
                                     pictureBox5.Image = algoImage;
+                                    Console.WriteLine("Images Updated");
 
                                 }
 
@@ -1258,7 +1259,15 @@ namespace SandPaperInspection
             }
             else
             {
-                MessageBox.Show("Please connect all cameras", "Cameras not connected");
+                if (stopInspection == true)
+                {
+                    MessageBox.Show("Model Data Changed. Please reopen form to start inspection.");
+                }
+                else
+                {
+                    MessageBox.Show("Please connect all cameras", "Cameras not connected");
+
+                }
             }
 
         }
@@ -2077,6 +2086,11 @@ namespace SandPaperInspection
         }
             
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxOperation_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

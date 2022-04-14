@@ -122,7 +122,6 @@ namespace SandPaperInspection
                         {
                             chart1.ChartAreas[0].AxisY.Maximum = (double)reader[1];
                             chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
-
                         }
                     }
                 }
@@ -155,6 +154,7 @@ namespace SandPaperInspection
                 {
                     query += string.Format(" and operation = {0} ", comboBoxOperation.SelectedItem.ToString());
                 }
+
                 cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
                 cmd.Parameters.AddWithValue("@srnum", comboBoxSrNum.SelectedItem.ToString());

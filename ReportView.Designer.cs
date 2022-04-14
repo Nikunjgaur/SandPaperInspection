@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -98,47 +98,47 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(40, 114);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series6.Legend = "Legend1";
-            series6.MarkerSize = 10;
-            series6.Name = "Line Marks";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series7.Legend = "Legend1";
-            series7.MarkerSize = 15;
-            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
-            series7.Name = "Wrinkle";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series8.Legend = "Legend1";
-            series8.MarkerSize = 15;
-            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series8.Name = "Hole/Cut";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series9.Legend = "Legend1";
-            series9.MarkerSize = 15;
-            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series9.Name = "Tape";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.Legend = "Legend1";
-            series10.MarkerSize = 15;
-            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
-            series10.Name = "Other";
-            series10.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Legend = "Legend1";
+            series1.MarkerSize = 10;
+            series1.Name = "Line Marks";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Legend = "Legend1";
+            series2.MarkerSize = 15;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            series2.Name = "Wrinkle";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.Legend = "Legend1";
+            series3.MarkerSize = 15;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series3.Name = "Hole/Cut";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Legend = "Legend1";
+            series4.MarkerSize = 15;
+            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series4.Name = "Tape";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 15;
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
+            series5.Name = "Other";
+            series5.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1489, 850);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -191,8 +191,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(1629, 619);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Size = new System.Drawing.Size(268, 128);
             this.dataGridView1.TabIndex = 9;
             // 
@@ -385,7 +385,6 @@
             // 
             // comboBoxFinish
             // 
-            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFinish.FormattingEnabled = true;
             this.comboBoxFinish.Location = new System.Drawing.Point(1742, 251);
             this.comboBoxFinish.Name = "comboBoxFinish";
@@ -394,7 +393,6 @@
             // 
             // comboBoxBatch
             // 
-            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBatch.FormattingEnabled = true;
             this.comboBoxBatch.Location = new System.Drawing.Point(1743, 287);
             this.comboBoxBatch.Name = "comboBoxBatch";
@@ -403,7 +401,6 @@
             // 
             // comboBoxRollNum
             // 
-            this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRollNum.FormattingEnabled = true;
             this.comboBoxRollNum.Location = new System.Drawing.Point(1743, 323);
             this.comboBoxRollNum.Name = "comboBoxRollNum";
