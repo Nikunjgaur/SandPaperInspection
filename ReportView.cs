@@ -41,16 +41,6 @@ namespace SandPaperInspection
             //inputImages[1] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\2.png");
             //inputImages[2] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\3.png");
             //inputImages[3] = new Bitmap(@"C:\Users\ADVANTECh\Desktop\4.png");
-            
-        }
-
-        
-        public void UpdateLog()
-        {
-            int imgIndex = rnd.Next(1,4);
-
-            //InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), DateTime.Now.ToString("HH:mm:ss"), "SrNum", new NpgsqlTypes.NpgsqlPoint(rnd.Next(10, 8000), rnd.Next(20, 4000)), imgIndex.ToString(), inputImagesPath[imgIndex - 1], rnd.Next(0,11));
-            //InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), DateTime.Now.ToString("HH:mm:ss"), "SrNum2", new NpgsqlTypes.NpgsqlPoint(8000,100), imgIndex.ToString(), inputImagesPath[0], rnd.Next(0,11));
 
         }
 
@@ -140,20 +130,18 @@ namespace SandPaperInspection
                 }
                 if (comboBoxBatch.SelectedItem != null)
                 {
-                    query += string.Format(" and batchnum = {0} ", comboBoxBatch.SelectedItem.ToString());
+                    query += string.Format(" and batchnum = '{0}' ", comboBoxBatch.SelectedItem.ToString());
                 }
                 if (comboBoxRollNum.SelectedItem != null)
                 {
-                    query += string.Format(" and rollnumber = {0} ", comboBoxRollNum.SelectedItem.ToString());
-                }
-                if (comboBoxFinish.SelectedItem != null)
-                {
-                    query += string.Format(" and finish = {0} ", comboBoxFinish.SelectedItem.ToString());
+                    query += string.Format(" and rollnumber = '{0}' ", comboBoxRollNum.SelectedItem.ToString());
                 }
                 if (comboBoxOperation.SelectedItem != null)
                 {
-                    query += string.Format(" and operation = {0} ", comboBoxOperation.SelectedItem.ToString());
+                    query += string.Format(" and operation = '{0}' ", comboBoxOperation.SelectedItem.ToString());
                 }
+
+                Console.WriteLine(query);
 
                 cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
@@ -296,7 +284,6 @@ namespace SandPaperInspection
             }
         }
 
-
         void UpdateBatchList()
         {
             using (NpgsqlConnection con = db.GetConnection())
@@ -373,31 +360,31 @@ namespace SandPaperInspection
             }
         }
 
-        void UpdateFinishList()
-        {
-            using (NpgsqlConnection con = db.GetConnection())
-            {
-                con.Open();
-                string query = @"select finish from public.logreport where _date = @date group by (finish)";
-                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
-                //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
+        //void UpdateFinishList()
+        //{
+        //    using (NpgsqlConnection con = db.GetConnection())
+        //    {
+        //        con.Open();
+        //        string query = @"select finish from public.logreport where _date = @date group by (finish)";
+        //        NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+        //        cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+        //        //cmd.Parameters.AddWithValue("@date2", dateTimePickerTo.Value.ToString("dd-MM-yyyy"));
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
+        //        NpgsqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
-                {
+        //        if (reader.HasRows)
+        //        {
 
-                    while (reader.Read())
-                    {
-                        comboBoxOperation.Items.Add(reader[0]);
-                    }
-                    comboBoxOperation.SelectedIndex = 0;
+        //            while (reader.Read())
+        //            {
+        //                comboBoxFinish.Items.Add(reader[0]);
+        //            }
+        //            comboBoxFinish.SelectedIndex = 0;
 
-                }
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -439,13 +426,20 @@ namespace SandPaperInspection
                     
                     dt2.Load(reader);
                     dataGridView1.DataSource = Transpose(dt2);
-                    dataGridView1.Columns[0].Width = 120;
+                    dataGridView1.Columns[0].Width = 300;
+                    dataGridView1.Columns[1].Width = 300;
                     
 
                 }
                 else
                 {
                     MessageBox.Show("No Data Found");
+                }
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    DataGridViewCellStyle column = dataGridView1.Columns[i].HeaderCell.Style;
+                    column.Font = new Font("Microsoft Sans Serif", 16);
+                    column.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
                 reader.Close();
                 query = @"select _location as ""Location"", deftype as ""Defect Type"",
@@ -568,21 +562,20 @@ namespace SandPaperInspection
             {
                 comboBoxDefect.Items.Clear();
             }
+            comboBoxBatch.Items.Clear();
+            comboBoxOperation.Items.Clear();
+            comboBoxRollNum.Items.Clear();
 
             UpdateModelList();
             UpdateDefectList();
             UpdateBatchList();
             UpdateOperationList();
             UpdateRollList();
-            UpdateFinishList();
             
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(CommonParameters.projectDirectory);
-        }
+       
 
         private void ReportView_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -594,39 +587,20 @@ namespace SandPaperInspection
 
         }
 
-        private void comboBoxDefect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void comboBoxDefect_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void comboBoxOperation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxRollNum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxFinish_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void comboBoxDefect_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBoxBatch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

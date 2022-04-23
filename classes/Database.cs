@@ -38,7 +38,7 @@ namespace SandPaperInspection.classes
             {
                 
                 string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, 
-                                imagepath, productcode, defectsize, finish, operation, rollnumber)
+                                imagepath, productcode, defectsize, finish, operation, rollnumber, batchnum)
                                 values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode, @defsize,
                                 @finish, @operation, @rollnumber, @batchNum)";
 
@@ -49,14 +49,14 @@ namespace SandPaperInspection.classes
                 cmd.Parameters.AddWithValue("@srNum", srNum);
                 cmd.Parameters.AddWithValue("@location", location);
                 cmd.Parameters.AddWithValue("@deftype", deftype);
-                cmd.Parameters.AddWithValue("@defsize", defsize);
                 cmd.Parameters.AddWithValue("@imgPath", imgPath);
-                cmd.Parameters.AddWithValue("@productCode", productCode); 
+                cmd.Parameters.AddWithValue("@productCode", productCode);
+                cmd.Parameters.AddWithValue("@defsize", defsize);
                 cmd.Parameters.AddWithValue("@finish", finish);
                 cmd.Parameters.AddWithValue("@operation", operation); 
                 cmd.Parameters.AddWithValue("@rollnumber", rollNumber); 
-                cmd.Parameters.AddWithValue("@batchNum", batchNum); 
-
+                cmd.Parameters.AddWithValue("@batchNum", batchNum);
+                //Console.WriteLine(cmd.CommandText);
                 con.Open();
                 int n = cmd.ExecuteNonQuery();
             }

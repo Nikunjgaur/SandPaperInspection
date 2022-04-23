@@ -734,7 +734,7 @@ namespace SandPaperInspection
                 });
 
                 timer1.Enabled = true;
-                timer1.Start();
+                //timer1.Start();
             }
         }
         private void Stop(Camera camera)
@@ -898,7 +898,6 @@ namespace SandPaperInspection
         {
             CameraParameters.updatePara();
             CameraParameters.List = JsonConvert.DeserializeObject<List<Settings>>(File.ReadAllText(string.Format(@"{0}\bin\x64\Release\CamSettings.json", CommonParameters.projectDirectory)));
-            labelModelName.Text = CommonParameters.selectedModel;
             modelData = JsonConvert.DeserializeObject<ModelData>(File.ReadAllText(string.Format(@"{0}\Models\{1}\thresholds.json", CommonParameters.projectDirectory, CommonParameters.selectedModel)));
             Console.WriteLine(ModelData.cam1Expo);
             Console.WriteLine(ModelData.webDetect);
@@ -964,21 +963,33 @@ namespace SandPaperInspection
             {
                 HandleError(err);
             }
-            textBoxFinish.Text = CommonParameters.finish;
+            comboBoxFinish.SelectedItem = CommonParameters.selectedModel;
             textBoxBatchNum.Text = CommonParameters.batchNum;
             textBoxRollNum.Text = CommonParameters.rollNum;
             comboBoxOperation.SelectedItem = CommonParameters.operation;
-            textBoxFinish.Leave += TextBoxModelData_Leave;
             textBoxBatchNum.Leave += TextBoxModelData_Leave;
             textBoxRollNum.Leave += TextBoxModelData_Leave;
-            textBoxFinish.TextChanged += TextBox_TextChanged;
             textBoxBatchNum.TextChanged += TextBox_TextChanged;
             textBoxRollNum.TextChanged += TextBox_TextChanged;
+            UpdateFinishList();
+
+            comboBoxFinish.SelectedIndexChanged += comboBoxFinish_SelectedIndexChanged;
+            comboBoxOperation.SelectedIndexChanged += comboBoxOperation_SelectedIndexChanged;
+
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             modelDataChanged = true;
+        }
+
+        void UpdateFinishList()
+        {
+            comboBoxFinish.Items.Clear();
+            DirectoryInfo obj = new DirectoryInfo(string.Format(@"{0}\Models", CommonParameters.projectDirectory));
+            DirectoryInfo[] folders = obj.GetDirectories();
+            comboBoxFinish.DataSource = folders;
+            
         }
 
         bool modelDataChanged = false;
@@ -994,32 +1005,39 @@ namespace SandPaperInspection
                         "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("Reopen Inspection form to reflect changes.");
-                        CommonParameters.finish = textBoxFinish.Text;
+                        //MessageBox.Show("Reopen Inspection form to reflect changes.");
+                        CommonParameters.finish = comboBoxFinish.SelectedItem.ToString();
                         CommonParameters.batchNum = textBoxBatchNum.Text;
                         CommonParameters.rollNum = textBoxRollNum.Text;
                         CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
                         stopInspection = true;
+                        sheetLength = 0;
                         doProcess = false;
+                        btnStop_Click(sender, e);
                     }
                     else
                     {
-                        textBoxFinish.Text = CommonParameters.finish;
-                        textBoxBatchNum.Text = CommonParameters.batchNum;
-                        textBoxRollNum.Text = CommonParameters.rollNum;
-                        comboBoxOperation.SelectedItem = CommonParameters.operation;
-                        modelDataChanged = false;
+                        UpdateDefaultModelData();
                     }
                 }
             }
             else
             {
-                CommonParameters.finish = textBoxFinish.Text;
+                CommonParameters.finish = comboBoxFinish.SelectedItem.ToString();
                 CommonParameters.batchNum = textBoxBatchNum.Text;
                 CommonParameters.rollNum = textBoxRollNum.Text;
                 CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
             }
 
+        }
+
+        void UpdateDefaultModelData()
+        {
+            comboBoxFinish.SelectedItem = CommonParameters.finish;
+            textBoxBatchNum.Text = CommonParameters.batchNum;
+            textBoxRollNum.Text = CommonParameters.rollNum;
+            comboBoxOperation.SelectedItem = CommonParameters.operation;
+            modelDataChanged = false;
         }
 
         private void HandleError(ErrorCode err)
@@ -1040,7 +1058,7 @@ namespace SandPaperInspection
         {
             btnStop.Enabled = true;
             //timer1.Enabled = true;
-            if (allCameras.Count == 2 && stopInspection == false)
+            if (allCameras.Count == 2)
             {
                 timerSpeed.Start();
                 captureImages = true;
@@ -1087,6 +1105,7 @@ namespace SandPaperInspection
                                                     (Bitmap)fullImage.Clone());
                                 Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+                                sheetLength += Convert.ToInt32(sheetLength + (algoImage.Height * 0.114259598));
 
                                 bool defectFound = false;
                                 path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
@@ -1106,6 +1125,9 @@ namespace SandPaperInspection
                                         imageData.path = path + DateTime.Now.Millisecond.ToString() + ".bmp";
                                         imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
 
+
+                                        Point defLocation = new Point(Convert.ToInt32(CommonParameters.algo.getTopLeftPoint(i).X * 0.114259598),
+                                            Convert.ToInt32((CommonParameters.algo.getTopLeftPoint(i).Y + sheetLength) * 0.114259598));
                                         //Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
 
                                         //defectLoc.Y += (int)((heightAddon - fullImage.Height) * CommonParameters.algo.mmperPixProp);
@@ -1116,8 +1138,8 @@ namespace SandPaperInspection
                                         db.InsertRecord(
                                             Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                             Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
-                                            string.Format("{0}--{1}",CommonParameters.selectedModel, textBoxFinish.Text),
-                                            CommonParameters.algo.getTopLeftPoint(i),
+                                            string.Format("{0}--{1}",CommonParameters.selectedModel, CommonParameters.selectedModel),
+                                            defLocation,
                                             imageData.defectType[CommonParameters.algo.getDefectCat(i)],
                                             imageData.path,
                                             CommonParameters.algo.getDefectCat(i),
@@ -1189,6 +1211,7 @@ namespace SandPaperInspection
                                 }
 
 
+
                                 //Thread.Sleep(50);
                                 bitmapsMerge1.RemoveAt(0);
                                 bitmapsMerge2.RemoveAt(0);
@@ -1214,9 +1237,9 @@ namespace SandPaperInspection
                         }
                         catch (Exception ex)
                         {
-                            btnStop_Click(sender, e);
                             Console.WriteLine(ex.Message);
                             MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
+                            btnStop_Click(sender, e);
                         }
                     }  
                 });
@@ -1279,7 +1302,8 @@ namespace SandPaperInspection
             using (NpgsqlConnection con = db.GetConnection())
             {
                 con.Open();
-                string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Color"",
+
+                string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Finish"",
                                     point(_location[0] * 0.1000, _location[1] * 0.1000) as ""Location"", 
                                     deftype as ""Defect Type"",
                                     point(defectsize[0] * 0.1000, defectsize[1] * 0.1000) as ""Defect Size"" 
@@ -1290,6 +1314,7 @@ namespace SandPaperInspection
                                     DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
                                     DateTime.Now.ToString("HH:mm:ss")
                                     );
+
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
                 //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
                 //cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
@@ -1325,7 +1350,7 @@ namespace SandPaperInspection
             setCardDO(0, false);
 
             captureImages = false;
-            if (processThread.IsAlive && processThread != null)
+            if (processThread != null && processThread.IsAlive)
             {
                 processThread.Abort();
 
@@ -1396,7 +1421,6 @@ namespace SandPaperInspection
             // close selected forms
             foreach (Form form in list)
             {
-
                 form.Close();
             }
         }
@@ -1470,6 +1494,8 @@ namespace SandPaperInspection
                 column.Font = new Font("Microsoft Sans Serif", 16);
                 column.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+
+            Console.WriteLine("Do process Value {0}", doProcess);
         }
 
         public IoMonitor ioMonitor = null;
@@ -1492,169 +1518,169 @@ namespace SandPaperInspection
             }
         }
 
-        float sheetLength = 0;
+        int sheetLength = 0;
 
         int pbFrame = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            //if (bitmapsMerge1.Last() != null && bitmapsMerge2.Last() != null)
+            //Stopwatch stopwatch = new Stopwatch();
+            //stopwatch.Start();
+            ////if (bitmapsMerge1.Last() != null && bitmapsMerge2.Last() != null)
+            ////{
+            ////    Bitmap fullImage = MergeImagesSidewaysOverlap(bitmapsMerge1.Last(), bitmapsMerge2.Last(), 50);
+            ////    Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+            ////    pictureBox5.Image = fullImage;
+
+            ////    bitmapsMerge1.Clear();
+            ////    bitmapsMerge2.Clear();
+            ////}
+            //try
             //{
-            //    Bitmap fullImage = MergeImagesSidewaysOverlap(bitmapsMerge1.Last(), bitmapsMerge2.Last(), 50);
-            //    Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
-            //    pictureBox5.Image = fullImage;
 
-            //    bitmapsMerge1.Clear();
-            //    bitmapsMerge2.Clear();
-            //}
-            try
-            {
+            //    //labelDefType.Text = counter1.ToString();
+            //    //labelDefArea.Text = counter2.ToString();
+            //    if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
+            //    {
+            //        //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
+            //        int height = bitmapsMerge1[0].Height;
+            //        int width = bitmapsMerge1[0].Width - GetListValueById("Overlap");
+            //        CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
 
-                //labelDefType.Text = counter1.ToString();
-                //labelDefArea.Text = counter2.ToString();
-                if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
-                {
-                    //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
-                    int height = bitmapsMerge1[0].Height;
-                    int width = bitmapsMerge1[0].Width - GetListValueById("Overlap");
-                    CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
-
-                    Bitmap fullImage = new Bitmap(width, height);
-                    Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
-                    Console.WriteLine("Image List 1  {0}  Image List 2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
-                    //Bitmap fullImage = new Bitmap(bitmapsMerge1.Last().Width*2, bitmapsMerge1.Last().Height);
-                    UpdateCameraPara();
-                    //Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+            //        Bitmap fullImage = new Bitmap(width, height);
+            //        Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
+            //        Console.WriteLine("Image List 1  {0}  Image List 2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
+            //        //Bitmap fullImage = new Bitmap(bitmapsMerge1.Last().Width*2, bitmapsMerge1.Last().Height);
+            //        UpdateCameraPara();
+            //        //Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
                     
                        
-                    string path = string.Format(@"{0}\Models\sam.bmp", CommonParameters.projectDirectory);
+            //        string path = string.Format(@"{0}\Models\sam.bmp", CommonParameters.projectDirectory);
 
-                    Bitmap bitmap = (Bitmap)fullImage.Clone();
-                    try
-                    {
-                        Console.WriteLine("Image in size {0} -> {1} -> {2}", bitmapsMerge1.Last().Size, bitmapsMerge2.Last().Size, fullImage.Size);
-                        Pen pen = new Pen(Color.LimeGreen, 20);
+            //        Bitmap bitmap = (Bitmap)fullImage.Clone();
+            //        try
+            //        {
+            //            Console.WriteLine("Image in size {0} -> {1} -> {2}", bitmapsMerge1.Last().Size, bitmapsMerge2.Last().Size, fullImage.Size);
+            //            Pen pen = new Pen(Color.LimeGreen, 20);
 
-                        path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+            //            path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
+            //            if (!Directory.Exists(path))
+            //            {
+            //                Directory.CreateDirectory(path);
+            //            }
 
-                        bool defFound = false;
-                        path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp";
+            //            bool defFound = false;
+            //            path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp";
 
-                        //for (int i = 0; i < algo.defectCountProp; i++)
-                        //{
-                        //    int width = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
-                        //    int height = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
+            //            //for (int i = 0; i < algo.defectCountProp; i++)
+            //            //{
+            //            //    int width = algo.getBottomRightPoint(i).X - algo.getTopLeftPoint(i).X;
+            //            //    int height = algo.getBottomRightPoint(i).Y - algo.getTopLeftPoint(i).Y;
 
-                        //    Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width, height));
+            //            //    Rectangle cropRect = new Rectangle(algo.getTopLeftPoint(i), new Size(width, height));
 
-                        //    if ((cropRect.Height + cropRect.Y) < bitmap.Height && (cropRect.Width + cropRect.X) < bitmap.Width && cropRect.X > 0 && cropRect.Y > 0)
-                        //    {
-                        //        defFound = true;
-                        //        db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
-                        //    }
-                        //}
+            //            //    if ((cropRect.Height + cropRect.Y) < bitmap.Height && (cropRect.Width + cropRect.X) < bitmap.Width && cropRect.X > 0 && cropRect.Y > 0)
+            //            //    {
+            //            //        defFound = true;
+            //            //        db.InsertRecord(Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")), CommonParameters.selectedModel, algo.getTopLeftPoint(i), "Type1", path, 2, (Point)cropRect.Size);
+            //            //    }
+            //            //}
 
-                        //if (defFound)
-                        //{
-                        //    bitmap.Save(path);
+            //            //if (defFound)
+            //            //{
+            //            //    bitmap.Save(path);
 
-                        //}
+            //            //}
 
-                        using (var graphics = Graphics.FromImage(algoImage))
-                        {
-                            //graphics.DrawLine(pen, new Point(algo.out1Prop, 300), new Point(algo.out2Prop, 300));
-                            pictureBox5.Image = algoImage;
-                            pbFrame++;
-                            pictureBox5.Invalidate();
-                        }
+            //            using (var graphics = Graphics.FromImage(algoImage))
+            //            {
+            //                //graphics.DrawLine(pen, new Point(algo.out1Prop, 300), new Point(algo.out2Prop, 300));
+            //                pictureBox5.Image = algoImage;
+            //                pbFrame++;
+            //                pictureBox5.Invalidate();
+            //            }
 
-                        labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
-                        labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
-                        //labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
+            //            labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
+            //            labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
+            //            //labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
 
-                        //labelLength.Text = sheetLength.ToString();
-                        bitmapsMerge1.RemoveAt(0);
-                        bitmapsMerge2.RemoveAt(0);
-                        image1Grabbed = false;
-                        image2Grabbed = false;
-                        if (CommonParameters.saveImages)
-                        {
-                            path = string.Format(@"{0}\Models\{1}\Images", CommonParameters.projectDirectory, CommonParameters.selectedModel);
-                            if (!Directory.Exists(path))
-                            {
-                                Directory.CreateDirectory(path);
-                            }
-                            bitmap = (Bitmap)fullImage.Clone();
+            //            //labelLength.Text = sheetLength.ToString();
+            //            bitmapsMerge1.RemoveAt(0);
+            //            bitmapsMerge2.RemoveAt(0);
+            //            image1Grabbed = false;
+            //            image2Grabbed = false;
+            //            if (CommonParameters.saveImages)
+            //            {
+            //                path = string.Format(@"{0}\Models\{1}\Images", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+            //                if (!Directory.Exists(path))
+            //                {
+            //                    Directory.CreateDirectory(path);
+            //                }
+            //                bitmap = (Bitmap)fullImage.Clone();
 
-                            //bitmap.Save(path + @"\"+ DateTime.Now.Date.ToString("dd_MM_yyyy")+ DateTime.Now.TimeOfDay.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString() +".bmp");
-                            Console.WriteLine(path + DateTime.Now.ToString("dd_MM_yyyy") + DateTime.Now.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString());
-                            bitmap.Save(path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp");
-                        }
+            //                //bitmap.Save(path + @"\"+ DateTime.Now.Date.ToString("dd_MM_yyyy")+ DateTime.Now.TimeOfDay.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString() +".bmp");
+            //                Console.WriteLine(path + DateTime.Now.ToString("dd_MM_yyyy") + DateTime.Now.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString());
+            //                bitmap.Save(path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss") + DateTime.Now.Millisecond.ToString() + ".bmp");
+            //            }
 
-                    }
-                    catch (Exception ex)
-                    {
-                        timer1.Stop();
-                        bitmapsMerge1.Clear();
-                        bitmapsMerge2.Clear();
-                        Console.WriteLine(ex.Message);
-                        if (allCameras.Count == 2)
-                        {
-                            captureImages = false;
-                            if (processThread != null)
-                            {
-                                processThread.Abort();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            timer1.Stop();
+            //            bitmapsMerge1.Clear();
+            //            bitmapsMerge2.Clear();
+            //            Console.WriteLine(ex.Message);
+            //            if (allCameras.Count == 2)
+            //            {
+            //                captureImages = false;
+            //                if (processThread != null)
+            //                {
+            //                    processThread.Abort();
 
-                            }
-                            //camera1.Parameters[PLCamera.TriggerMode].SetValue("On");
-                            //camera2.Parameters[PLCamera.TriggerMode].SetValue("On");
-                            doProcess = false;
-                            setCardDO(0, false);
+            //                }
+            //                //camera1.Parameters[PLCamera.TriggerMode].SetValue("On");
+            //                //camera2.Parameters[PLCamera.TriggerMode].SetValue("On");
+            //                doProcess = false;
+            //                setCardDO(0, false);
 
-                            Parallel.Invoke(() =>
-                            {
-                                Stop(camera1);
+            //                Parallel.Invoke(() =>
+            //                {
+            //                    Stop(camera1);
 
-                            },
-                            () =>
-                            {
-                                Stop(camera2);
+            //                },
+            //                () =>
+            //                {
+            //                    Stop(camera2);
 
-                            });
+            //                });
 
-                            //MergeImagesCam1();
-                            //MergeImagesCam2();
-                            timer1.Stop();
-                            MessageBox.Show("Inspection stopped unexpectedly. Click start button to resume.");
-                        }
+            //                //MergeImagesCam1();
+            //                //MergeImagesCam2();
+            //                timer1.Stop();
+            //                MessageBox.Show("Inspection stopped unexpectedly. Click start button to resume.");
+            //            }
 
-                    }
-                    finally
-                    {
+            //        }
+            //        finally
+            //        {
 
-                    }
+            //        }
 
 
-                    //sheetLength += (sheetLength + (2600 / 9));
+            //        //sheetLength += (sheetLength + (2600 / 9));
                     
-                }
-            }
-            catch (Exception ex)
-            {
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                Console.WriteLine(ex.Message);
-                timer1.Stop();
-                MessageBox.Show("An Error occured. Closing Inspection");
-                this.Close();
-            }
-            stopwatch.Stop();
-            Console.WriteLine("Time taken by timer {0}", stopWatch.ElapsedMilliseconds);
+            //    Console.WriteLine(ex.Message);
+            //    timer1.Stop();
+            //    MessageBox.Show("An Error occured. Closing Inspection");
+            //    this.Close();
+            //}
+            //stopwatch.Stop();
+            //Console.WriteLine("Time taken by timer {0}", stopWatch.ElapsedMilliseconds);
 
         }
 
@@ -1941,7 +1967,6 @@ namespace SandPaperInspection
                 }
 
 
-                    //sheetLength += (sheetLength + (2600 / 9));
                     labelJumboWidth.Text = CommonParameters.algo.sheetWidthProp.ToString("0.00");
                     labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
                     //labelDefArea.Text = CommonParameters.algo.defectAreaProp.ToString();
@@ -2075,6 +2100,7 @@ namespace SandPaperInspection
 
                     sw.Stop();
                     Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
+                    doProcess = false;
                 }
             });
             processThread.Start();
@@ -2090,9 +2116,42 @@ namespace SandPaperInspection
 
         }
 
+        private void comboBoxFinish_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Model Data Changed. Do you want to stop Inspection ?",
+                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CommonParameters.selectedModel = comboBoxFinish.SelectedItem.ToString();
+
+                btnStop_Click(sender, e);
+            }
+            else
+            {
+
+                UpdateDefaultModelData();
+
+            }
+        }
+
+
         private void comboBoxOperation_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Model Data Changed. Do you want to stop Inspection ?",
+                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
+
+                btnStop_Click(sender, e);
+            }
+            else
+            {
+                UpdateDefaultModelData();
+
+            }
 
         }
+
     }
 }

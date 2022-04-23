@@ -98,8 +98,9 @@ namespace SandPaperInspection
                 File.WriteAllText(path + @"\thresholds.json", threshResult);
                 CommonParameters.selectedModel = modelName;
                 MessageBox.Show("Set thresholds for this model on Inspection screen.","Model created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                InspectionPage inspectionPage = new InspectionPage();
-                inspectionPage.Show();
+                CommonParameters.InspectionPage = new InspectionPage();
+                CommonParameters.InspectionPage.Show();
+                this.Close();
                 this.Close();
             }
             else

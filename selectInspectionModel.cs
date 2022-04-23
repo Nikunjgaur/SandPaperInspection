@@ -36,7 +36,7 @@ namespace SandPaperInspection
             for (int i = 0; i < dataGridViewModel.Columns.Count; i++)
             {
                 DataGridViewCellStyle column = dataGridViewModel.Columns[i].HeaderCell.Style;
-                column.Font = new Font("Microsoft Sans Serif", 16);
+                column.Font = new Font("Microsoft Sans Serif", 26);
                 column.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }

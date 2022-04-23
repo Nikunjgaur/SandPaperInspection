@@ -39,9 +39,7 @@ namespace SandPaperInspection
             Console.WriteLine("{0} , {1}", CommonParameters.selectedModel, ModelData.webDetect);
             trkBrTh1.Value = ModelData.webDetect;
             trkBrTh2.Value = ModelData.blockSize;
-            trkBrTh3.Value = modelData.okLimit;
-            trkBrTh4.Value = modelData.thresh1;
-            trkBrTh5.Value = modelData.thresh2;
+            
             txtCamExposureT.Value = Convert.ToInt32(ModelData.cam1Expo);
             txtCamExposureTC2.Value = Convert.ToInt32(ModelData.cam2Expo);
             txtExposer.Text = ModelData.cam1Expo.ToString();
@@ -51,11 +49,8 @@ namespace SandPaperInspection
             CommonParameters.algo.defMinSizeProp = trkBrTh1.Value;
             txtth2.Text = trkBrTh2.Value.ToString();
             CommonParameters.algo.defBlockSizeProp = trkBrTh2.Value;
-            txtth3.Text = trkBrTh3.Value.ToString();
-            //CommonParameters.algo.th3Prop = trkBrTh1.Value;
-            txtth4.Text = trkBrTh4.Value.ToString();
+            
             //CommonParameters.algo.th1Prop = trkBrTh4.Value;
-            txtth5.Text = trkBrTh5.Value.ToString();
             //CommonParameters.algo.th5Prop = trkBrTh1.Value;
 
             var textBoxes = GetAll(this, typeof(TextBox));
@@ -101,25 +96,7 @@ namespace SandPaperInspection
 
         }
 
-        private void trkBrTh3_Scroll(object sender, EventArgs e)
-        {
-            txtth3.Text = trkBrTh3.Value.ToString();
-            CommonParameters.algo.th3Prop = trkBrTh1.Value;
-
-        }
-
-        private void trkBrTh4_Scroll(object sender, EventArgs e)
-        {
-            txtth4.Text = trkBrTh4.Value.ToString();
-            CommonParameters.algo.th1Prop = trkBrTh4.Value;
-
-        }
-
-        private void trkBrTh5_Scroll(object sender, EventArgs e)
-        {
-            txtth5.Text = trkBrTh5.Value.ToString();
-            CommonParameters.algo.th5Prop = trkBrTh1.Value;
-        }
+        
 
         private void btmThreshold_Click(object sender, EventArgs e)
         {
@@ -127,15 +104,12 @@ namespace SandPaperInspection
             DialogResult dialogResult = MessageBox.Show("Save settings for current model ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                ModelData.webDetect = trkBrTh1.Value;
-                ModelData.blockSize = trkBrTh2.Value;
-                modelData.okLimit = trkBrTh3.Value;
-                modelData.thresh1 = trkBrTh4.Value;
-                modelData.thresh2 = trkBrTh5.Value;
+                ModelData.webDetect = Convert.ToInt32(txtTH1.Text);
+                ModelData.blockSize = Convert.ToInt32(txtth2.Text);
+                
                 string threshResult = JsonConvert.SerializeObject(modelData);
                 string path = string.Format(@"{0}\Models\{1}", CommonParameters.projectDirectory, CommonParameters.selectedModel);
                 File.WriteAllText(path + @"\thresholds.json", threshResult);
-                Console.WriteLine(threshResult);
                 MessageBox.Show("Settings saved.");
             }
             else
