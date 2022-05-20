@@ -905,7 +905,7 @@ namespace SandPaperInspection
             CommonParameters.algo.defMinSizeProp = ModelData.webDetect;
             CommonParameters.algo.defBlockSizeProp = ModelData.blockSize;
             comboBoxOperation.SelectedIndex = 0;
-
+            
             clock.Start();
             string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
@@ -963,7 +963,10 @@ namespace SandPaperInspection
             {
                 HandleError(err);
             }
+            UpdateFinishList();
+
             comboBoxFinish.SelectedItem = CommonParameters.selectedModel;
+            //MessageBox.Show(comboBoxFinish.SelectedItem.ToString() + " " + CommonParameters.selectedModel);
             textBoxBatchNum.Text = CommonParameters.batchNum;
             textBoxRollNum.Text = CommonParameters.rollNum;
             comboBoxOperation.SelectedItem = CommonParameters.operation;
@@ -971,7 +974,6 @@ namespace SandPaperInspection
             textBoxRollNum.Leave += TextBoxModelData_Leave;
             textBoxBatchNum.TextChanged += TextBox_TextChanged;
             textBoxRollNum.TextChanged += TextBox_TextChanged;
-            UpdateFinishList();
 
             comboBoxFinish.SelectedIndexChanged += comboBoxFinish_SelectedIndexChanged;
             comboBoxOperation.SelectedIndexChanged += comboBoxOperation_SelectedIndexChanged;
@@ -988,7 +990,11 @@ namespace SandPaperInspection
             comboBoxFinish.Items.Clear();
             DirectoryInfo obj = new DirectoryInfo(string.Format(@"{0}\Models", CommonParameters.projectDirectory));
             DirectoryInfo[] folders = obj.GetDirectories();
-            comboBoxFinish.DataSource = folders;
+
+            for (int i = 0; i < folders.Length; i++)
+            {
+                comboBoxFinish.Items.Add(folders[i].Name);
+            }
             
         }
 
@@ -996,7 +1002,6 @@ namespace SandPaperInspection
         bool stopInspection = false;
         private void TextBoxModelData_Leave(object sender, EventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
             if (!stopInspection)
             {
                 if (modelDataChanged)
@@ -1006,12 +1011,12 @@ namespace SandPaperInspection
                     if (dialogResult == DialogResult.Yes)
                     {
                         //MessageBox.Show("Reopen Inspection form to reflect changes.");
-                        CommonParameters.finish = comboBoxFinish.SelectedItem.ToString();
+                        CommonParameters.selectedModel = comboBoxFinish.SelectedItem.ToString();
                         CommonParameters.batchNum = textBoxBatchNum.Text;
                         CommonParameters.rollNum = textBoxRollNum.Text;
                         CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
                         stopInspection = true;
-                        sheetLength = 0;
+                        sheetLength = 2600;
                         doProcess = false;
                         btnStop_Click(sender, e);
                     }
@@ -1023,7 +1028,7 @@ namespace SandPaperInspection
             }
             else
             {
-                CommonParameters.finish = comboBoxFinish.SelectedItem.ToString();
+                CommonParameters.selectedModel = comboBoxFinish.SelectedItem.ToString();
                 CommonParameters.batchNum = textBoxBatchNum.Text;
                 CommonParameters.rollNum = textBoxRollNum.Text;
                 CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
@@ -1033,7 +1038,7 @@ namespace SandPaperInspection
 
         void UpdateDefaultModelData()
         {
-            comboBoxFinish.SelectedItem = CommonParameters.finish;
+            comboBoxFinish.SelectedItem = CommonParameters.selectedModel;
             textBoxBatchNum.Text = CommonParameters.batchNum;
             textBoxRollNum.Text = CommonParameters.rollNum;
             comboBoxOperation.SelectedItem = CommonParameters.operation;
@@ -1057,6 +1062,7 @@ namespace SandPaperInspection
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStop.Enabled = true;
+            stopInspection = false;
             //timer1.Enabled = true;
             if (allCameras.Count == 2)
             {
@@ -1105,10 +1111,17 @@ namespace SandPaperInspection
                                                     (Bitmap)fullImage.Clone());
                                 Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
-                                sheetLength += Convert.ToInt32(sheetLength + (algoImage.Height * 0.114259598));
 
                                 bool defectFound = false;
                                 path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
+
+
+                                labelDefCount.Invoke((Action)delegate
+                                {
+                                    labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
+
+
+                                });
 
                                 for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
                                 {
@@ -1118,16 +1131,37 @@ namespace SandPaperInspection
                                     double area = CommonParameters.algo.getDefectArea(i);
                                     int cat = CommonParameters.algo.getDefectCat(i);
                                     Rectangle cropRect = new Rectangle(CommonParameters.algo.getTopLeftPoint(i), new Size(width1, height1));
-                                   
+                                    
+                                    Point defLocation = new Point(0,0);
+                                    Point defSize = new Point(0, 0);
+                                    try
+                                    {
+                                        defLocation = new Point(Convert.ToInt32(CommonParameters.algo.getTopLeftPoint(i).X * 0.114259598),
+                                       Convert.ToInt32((CommonParameters.algo.getTopLeftPoint(i).Y + sheetLength) * 0.114259598));
+
+                                        defSize = new Point(Convert.ToInt32((cropRect.Width * 0.114259598)),
+                                            Convert.ToInt32(cropRect.Height * 0.114259598) );
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine("Error in px to mm {0}", ex.Message);
+                                        Console.WriteLine("cropRect {0} loca {1}", cropRect.Size, CommonParameters.algo.getTopLeftPoint(i));
+                                        ExceptionLogging.SendErrorToFile(ex);
+                                        defLocation = new Point(0, 0);
+                                        defSize = new Point(0, 0);
+                                        cropRect = new Rectangle(0,0,0,0);
+
+                                    }
+
                                     if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
                                     {
                                         
-                                        imageData.path = path + DateTime.Now.Millisecond.ToString() + ".bmp";
+                                        imageData.path = path + string.Format("_{0}_", CommonParameters.algo.getDefectCat(i)) + DateTime.Now.Millisecond.ToString() + ".bmp";
                                         imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
 
+                                        
 
-                                        Point defLocation = new Point(Convert.ToInt32(CommonParameters.algo.getTopLeftPoint(i).X * 0.114259598),
-                                            Convert.ToInt32((CommonParameters.algo.getTopLeftPoint(i).Y + sheetLength) * 0.114259598));
+
                                         //Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
 
                                         //defectLoc.Y += (int)((heightAddon - fullImage.Height) * CommonParameters.algo.mmperPixProp);
@@ -1138,12 +1172,12 @@ namespace SandPaperInspection
                                         db.InsertRecord(
                                             Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                             Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
-                                            string.Format("{0}--{1}",CommonParameters.selectedModel, CommonParameters.selectedModel),
+                                            string.Format("{0}",CommonParameters.selectedModel),
                                             defLocation,
                                             imageData.defectType[CommonParameters.algo.getDefectCat(i)],
                                             imageData.path,
                                             CommonParameters.algo.getDefectCat(i),
-                                            (Point)cropRect.Size,
+                                            defSize,
                                             CommonParameters.finish,
                                             CommonParameters.operation,
                                             CommonParameters.rollNum,
@@ -1210,17 +1244,20 @@ namespace SandPaperInspection
 
                                 }
 
+                                Console.WriteLine("Sheet length {0}", sheetLength);
+
+                                labelLength.Invoke((Action)delegate
+                                {
+                                    labelLength.Text = ((sheetLength * 0.114259598) / 1000).ToString("N3");
+
+                                });
+
+                                sheetLength += 2600;
 
 
                                 //Thread.Sleep(50);
                                 bitmapsMerge1.RemoveAt(0);
                                 bitmapsMerge2.RemoveAt(0);
-
-                                labelLength.Invoke((Action)delegate
-                                {
-                                    labelLength.Text = (heightAddon * 0.114259598).ToString("N2");
-
-                                });
 
 
                                 labelJumboWidth.Invoke((Action)delegate
@@ -1232,16 +1269,16 @@ namespace SandPaperInspection
                                 Console.WriteLine("Time taken by thread {0}", sw.ElapsedMilliseconds);
                             }
 
-
-                        
                         }
                         catch (Exception ex)
                         {
+                            ExceptionLogging.SendErrorToFile(ex);
                             Console.WriteLine(ex.Message);
                             MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
                             btnStop_Click(sender, e);
+                            throw;
                         }
-                    }  
+                    }
                 });
                 processThread.Start();
                 //Thread saveData = new Thread(() => {
@@ -1304,22 +1341,23 @@ namespace SandPaperInspection
                 con.Open();
 
                 string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Finish"",
-                                    point(_location[0] * 0.1000, _location[1] * 0.1000) as ""Location"", 
+                                   _location as ""Location"", 
                                     deftype as ""Defect Type"",
-                                    point(defectsize[0] * 0.1000, defectsize[1] * 0.1000) as ""Defect Size"" 
+                                    defectsize as ""Defect Size"" 
                                     from public.logreport where _date = '{0}'
                                     and _time between '{1}' and '{2}' 
-                                    and serialnum = @srnum order by _date asc, _time desc", 
+                                    and serialnum = '{3}' order by _date asc, _time desc", 
                                     DateTime.Now.ToString("yyyy-MM-dd"),
                                     DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
-                                    DateTime.Now.ToString("HH:mm:ss")
+                                    DateTime.Now.ToString("HH:mm:ss"),
+                                    CommonParameters.selectedModel.ToString()
                                     );
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
                 //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
                 //cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
                 //cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
-                cmd.Parameters.AddWithValue("@srnum", CommonParameters.selectedModel.ToString());
+                //cmd.Parameters.AddWithValue("@srnum", CommonParameters.finish.ToString());
                 NpgsqlDataReader reader = cmd.ExecuteReader();
                 
 
@@ -1328,10 +1366,21 @@ namespace SandPaperInspection
                     dt.Clear();
                     dt.Load(reader);
                     dataGridViewReport.DataSource = dt;
-                    
+                    Console.WriteLine("report populated");
 
                 }
-                
+                else
+                {
+                    Console.WriteLine("No data");
+                    //Console.WriteLine(query);
+
+                }
+
+                foreach  (DataGridViewColumn dgvc in dataGridViewReport.Columns)
+                {
+                    dgvc.Width = 200;
+                }
+
                 reader.Close();
 
             }
@@ -1348,7 +1397,7 @@ namespace SandPaperInspection
             doProcess = false;
             setCardDO(1, false);
             setCardDO(0, false);
-
+            Thread.Sleep(600);
             captureImages = false;
             if (processThread != null && processThread.IsAlive)
             {
@@ -1427,6 +1476,7 @@ namespace SandPaperInspection
 
         private void InspectionPage_FormClosing(object sender, FormClosingEventArgs e)
         {
+            btnStop_Click(sender, e);
             doProcess = false;
             setCardDO(0, false);
             setCardDO(1, false);
@@ -1518,7 +1568,7 @@ namespace SandPaperInspection
             }
         }
 
-        int sheetLength = 0;
+        int sheetLength = 2600;
 
         int pbFrame = 0;
         private void timer1_Tick(object sender, EventArgs e)
@@ -1756,7 +1806,9 @@ namespace SandPaperInspection
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-
+            double fl = 4567.8575952;
+            int p = Convert.ToInt32(fl);
+            Console.WriteLine(p);
 
         }
 
@@ -2122,8 +2174,9 @@ namespace SandPaperInspection
                         "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
+                CommonParameters.finish = comboBoxFinish.SelectedItem.ToString();
                 CommonParameters.selectedModel = comboBoxFinish.SelectedItem.ToString();
-
+                sheetLength = 2600;
                 btnStop_Click(sender, e);
             }
             else
@@ -2142,6 +2195,7 @@ namespace SandPaperInspection
             if (dialogResult == DialogResult.Yes)
             {
                 CommonParameters.operation = comboBoxOperation.SelectedItem.ToString();
+                sheetLength = 2600;
 
                 btnStop_Click(sender, e);
             }
@@ -2153,5 +2207,23 @@ namespace SandPaperInspection
 
         }
 
+        private void buttonEnter_Click(object sender, EventArgs e)
+        {
+            //TextBoxModelData_Leave(sender, e);
+        }
+
+        private void buttonRollMinus_Click(object sender, EventArgs e)
+        {
+            textBoxRollNum.Text = (Convert.ToInt32(textBoxRollNum.Text) - 1).ToString();
+            TextBox_TextChanged(sender, e);
+            TextBoxModelData_Leave(sender, e);
+        }
+
+        private void buttonRollPlus_Click(object sender, EventArgs e)
+        {
+            textBoxRollNum.Text = (Convert.ToInt32(textBoxRollNum.Text) + 1).ToString();
+            TextBox_TextChanged(sender, e);
+            TextBoxModelData_Leave(sender, e);
+        }
     }
 }

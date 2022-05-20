@@ -155,6 +155,7 @@
     <Compile Include="classes\CameraParameters.cs" />
     <Compile Include="classes\CommonParameters.cs" />
     <Compile Include="classes\Database.cs" />
+    <Compile Include="classes\ExceptionLogging.cs" />
     <Compile Include="CreateModel.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -95,18 +95,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1924, 55);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // chart1
             // 
             chartArea1.AxisX.LabelAutoFitMaxFontSize = 16;
             chartArea1.AxisX.LabelAutoFitMinFontSize = 16;
-            chartArea1.AxisX.Title = "Width in Meters";
+            chartArea1.AxisX.Title = "Width in Mili Meters";
             chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX2.LabelAutoFitMaxFontSize = 16;
             chartArea1.AxisX2.LabelAutoFitMinFontSize = 16;
             chartArea1.AxisY.LabelAutoFitMaxFontSize = 16;
             chartArea1.AxisY.LabelAutoFitMinFontSize = 16;
-            chartArea1.AxisY.Title = "Length in Meters";
+            chartArea1.AxisY.Title = "Length in Mili Meters";
             chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY2.LabelAutoFitMaxFontSize = 16;
             chartArea1.AxisY2.LabelAutoFitMinFontSize = 16;

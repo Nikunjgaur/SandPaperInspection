@@ -46,9 +46,9 @@
             this.labelLength = new System.Windows.Forms.Label();
             this.labelJumboLength = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.labelJumboWidth = new System.Windows.Forms.Label();
             this.lblRun = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.labelJumboWidth = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnCameraSettings = new System.Windows.Forms.Button();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -63,17 +63,20 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonRollMinus = new System.Windows.Forms.Button();
+            this.buttonRollPlus = new System.Windows.Forms.Button();
+            this.buttonEnter = new System.Windows.Forms.Button();
             this.comboBoxFinish = new System.Windows.Forms.ComboBox();
             this.comboBoxOperation = new System.Windows.Forms.ComboBox();
             this.textBoxBatchNum = new System.Windows.Forms.TextBox();
             this.textBoxRollNum = new System.Windows.Forms.TextBox();
-            this.labelSpeed = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelSpeed = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.buttonReport = new System.Windows.Forms.Button();
             this.labelDateTime = new System.Windows.Forms.Label();
             this.clock = new System.Windows.Forms.Timer(this.components);
@@ -147,8 +150,6 @@
             this.groupBox2.Controls.Add(this.labelLength);
             this.groupBox2.Controls.Add(this.labelJumboLength);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.lblRun);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.labelJumboWidth);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -164,7 +165,7 @@
             // 
             this.labelDefCount.AutoSize = true;
             this.labelDefCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDefCount.Location = new System.Drawing.Point(377, 47);
+            this.labelDefCount.Location = new System.Drawing.Point(357, 47);
             this.labelDefCount.Name = "labelDefCount";
             this.labelDefCount.Size = new System.Drawing.Size(54, 42);
             this.labelDefCount.TabIndex = 90;
@@ -187,7 +188,7 @@
             this.checkBoxLog.Checked = true;
             this.checkBoxLog.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxLog.Location = new System.Drawing.Point(11, 287);
+            this.checkBoxLog.Location = new System.Drawing.Point(11, 224);
             this.checkBoxLog.Name = "checkBoxLog";
             this.checkBoxLog.Size = new System.Drawing.Size(301, 49);
             this.checkBoxLog.TabIndex = 89;
@@ -207,7 +208,7 @@
             this.labelLength.AutoSize = true;
             this.labelLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLength.ForeColor = System.Drawing.Color.White;
-            this.labelLength.Location = new System.Drawing.Point(377, 165);
+            this.labelLength.Location = new System.Drawing.Point(357, 102);
             this.labelLength.Name = "labelLength";
             this.labelLength.Size = new System.Drawing.Size(60, 42);
             this.labelLength.TabIndex = 50;
@@ -218,55 +219,59 @@
             this.labelJumboLength.AutoSize = true;
             this.labelJumboLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumboLength.ForeColor = System.Drawing.Color.White;
-            this.labelJumboLength.Location = new System.Drawing.Point(6, 165);
+            this.labelJumboLength.Location = new System.Drawing.Point(6, 102);
             this.labelJumboLength.Name = "labelJumboLength";
-            this.labelJumboLength.Size = new System.Drawing.Size(339, 42);
+            this.labelJumboLength.Size = new System.Drawing.Size(331, 42);
             this.labelJumboLength.TabIndex = 51;
-            this.labelJumboLength.Text = "Jumbo Length(mm)";
+            this.labelJumboLength.Text = "Jumbo Length(mtr)";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(9, 228);
+            this.label11.Location = new System.Drawing.Point(9, 165);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(339, 42);
             this.label11.TabIndex = 43;
             this.label11.Text = "Jumbo Width (mm):";
-            // 
-            // lblRun
-            // 
-            this.lblRun.AutoSize = true;
-            this.lblRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRun.ForeColor = System.Drawing.Color.White;
-            this.lblRun.Location = new System.Drawing.Point(377, 102);
-            this.lblRun.Name = "lblRun";
-            this.lblRun.Size = new System.Drawing.Size(60, 42);
-            this.lblRun.TabIndex = 17;
-            this.lblRun.Text = "00";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(11, 102);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(288, 42);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "Defect Location:";
             // 
             // labelJumboWidth
             // 
             this.labelJumboWidth.AutoSize = true;
             this.labelJumboWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumboWidth.ForeColor = System.Drawing.Color.Chartreuse;
-            this.labelJumboWidth.Location = new System.Drawing.Point(377, 228);
+            this.labelJumboWidth.Location = new System.Drawing.Point(357, 165);
             this.labelJumboWidth.Name = "labelJumboWidth";
             this.labelJumboWidth.Size = new System.Drawing.Size(60, 42);
             this.labelJumboWidth.TabIndex = 44;
             this.labelJumboWidth.Text = "00";
+            // 
+            // lblRun
+            // 
+            this.lblRun.AutoSize = true;
+            this.lblRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.lblRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRun.ForeColor = System.Drawing.Color.White;
+            this.lblRun.Location = new System.Drawing.Point(389, 991);
+            this.lblRun.Name = "lblRun";
+            this.lblRun.Size = new System.Drawing.Size(60, 42);
+            this.lblRun.TabIndex = 17;
+            this.lblRun.Text = "00";
+            this.lblRun.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(43, 991);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(288, 42);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "Defect Location:";
+            this.label14.Visible = false;
             // 
             // label15
             // 
@@ -416,12 +421,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.groupBox1.Controls.Add(this.buttonRollMinus);
+            this.groupBox1.Controls.Add(this.buttonRollPlus);
+            this.groupBox1.Controls.Add(this.buttonEnter);
             this.groupBox1.Controls.Add(this.comboBoxFinish);
             this.groupBox1.Controls.Add(this.comboBoxOperation);
             this.groupBox1.Controls.Add(this.textBoxBatchNum);
             this.groupBox1.Controls.Add(this.textBoxRollNum);
-            this.groupBox1.Controls.Add(this.labelSpeed);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
@@ -435,6 +441,43 @@
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Model Data ";
+            // 
+            // buttonRollMinus
+            // 
+            this.buttonRollMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRollMinus.ForeColor = System.Drawing.Color.Black;
+            this.buttonRollMinus.Location = new System.Drawing.Point(235, 274);
+            this.buttonRollMinus.Name = "buttonRollMinus";
+            this.buttonRollMinus.Size = new System.Drawing.Size(61, 40);
+            this.buttonRollMinus.TabIndex = 95;
+            this.buttonRollMinus.Text = "-";
+            this.buttonRollMinus.UseVisualStyleBackColor = true;
+            this.buttonRollMinus.Click += new System.EventHandler(this.buttonRollMinus_Click);
+            // 
+            // buttonRollPlus
+            // 
+            this.buttonRollPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRollPlus.ForeColor = System.Drawing.Color.Black;
+            this.buttonRollPlus.Location = new System.Drawing.Point(418, 274);
+            this.buttonRollPlus.Name = "buttonRollPlus";
+            this.buttonRollPlus.Size = new System.Drawing.Size(60, 40);
+            this.buttonRollPlus.TabIndex = 94;
+            this.buttonRollPlus.Text = "+";
+            this.buttonRollPlus.UseVisualStyleBackColor = true;
+            this.buttonRollPlus.Click += new System.EventHandler(this.buttonRollPlus_Click);
+            // 
+            // buttonEnter
+            // 
+            this.buttonEnter.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEnter.ForeColor = System.Drawing.Color.Black;
+            this.buttonEnter.Location = new System.Drawing.Point(305, 273);
+            this.buttonEnter.Name = "buttonEnter";
+            this.buttonEnter.Size = new System.Drawing.Size(105, 40);
+            this.buttonEnter.TabIndex = 93;
+            this.buttonEnter.Text = "Enter";
+            this.buttonEnter.UseVisualStyleBackColor = false;
+            this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
             // 
             // comboBoxFinish
             // 
@@ -459,7 +502,7 @@
             "BACK FILL",
             "FRONT FILL",
             "WET ON WET"});
-            this.comboBoxOperation.Location = new System.Drawing.Point(227, 92);
+            this.comboBoxOperation.Location = new System.Drawing.Point(227, 81);
             this.comboBoxOperation.Name = "comboBoxOperation";
             this.comboBoxOperation.Size = new System.Drawing.Size(252, 50);
             this.comboBoxOperation.TabIndex = 92;
@@ -467,7 +510,7 @@
             // textBoxBatchNum
             // 
             this.textBoxBatchNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBatchNum.Location = new System.Drawing.Point(227, 154);
+            this.textBoxBatchNum.Location = new System.Drawing.Point(227, 143);
             this.textBoxBatchNum.Name = "textBoxBatchNum";
             this.textBoxBatchNum.Size = new System.Drawing.Size(252, 49);
             this.textBoxBatchNum.TabIndex = 91;
@@ -476,34 +519,11 @@
             // textBoxRollNum
             // 
             this.textBoxRollNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRollNum.Location = new System.Drawing.Point(227, 224);
+            this.textBoxRollNum.Location = new System.Drawing.Point(227, 213);
             this.textBoxRollNum.Name = "textBoxRollNum";
             this.textBoxRollNum.Size = new System.Drawing.Size(252, 49);
             this.textBoxRollNum.TabIndex = 91;
             this.textBoxRollNum.Text = "1234";
-            // 
-            // labelSpeed
-            // 
-            this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpeed.Location = new System.Drawing.Point(283, 274);
-            this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(54, 42);
-            this.labelSpeed.TabIndex = 90;
-            this.labelSpeed.Text = "---";
-            this.labelSpeed.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(6, 269);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 42);
-            this.label7.TabIndex = 89;
-            this.label7.Text = "Speed:";
-            this.label7.Visible = false;
             // 
             // panel2
             // 
@@ -518,7 +538,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 154);
+            this.label3.Location = new System.Drawing.Point(6, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(212, 42);
             this.label3.TabIndex = 58;
@@ -529,7 +549,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 92);
+            this.label6.Location = new System.Drawing.Point(6, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 42);
             this.label6.TabIndex = 58;
@@ -540,7 +560,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(6, 214);
+            this.label4.Location = new System.Drawing.Point(6, 203);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 42);
             this.label4.TabIndex = 57;
@@ -556,6 +576,29 @@
             this.label2.Size = new System.Drawing.Size(128, 42);
             this.label2.TabIndex = 22;
             this.label2.Text = "Finish:";
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpeed.Location = new System.Drawing.Point(242, 1002);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.Size = new System.Drawing.Size(54, 42);
+            this.labelSpeed.TabIndex = 90;
+            this.labelSpeed.Text = "---";
+            this.labelSpeed.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(47, 1002);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 42);
+            this.label7.TabIndex = 89;
+            this.label7.Text = "Speed:";
+            this.label7.Visible = false;
             // 
             // buttonReport
             // 
@@ -595,7 +638,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(1223, 656);
+            this.chart1.Location = new System.Drawing.Point(1660, 656);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
@@ -610,7 +653,7 @@
             series2.Name = "Defect Percent";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(688, 392);
+            this.chart1.Size = new System.Drawing.Size(251, 392);
             this.chart1.TabIndex = 87;
             this.chart1.Text = "chart1";
             // 
@@ -672,7 +715,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewReport.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewReport.RowTemplate.Height = 44;
-            this.dataGridViewReport.Size = new System.Drawing.Size(625, 392);
+            this.dataGridViewReport.Size = new System.Drawing.Size(1357, 392);
             this.dataGridViewReport.TabIndex = 91;
             // 
             // InspectionPage
@@ -685,7 +728,11 @@
             this.Controls.Add(this.dataGridViewReport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.labelSaveImage);
+            this.Controls.Add(this.labelSpeed);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblRun);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.labelDateTime);
@@ -776,6 +823,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxBatchNum;
         private System.Windows.Forms.ComboBox comboBoxFinish;
+        private System.Windows.Forms.Button buttonRollMinus;
+        private System.Windows.Forms.Button buttonRollPlus;
+        private System.Windows.Forms.Button buttonEnter;
     }
 }
 

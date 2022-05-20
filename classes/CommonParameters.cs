@@ -25,15 +25,15 @@ namespace SandPaperInspection.classes
 
         public static string finish = "0000";
         public static string batchNum = "ABCD1234";
-        public static string operation = "Dipp Fill";
+        public static string operation = "DIP FILL";
         public static string rollNum = "0000";
     }
     public class ModelData
     {
         [JsonProperty]
-        public static int webDetect = 56;
+        public static int webDetect = 21;
         [JsonProperty]
-        public static int blockSize = 70;
+        public static int blockSize = 125;
         public int okLimit = 70;
         [JsonProperty]
         public static double cam1Expo = 100;

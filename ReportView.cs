@@ -31,7 +31,7 @@ namespace SandPaperInspection
             //reportImg = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             //chart1.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
             //chart1.ChartAreas[0].AxisX2.Enabled = AxisEnabled.True;
-            chart1.ChartAreas[0].AxisX.Maximum = 16000;
+            chart1.ChartAreas[0].AxisX.Maximum = 1500;
             chart1.ChartAreas[0].AxisY.Maximum = 3000;
             chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
@@ -406,8 +406,8 @@ namespace SandPaperInspection
             using (NpgsqlConnection con = db.GetConnection())
             {
                 con.Open();
-                string query = @"select point(_location[0] * 0.114259598, _location[1] * 0.114259598) as ""Location"",
-                                point(defectsize[0] * 0.114259598, defectsize[1] * 0.114259598) as ""Defect Size"",
+                string query = @"select _location as ""Location"",
+                                defectsize as ""Defect Size"",
                                 deftype as ""Defect Type"",
                                 imagepath from public.logreport where _date = @date and _location ~= @point";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
@@ -503,8 +503,7 @@ namespace SandPaperInspection
             {
                 // Find selected data point
                 var point = c.Series[result.Series.Name].Points[result.PointIndex];
-                Console.WriteLine(result.Series.Name);
-                Console.WriteLine(point.YValues[0]);
+                
                 SetReportWithPoint(new Point((int)point.XValue, (int)point.YValues[0]));
                 return point;
             }
@@ -601,6 +600,9 @@ namespace SandPaperInspection
 
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

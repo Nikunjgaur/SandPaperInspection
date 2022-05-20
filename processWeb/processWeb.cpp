@@ -1411,7 +1411,7 @@ Mat processWeb::Class1::processSandSG(Mat imageIn, int& defectCount, double& def
 				//cout << "This is off set " << offSet << endl;
 				pointLoc.defectArea = contAr * 25;
 				returnDefPoints.push_back(pointLoc);
-				//putText(drawImg, vec_defectCat[defectCat], Point(rr.boundingRect().x, rr.boundingRect().y + 40), FONT_HERSHEY_COMPLEX, 0.5, Scalar(0, 100, 100), 1);
+				putText(drawImg, vec_defectCat[defectCat], Point(rr.boundingRect().x, rr.boundingRect().y + 40), FONT_HERSHEY_COMPLEX, 1.5, Scalar(0, 100, 100), 2);
 				vec_defects.push_back({ i,rr.center,rr.boundingRect() });
 			}
 		}
