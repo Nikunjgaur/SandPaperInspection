@@ -1,0 +1,20 @@
+-----------Exception Details on  02-06-2022 13:57:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 02-06-2022 13:57:18
+
+Error Line No : ne 1128
+
+Error Message: ThreadAbortException
+
+Exception Type: System.Threading.ThreadAbortException
+
+Error Location : Thread was being aborted.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

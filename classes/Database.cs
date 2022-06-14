@@ -28,7 +28,7 @@ namespace SandPaperInspection.classes
 
         public void InsertRecord(DateTime date, DateTime time, string srNum, Point locationPoint,
                                string deftype, string imgPath, int productCode, Point defSize, string finish,
-                               string operation, string rollNumber, string batchNum)
+                               string operation, string rollNumber, string batchNum, string fullResPath)
         {
 
             NpgsqlTypes.NpgsqlPoint location = new NpgsqlTypes.NpgsqlPoint(locationPoint.X, locationPoint.Y);
@@ -38,9 +38,9 @@ namespace SandPaperInspection.classes
             {
                 
                 string query = @"insert into public.logreport (_date, _time, serialNum, _location, deftype, 
-                                imagepath, productcode, defectsize, finish, operation, rollnumber, batchnum)
+                                imagepath, productcode, defectsize, finish, operation, rollnumber, batchnum, fullimgpath)
                                 values(@date, @time, @srNum, @location, @deftype, @imgPath, @productCode, @defsize,
-                                @finish, @operation, @rollnumber, @batchNum)";
+                                @finish, @operation, @rollnumber, @batchNum, @fullResPath)";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, con);
 
@@ -56,6 +56,7 @@ namespace SandPaperInspection.classes
                 cmd.Parameters.AddWithValue("@operation", operation); 
                 cmd.Parameters.AddWithValue("@rollnumber", rollNumber); 
                 cmd.Parameters.AddWithValue("@batchNum", batchNum);
+                cmd.Parameters.AddWithValue("@fullResPath", fullResPath);
                 //Console.WriteLine(cmd.CommandText);
                 con.Open();
                 int n = cmd.ExecuteNonQuery();

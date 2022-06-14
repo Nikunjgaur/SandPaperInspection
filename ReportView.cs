@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -22,6 +23,7 @@ namespace SandPaperInspection
         Bitmap reportImg;
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
+        string fullImgPath = "";
        // Bitmap[] inputImages = new Bitmap[4];
         //string[] inputImagesPath = new string[4];
         NpgsqlTypes.NpgsqlPoint point = new NpgsqlTypes.NpgsqlPoint(0, 0);
@@ -168,6 +170,8 @@ namespace SandPaperInspection
                 }
                 else
                 {
+                    checkBoxLiveChart.Checked = false;
+
                     MessageBox.Show("No Data Found");
                 }
                 reader.Close();
@@ -227,7 +231,8 @@ namespace SandPaperInspection
             //Console.WriteLine("This is rows count" + dt.Rows.Count);
             //timer1.Enabled = true;
             //timer1.Start();
-
+            checkBoxLiveChart.Checked = false;
+            
         }
 
         void UpdateModelList()
@@ -252,6 +257,8 @@ namespace SandPaperInspection
                 }
                 else
                 {
+                    checkBoxLiveChart.Checked = false;
+
                     MessageBox.Show("No Data Found");
                 }
             }
@@ -396,12 +403,14 @@ namespace SandPaperInspection
 
         }
 
+
         void SetReportWithPoint(Point point)
         {
             byte[] imgData = null;
             Bitmap bmp = null;
             NpgsqlTypes.NpgsqlPoint npPoint = new NpgsqlTypes.NpgsqlPoint (point.X, point.Y);
             Console.WriteLine(npPoint);
+            labelL2M.Text = (npPoint.Y / 1000).ToString("N3");
             dt2.Clear();
             using (NpgsqlConnection con = db.GetConnection())
             {
@@ -433,6 +442,8 @@ namespace SandPaperInspection
                 }
                 else
                 {
+                    checkBoxLiveChart.Checked = false;
+
                     MessageBox.Show("No Data Found");
                 }
                 for (int i = 0; i < dataGridView1.Columns.Count; i++)
@@ -443,7 +454,7 @@ namespace SandPaperInspection
                 }
                 reader.Close();
                 query = @"select _location as ""Location"", deftype as ""Defect Type"",
-                                productcode ""Product Code"", imagepath, defectsize from public.logreport where _date = @date and _location ~= @point";
+                                productcode ""Product Code"", imagepath, defectsize, fullimgpath from public.logreport where _date = @date and _location ~= @point";
                 cmd = new NpgsqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
                 cmd.Parameters.AddWithValue("@point", npPoint);
@@ -456,6 +467,8 @@ namespace SandPaperInspection
                     NpgsqlTypes.NpgsqlPoint size = (NpgsqlTypes.NpgsqlPoint) reader[4];
 
                     Bitmap defImage = new Bitmap(string.Format(@"{0}", reader[3]));
+                    fullImgPath = reader[5].ToString();
+                    Console.WriteLine("fullImgPath {0}", fullImgPath);
                     Bitmap img = (Bitmap)defImage.Clone();
                     pictureBoxDefImage.Image = img;
                 }
@@ -531,9 +544,13 @@ namespace SandPaperInspection
                 chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
                 chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
                 ShowDateWise();
+                timerLiveChart.Enabled = true;
+                timerLiveChart.Start();
             }
             else
             {
+                checkBoxLiveChart.Checked = false;
+
                 MessageBox.Show("Please select a serial Number", "Invalid Serial Number", MessageBoxButtons.OK ,MessageBoxIcon.Information);
             }
         }
@@ -603,6 +620,26 @@ namespace SandPaperInspection
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonViewImg_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(fullImgPath))
+            {
+                Process.Start(fullImgPath);
+            }
+            else
+            {
+                MessageBox.Show("File empty");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //if (comboBoxSrNum.SelectedItem != null && comboBoxSrNum.SelectedIndex >= 0)
+            //{
+            //    buttonShowData_Click(sender, e);
+            //}
         }
     }
 }

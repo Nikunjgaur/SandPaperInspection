@@ -1,197 +1,197 @@
------------Exception Details on  20-05-2022 12:49:20-----------------
+-----------Exception Details on  01-06-2022 13:23:10-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 12:49:20
+Log Written Date: 01-06-2022 13:23:10
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 12:53:13-----------------
+-----------Exception Details on  01-06-2022 13:23:55-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 12:53:13
+Log Written Date: 01-06-2022 13:23:55
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 13:23:44-----------------
+-----------Exception Details on  01-06-2022 13:26:42-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 13:23:44
+Log Written Date: 01-06-2022 13:26:42
 
-Error Line No : ne 1267
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 13:40:11-----------------
+-----------Exception Details on  01-06-2022 13:31:21-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 13:40:11
+Log Written Date: 01-06-2022 13:31:21
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 13:40:51-----------------
+-----------Exception Details on  01-06-2022 13:41:45-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 13:40:51
+Log Written Date: 01-06-2022 13:41:45
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 15:56:06-----------------
+-----------Exception Details on  01-06-2022 13:42:08-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 15:56:06
+Log Written Date: 01-06-2022 13:42:08
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 15:59:21-----------------
+-----------Exception Details on  01-06-2022 13:48:50-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 15:59:21
+Log Written Date: 01-06-2022 13:48:50
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 16:02:38-----------------
+-----------Exception Details on  01-06-2022 13:57:14-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 16:02:38
+Log Written Date: 01-06-2022 13:57:14
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 17:00:11-----------------
+-----------Exception Details on  01-06-2022 14:02:59-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 17:00:11
+Log Written Date: 01-06-2022 14:02:59
 
-Error Line No : ne 1268
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------
 
 
 
------------Exception Details on  20-05-2022 17:04:48-----------------
+-----------Exception Details on  01-06-2022 14:14:45-----------------
 -------------------------------------------------------------------------------------
 
 
 
-Log Written Date: 20-05-2022 17:04:48
+Log Written Date: 01-06-2022 14:14:45
 
-Error Line No : ne 1126
+Error Line No : ne 1198
 
-Error Message: ThreadAbortException
+Error Message: ExternalException
 
-Exception Type: System.Threading.ThreadAbortException
+Exception Type: System.Runtime.InteropServices.ExternalException
 
-Error Location : Thread was being aborted.
+Error Location : A generic error occurred in GDI+.
 
  Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
 --------------------------------*End*------------------------------------------

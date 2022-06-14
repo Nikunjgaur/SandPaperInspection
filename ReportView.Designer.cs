@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -68,6 +68,11 @@
             this.comboBoxBatch = new System.Windows.Forms.ComboBox();
             this.comboBoxRollNum = new System.Windows.Forms.ComboBox();
             this.comboBoxOperation = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelL2M = new System.Windows.Forms.Label();
+            this.buttonViewImg = new System.Windows.Forms.Button();
+            this.timerLiveChart = new System.Windows.Forms.Timer(this.components);
+            this.checkBoxLiveChart = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -99,74 +104,74 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX.LabelAutoFitMaxFontSize = 16;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 16;
-            chartArea1.AxisX.Title = "Width in Mili Meters";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX2.LabelAutoFitMaxFontSize = 16;
-            chartArea1.AxisX2.LabelAutoFitMinFontSize = 16;
-            chartArea1.AxisY.LabelAutoFitMaxFontSize = 16;
-            chartArea1.AxisY.LabelAutoFitMinFontSize = 16;
-            chartArea1.AxisY.Title = "Length in Mili Meters";
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY2.LabelAutoFitMaxFontSize = 16;
-            chartArea1.AxisY2.LabelAutoFitMinFontSize = 16;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.AxisX.LabelAutoFitMaxFontSize = 16;
+            chartArea4.AxisX.LabelAutoFitMinFontSize = 16;
+            chartArea4.AxisX.Title = "Width in Mili Meters";
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisX2.LabelAutoFitMaxFontSize = 16;
+            chartArea4.AxisX2.LabelAutoFitMinFontSize = 16;
+            chartArea4.AxisY.LabelAutoFitMaxFontSize = 16;
+            chartArea4.AxisY.LabelAutoFitMinFontSize = 16;
+            chartArea4.AxisY.Title = "Length in Mili Meters";
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY2.LabelAutoFitMaxFontSize = 16;
+            chartArea4.AxisY2.LabelAutoFitMinFontSize = 16;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(40, 114);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 20;
-            series1.Name = "Line Marks";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 20;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
-            series2.Name = "Wrinkle";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.Legend = "Legend1";
-            series3.MarkerSize = 20;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series3.Name = "Hole/Cut";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.Legend = "Legend1";
-            series4.MarkerSize = 20;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
-            series4.Name = "Tape";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.Legend = "Legend1";
-            series5.MarkerSize = 20;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
-            series5.Name = "Other";
-            series5.YValuesPerPoint = 2;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.Legend = "Legend1";
-            series6.MarkerSize = 20;
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star6;
-            series6.Name = "Nozzle Marks";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series19.Legend = "Legend1";
+            series19.MarkerSize = 20;
+            series19.Name = "Line Marks";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series20.Legend = "Legend1";
+            series20.MarkerSize = 20;
+            series20.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
+            series20.Name = "Wrinkle";
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series21.Legend = "Legend1";
+            series21.MarkerSize = 20;
+            series21.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series21.Name = "Hole/Cut";
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series22.Legend = "Legend1";
+            series22.MarkerSize = 20;
+            series22.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star4;
+            series22.Name = "Tape";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series23.Legend = "Legend1";
+            series23.MarkerSize = 20;
+            series23.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
+            series23.Name = "Other";
+            series23.YValuesPerPoint = 2;
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series24.Legend = "Legend1";
+            series24.MarkerSize = 20;
+            series24.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Star6;
+            series24.Name = "Nozzle Marks";
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
             this.chart1.Size = new System.Drawing.Size(1489, 850);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -177,7 +182,7 @@
             this.comboBoxSrNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSrNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSrNum.FormattingEnabled = true;
-            this.comboBoxSrNum.Location = new System.Drawing.Point(1735, 201);
+            this.comboBoxSrNum.Location = new System.Drawing.Point(1735, 118);
             this.comboBoxSrNum.Name = "comboBoxSrNum";
             this.comboBoxSrNum.Size = new System.Drawing.Size(159, 33);
             this.comboBoxSrNum.TabIndex = 6;
@@ -188,7 +193,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1558, 200);
+            this.label2.Location = new System.Drawing.Point(1558, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(136, 25);
             this.label2.TabIndex = 7;
@@ -198,7 +203,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1558, 155);
+            this.label3.Location = new System.Drawing.Point(1558, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 25);
             this.label3.TabIndex = 7;
@@ -207,7 +212,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(1735, 155);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1735, 72);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(160, 31);
             this.dateTimePicker1.TabIndex = 8;
@@ -218,20 +223,20 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1565, 619);
+            this.dataGridView1.Location = new System.Drawing.Point(1565, 547);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowTemplate.Height = 34;
             this.dataGridView1.Size = new System.Drawing.Size(332, 158);
             this.dataGridView1.TabIndex = 9;
@@ -240,7 +245,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1565, 542);
+            this.label4.Location = new System.Drawing.Point(1565, 470);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 31);
             this.label4.TabIndex = 10;
@@ -250,7 +255,7 @@
             // 
             this.labeltotalDef.AutoSize = true;
             this.labeltotalDef.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltotalDef.Location = new System.Drawing.Point(1748, 542);
+            this.labeltotalDef.Location = new System.Drawing.Point(1748, 470);
             this.labeltotalDef.Name = "labeltotalDef";
             this.labeltotalDef.Size = new System.Drawing.Size(44, 31);
             this.labeltotalDef.TabIndex = 10;
@@ -260,7 +265,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1565, 578);
+            this.label5.Location = new System.Drawing.Point(1565, 506);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(185, 31);
             this.label5.TabIndex = 10;
@@ -268,8 +273,8 @@
             // 
             // buttonShowData
             // 
-            this.buttonShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowData.Location = new System.Drawing.Point(1742, 455);
+            this.buttonShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowData.Location = new System.Drawing.Point(1735, 362);
             this.buttonShowData.Name = "buttonShowData";
             this.buttonShowData.Size = new System.Drawing.Size(117, 44);
             this.buttonShowData.TabIndex = 11;
@@ -281,7 +286,7 @@
             // 
             this.radioButtonChartView.AutoSize = true;
             this.radioButtonChartView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonChartView.Location = new System.Drawing.Point(1571, 460);
+            this.radioButtonChartView.Location = new System.Drawing.Point(1571, 363);
             this.radioButtonChartView.Name = "radioButtonChartView";
             this.radioButtonChartView.Size = new System.Drawing.Size(134, 29);
             this.radioButtonChartView.TabIndex = 12;
@@ -294,7 +299,7 @@
             // 
             this.radioButtonGridView.AutoSize = true;
             this.radioButtonGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonGridView.Location = new System.Drawing.Point(1571, 496);
+            this.radioButtonGridView.Location = new System.Drawing.Point(1571, 399);
             this.radioButtonGridView.Name = "radioButtonGridView";
             this.radioButtonGridView.Size = new System.Drawing.Size(122, 29);
             this.radioButtonGridView.TabIndex = 13;
@@ -306,7 +311,7 @@
             // dataGridViewReport
             // 
             this.dataGridViewReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReport.Location = new System.Drawing.Point(23, 94);
+            this.dataGridViewReport.Location = new System.Drawing.Point(23, 107);
             this.dataGridViewReport.Name = "dataGridViewReport";
             this.dataGridViewReport.Size = new System.Drawing.Size(754, 884);
             this.dataGridViewReport.TabIndex = 14;
@@ -358,7 +363,7 @@
             // 
             // pictureBoxDefImage
             // 
-            this.pictureBoxDefImage.Location = new System.Drawing.Point(1565, 813);
+            this.pictureBoxDefImage.Location = new System.Drawing.Point(1565, 730);
             this.pictureBoxDefImage.Name = "pictureBoxDefImage";
             this.pictureBoxDefImage.Size = new System.Drawing.Size(320, 225);
             this.pictureBoxDefImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -370,7 +375,7 @@
             this.comboBoxDefect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDefect.FormattingEnabled = true;
-            this.comboBoxDefect.Location = new System.Drawing.Point(1735, 248);
+            this.comboBoxDefect.Location = new System.Drawing.Point(1735, 165);
             this.comboBoxDefect.Name = "comboBoxDefect";
             this.comboBoxDefect.Size = new System.Drawing.Size(159, 33);
             this.comboBoxDefect.TabIndex = 6;
@@ -381,7 +386,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1558, 247);
+            this.label8.Location = new System.Drawing.Point(1558, 164);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 25);
             this.label8.TabIndex = 7;
@@ -391,7 +396,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1560, 308);
+            this.label9.Location = new System.Drawing.Point(1560, 225);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 25);
             this.label9.TabIndex = 7;
@@ -401,7 +406,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1558, 352);
+            this.label10.Location = new System.Drawing.Point(1558, 269);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(165, 25);
             this.label10.TabIndex = 7;
@@ -411,7 +416,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1552, 398);
+            this.label11.Location = new System.Drawing.Point(1552, 315);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(172, 25);
             this.label11.TabIndex = 7;
@@ -421,7 +426,7 @@
             // 
             this.comboBoxBatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBatch.FormattingEnabled = true;
-            this.comboBoxBatch.Location = new System.Drawing.Point(1734, 304);
+            this.comboBoxBatch.Location = new System.Drawing.Point(1734, 221);
             this.comboBoxBatch.Name = "comboBoxBatch";
             this.comboBoxBatch.Size = new System.Drawing.Size(158, 33);
             this.comboBoxBatch.TabIndex = 17;
@@ -430,7 +435,7 @@
             // 
             this.comboBoxRollNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRollNum.FormattingEnabled = true;
-            this.comboBoxRollNum.Location = new System.Drawing.Point(1734, 348);
+            this.comboBoxRollNum.Location = new System.Drawing.Point(1734, 265);
             this.comboBoxRollNum.Name = "comboBoxRollNum";
             this.comboBoxRollNum.Size = new System.Drawing.Size(159, 33);
             this.comboBoxRollNum.TabIndex = 18;
@@ -440,16 +445,69 @@
             this.comboBoxOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOperation.FormattingEnabled = true;
-            this.comboBoxOperation.Location = new System.Drawing.Point(1734, 395);
+            this.comboBoxOperation.Location = new System.Drawing.Point(1734, 312);
             this.comboBoxOperation.Name = "comboBoxOperation";
             this.comboBoxOperation.Size = new System.Drawing.Size(160, 33);
             this.comboBoxOperation.TabIndex = 19;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(26, 65);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(384, 33);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Length converted to Meters :";
+            // 
+            // labelL2M
+            // 
+            this.labelL2M.AutoSize = true;
+            this.labelL2M.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelL2M.Location = new System.Drawing.Point(428, 65);
+            this.labelL2M.Name = "labelL2M";
+            this.labelL2M.Size = new System.Drawing.Size(45, 33);
+            this.labelL2M.TabIndex = 21;
+            this.labelL2M.Text = "---";
+            // 
+            // buttonViewImg
+            // 
+            this.buttonViewImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonViewImg.Location = new System.Drawing.Point(1626, 961);
+            this.buttonViewImg.Name = "buttonViewImg";
+            this.buttonViewImg.Size = new System.Drawing.Size(196, 41);
+            this.buttonViewImg.TabIndex = 22;
+            this.buttonViewImg.Text = "View HD image";
+            this.buttonViewImg.UseVisualStyleBackColor = true;
+            this.buttonViewImg.Click += new System.EventHandler(this.buttonViewImg_Click);
+            // 
+            // timerLiveChart
+            // 
+            this.timerLiveChart.Enabled = true;
+            this.timerLiveChart.Interval = 800;
+            this.timerLiveChart.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // checkBoxLiveChart
+            // 
+            this.checkBoxLiveChart.AutoSize = true;
+            this.checkBoxLiveChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLiveChart.Location = new System.Drawing.Point(1571, 435);
+            this.checkBoxLiveChart.Name = "checkBoxLiveChart";
+            this.checkBoxLiveChart.Size = new System.Drawing.Size(112, 28);
+            this.checkBoxLiveChart.TabIndex = 23;
+            this.checkBoxLiveChart.Text = "Live Chart";
+            this.checkBoxLiveChart.UseVisualStyleBackColor = true;
             // 
             // ReportView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.checkBoxLiveChart);
+            this.Controls.Add(this.buttonViewImg);
+            this.Controls.Add(this.labelL2M);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBoxOperation);
             this.Controls.Add(this.comboBoxRollNum);
             this.Controls.Add(this.comboBoxBatch);
@@ -479,7 +537,8 @@
             this.Controls.Add(this.dataGridViewReport);
             this.Name = "ReportView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReportView";
+            this.Text = "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" +
+    "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportView_FormClosing);
             this.Load += new System.EventHandler(this.ReportView_Load);
             this.panel1.ResumeLayout(false);
@@ -523,5 +582,10 @@
         private System.Windows.Forms.ComboBox comboBoxBatch;
         private System.Windows.Forms.ComboBox comboBoxRollNum;
         private System.Windows.Forms.ComboBox comboBoxOperation;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelL2M;
+        private System.Windows.Forms.Button buttonViewImg;
+        private System.Windows.Forms.Timer timerLiveChart;
+        private System.Windows.Forms.CheckBox checkBoxLiveChart;
     }
 }
