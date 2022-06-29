@@ -1,0 +1,60 @@
+-----------Exception Details on  23-06-2022 10:21:26-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-06-2022 10:21:26
+
+Error Line No : :line 0
+
+Error Message: SEHException
+
+Exception Type: System.Runtime.InteropServices.SEHException
+
+Error Location : External component has thrown an exception.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-06-2022 13:10:58-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-06-2022 13:10:58
+
+Error Line No : :line 0
+
+Error Message: SEHException
+
+Exception Type: System.Runtime.InteropServices.SEHException
+
+Error Location : External component has thrown an exception.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-06-2022 19:17:41-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-06-2022 19:17:41
+
+Error Line No : ne 1150
+
+Error Message: OutOfMemoryException
+
+Exception Type: System.OutOfMemoryException
+
+Error Location : Out of memory.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

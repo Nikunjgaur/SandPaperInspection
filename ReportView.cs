@@ -34,7 +34,7 @@ namespace SandPaperInspection
             //chart1.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
             //chart1.ChartAreas[0].AxisX2.Enabled = AxisEnabled.True;
             chart1.ChartAreas[0].AxisX.Maximum = 1500;
-            chart1.ChartAreas[0].AxisY.Maximum = 3000;
+            //chart1.ChartAreas[0].AxisY.Maximum = 3000;
             chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
@@ -104,15 +104,15 @@ namespace SandPaperInspection
                 {
                     while (reader.Read())
                     {
-                        if (chart1.ChartAreas[0].AxisX.Maximum < (double)reader[0])
+                        if (chart1.ChartAreas[0].AxisX.Maximum < Convert.ToDouble(reader[0]))
                         {
-                            chart1.ChartAreas[0].AxisX.Maximum = (double)reader[0] + 50;
+                            chart1.ChartAreas[0].AxisX.Maximum = Convert.ToDouble(reader[0]) + 50;
                             chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
 
                         }
-                        if (chart1.ChartAreas[0].AxisY.Maximum < (double)reader[1])
+                        if (chart1.ChartAreas[0].AxisY.Maximum < Convert.ToDouble(reader[1]))
                         {
-                            chart1.ChartAreas[0].AxisY.Maximum = (double)reader[1];
+                            chart1.ChartAreas[0].AxisY.Maximum = Convert.ToDouble(reader[1]);
                             chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
                         }
                     }
@@ -176,6 +176,116 @@ namespace SandPaperInspection
                 }
                 reader.Close();
 
+            }
+        }
+
+        public void ShowLiveChart()
+        {
+            try
+            {
+                using (NpgsqlConnection con = db.GetConnection())
+                {
+                    con.Open();
+                    string query = @"select Max(_location[0]), Max(_location[1]) from public.logreport where _date = @date and serialnum = @srnum";
+                    NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                    //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                    //cmd.Parameters.AddWithValue("@srnum", comboBoxSrNum.SelectedItem.ToString());
+                    //NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                    //if (reader.HasRows)
+                    //{
+                    //    while (reader.Read())
+                    //    {
+                    //        if (chart1.ChartAreas[0].AxisX.Maximum < (double)reader[0])
+                    //        {
+                    //            chart1.ChartAreas[0].AxisX.Maximum = (double)reader[0] + 50;
+                    //            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+
+                    //        }
+                    //        if (chart1.ChartAreas[0].AxisY.Maximum < (double)reader[1])
+                    //        {
+                    //            chart1.ChartAreas[0].AxisY.Maximum = (double)reader[1];
+                    //            chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+                    //        }
+                    //    }
+                    //}
+
+
+                    //reader.Close();
+                    if (comboBoxDefect.SelectedItem.ToString() == "All")
+                    {
+                        query = @"select * from public.logreport where _date = @date and serialnum = @srnum";
+
+                    }
+                    else
+                    {
+                        query = @"select * from public.logreport where _date = @date and serialnum = @srnum and deftype = @dtype";
+
+                    }
+                    if (comboBoxBatch.SelectedItem != null)
+                    {
+                        query += string.Format(" and batchnum = '{0}' ", comboBoxBatch.SelectedItem.ToString());
+                    }
+                    if (comboBoxRollNum.SelectedItem != null)
+                    {
+                        query += string.Format(" and rollnumber = '{0}' ", comboBoxRollNum.SelectedItem.ToString());
+                    }
+                    if (comboBoxOperation.SelectedItem != null)
+                    {
+                        query += string.Format(" and operation = '{0}' ", comboBoxOperation.SelectedItem.ToString());
+                    }
+
+                    query += " order by _time desc fetch first 30 rows only";
+
+                    Console.WriteLine(query);
+
+                    cmd = new NpgsqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                    cmd.Parameters.AddWithValue("@srnum", comboBoxSrNum.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@dtype", comboBoxDefect.SelectedItem.ToString());
+
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        dt.Clear();
+                        dt.Load(reader);
+                        dataGridViewReport.DataSource = dt;
+                        reader = cmd.ExecuteReader();
+                        foreach (Series sr in chart1.Series)
+                        {
+                            if (sr.Points.Count > 0)
+                            {
+                                sr.Points.Clear();
+                                Console.WriteLine("Points cleared");
+                            }
+
+                        }
+                        while (reader.Read())
+                        {
+
+                            NpgsqlTypes.NpgsqlPoint point = (NpgsqlTypes.NpgsqlPoint)reader[3];
+                            Console.WriteLine("This is Point X {0} and this is Point Y {1}", point.X, point.Y);
+                            chart1.Series[Convert.ToInt32(reader[6])].Points.AddXY(point.X, point.Y);
+                        }
+                        chart1.ChartAreas[0].RecalculateAxesScale();
+                        labeltotalDef.Text = dt.Rows.Count.ToString();
+                    }
+                    else
+                    {
+                        checkBoxLiveChart.Checked = false;
+
+                        Console.WriteLine("No Data Found for live chart");
+                    }
+                    reader.Close();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Exception occured in live chart {0}", ex.Message);
             }
         }
 
@@ -465,12 +575,19 @@ namespace SandPaperInspection
                 {
                     NpgsqlTypes.NpgsqlPoint loc = (NpgsqlTypes.NpgsqlPoint) reader[0];
                     NpgsqlTypes.NpgsqlPoint size = (NpgsqlTypes.NpgsqlPoint) reader[4];
-
-                    Bitmap defImage = new Bitmap(string.Format(@"{0}", reader[3]));
-                    fullImgPath = reader[5].ToString();
-                    Console.WriteLine("fullImgPath {0}", fullImgPath);
-                    Bitmap img = (Bitmap)defImage.Clone();
-                    pictureBoxDefImage.Image = img;
+                    if (File.Exists(string.Format(@"{0}", reader[3])))
+                    {
+                        Bitmap defImage = new Bitmap(string.Format(@"{0}", reader[3]));
+                        fullImgPath = reader[5].ToString();
+                        Console.WriteLine("fullImgPath {0}", fullImgPath);
+                        Bitmap img = (Bitmap)defImage.Clone();
+                        pictureBoxDefImage.Image = img;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Image Found");
+                    }
+                    
                 }
 
             }
@@ -543,7 +660,10 @@ namespace SandPaperInspection
                 chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
                 chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
                 chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+                
+               
                 ShowDateWise();
+
                 timerLiveChart.Enabled = true;
                 timerLiveChart.Start();
             }
@@ -636,10 +756,33 @@ namespace SandPaperInspection
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //if (comboBoxSrNum.SelectedItem != null && comboBoxSrNum.SelectedIndex >= 0)
-            //{
-            //    buttonShowData_Click(sender, e);
-            //}
+            if (comboBoxSrNum.SelectedItem != null && comboBoxSrNum.SelectedIndex >= 0 && checkBoxLiveChart.Checked)
+            {
+                buttonShowData_Click(sender, e);
+            }
+        }
+
+        private void checkBoxLiveChart_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBoxLiveChart.Checked)
+            {
+                chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+                chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
+                chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+                chart1.ChartAreas[0].AxisX.ScaleView.ZoomReset();
+                chart1.ChartAreas[0].AxisY.ScaleView.ZoomReset();
+                
+            }
+            else
+            {
+                chart1.ChartAreas[0].AxisX.ScaleView.ZoomReset();
+                chart1.ChartAreas[0].AxisY.ScaleView.ZoomReset();
+                chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = false;
+                chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = false;
+                chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = false;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
+            }
         }
     }
 }

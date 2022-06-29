@@ -60,6 +60,7 @@ namespace SandPaperInspection.classes
                 //Console.WriteLine(cmd.CommandText);
                 con.Open();
                 int n = cmd.ExecuteNonQuery();
+                con.CloseAsync();
             }
         }
 

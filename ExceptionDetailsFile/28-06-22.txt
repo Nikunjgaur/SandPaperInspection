@@ -1,0 +1,40 @@
+-----------Exception Details on  28-06-2022 10:46:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 28-06-2022 10:46:44
+
+Error Line No : :line 0
+
+Error Message: SEHException
+
+Exception Type: System.Runtime.InteropServices.SEHException
+
+Error Location : External component has thrown an exception.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  28-06-2022 12:48:16-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 28-06-2022 12:48:16
+
+Error Line No : ne 1148
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

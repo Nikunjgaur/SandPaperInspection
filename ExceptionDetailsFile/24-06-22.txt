@@ -1,0 +1,100 @@
+-----------Exception Details on  24-06-2022 12:01:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 24-06-2022 12:01:37
+
+Error Line No : :line 0
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24-06-2022 13:07:07-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 24-06-2022 13:07:07
+
+Error Line No : ne 1148
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24-06-2022 17:00:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 24-06-2022 17:00:43
+
+Error Line No : ne 1307
+
+Error Message: ThreadAbortException
+
+Exception Type: System.Threading.ThreadAbortException
+
+Error Location : Thread was being aborted.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24-06-2022 17:59:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 24-06-2022 17:59:25
+
+Error Line No : ne 1173
+
+Error Message: ThreadAbortException
+
+Exception Type: System.Threading.ThreadAbortException
+
+Error Location : Thread was being aborted.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24-06-2022 18:29:20-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 24-06-2022 18:29:20
+
+Error Line No : ne 1173
+
+Error Message: ThreadAbortException
+
+Exception Type: System.Threading.ThreadAbortException
+
+Error Location : Thread was being aborted.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

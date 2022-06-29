@@ -49,6 +49,7 @@ namespace SandPaperInspection
         Thread mergeImagesThread1;
         Thread mergeImagesThread2;
         Thread processThread;
+        Thread saveData;
         Bitmap finalImage;
         static Bitmap imageCam1;
         static Bitmap imageCam2;
@@ -65,7 +66,15 @@ namespace SandPaperInspection
             public string[] defectType = new string[] { "line Marks", "wrinkle", "hole or cut","Tape", "other" };
             public Bitmap image { get; set; }
             public string path { get; set; }
-            public string time { get; set; }
+            public DateTime dateTime { get; set; }
+            public string modelName { get; set; }
+            public Point defLocation { get; set; }
+            public Point defSize { get; set; }
+            public string finish { get; set; }
+            public string operation { get; set; }
+            public string rollNum { get; set; }
+            public string batchNum { get; set; }
+
             public DefectImageData(DefectImageData did)
             {
                 this.cropRect = did.cropRect;
@@ -74,16 +83,40 @@ namespace SandPaperInspection
                 this.defectType = did.defectType;
                 this.image = did.image;
                 this.path = did.path;
-                
+                this.dateTime = did.dateTime;
+                this.modelName = did.modelName;
+                this.defLocation = did.defLocation;
+                this.defSize = did.defSize;
+                this.finish = did.finish;
+                this.operation = did.operation;
+                this.rollNum = did.rollNum;
+                this.batchNum = did.batchNum;
+
             }
             public DefectImageData()
             {
 
             }
         }
-        
-        DefectImageData imageData = new DefectImageData();
-        static List<DefectImageData> defectImageDataList = new List<DefectImageData>();
+
+        class ImageData
+        {
+            public List<DefectImageData> defectImageDatas = new List<DefectImageData>();
+            public Bitmap image;
+            public ImageData(ImageData id)
+            {
+                this.defectImageDatas = id.defectImageDatas;
+                this.image = id.image;
+            }
+            public ImageData()
+            {
+
+            }
+
+        }
+
+        List<ImageData> imageDataList = new List<ImageData>();
+        //static List<DefectImageData> defectImageDataList = new List<DefectImageData>();
 
         NpgsqlTypes.NpgsqlPoint loc = new NpgsqlTypes.NpgsqlPoint(1200, 2000);
         Size defSize = new Size(40, 50);
@@ -908,11 +941,18 @@ namespace SandPaperInspection
             
             clock.Start();
             string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path = string.Format(@"{0}\Models\{1}\DefectImagesFullRes", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+
 
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
+
             if (allCameras.Count == 2)
             {
                 StartCamera1();
@@ -1067,6 +1107,7 @@ namespace SandPaperInspection
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
             btnStop.Enabled = true;
             stopInspection = false;
             //timer1.Enabled = true;
@@ -1092,7 +1133,8 @@ namespace SandPaperInspection
                     ContinuousShot(camera2);
 
                 });
-
+                bitmapsMerge1.Clear();
+                ////bitmapsMerge2.Clear();
                 doProcess = true;
                 processThread = new Thread(delegate ()
                 {
@@ -1117,11 +1159,13 @@ namespace SandPaperInspection
                                                     (Bitmap)fullImage.Clone());
                                 Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
+
+                                
                                 path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
 
                                 //string fullResPath = string.Format(@"{0}\Models\{1}\DefectImagesFullRes", CommonParameters.projectDirectory, CommonParameters.selectedModel);
-
-                                //fullResPath = fullResPath + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_") + DateTime.Now.Millisecond.ToString() + ".bmp";
+                                 
+                                //fullResPath = fullResPath + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("HH_mm_ss_") + DateTime.Now.Millisecond.ToString() + ".bmp";
                                 bool defectFound = false;
 
 
@@ -1130,10 +1174,12 @@ namespace SandPaperInspection
                                 {
                                     labelDefCount.Text = CommonParameters.algo.defectCountProp.ToString();
                                 });
+                                DefectImageData defImgData = new DefectImageData();
+                                ImageData imageData = new ImageData();
 
                                 for (int i = 0; i < CommonParameters.algo.defectCountProp; i++)
                                 {
-
+                                    
                                     int width1 = CommonParameters.algo.getBottomRightPoint(i).X - CommonParameters.algo.getTopLeftPoint(i).X;
                                     int height1 = CommonParameters.algo.getBottomRightPoint(i).Y - CommonParameters.algo.getTopLeftPoint(i).Y;
                                     double area = CommonParameters.algo.getDefectArea(i);
@@ -1164,9 +1210,9 @@ namespace SandPaperInspection
 
                                     if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
                                     {
-                                        
-                                        imageData.path = path + DateTime.Now.Millisecond.ToString() + string.Format("_{0}_", imageData.defectType[CommonParameters.algo.getDefectCat(i)]) + ".bmp";
-                                        imageData.image = fullImage.Clone(cropRect, PixelFormat.Format8bppIndexed);
+
+
+                                        defImgData.image = fullImage.Clone(cropRect, PixelFormat.Format24bppRgb);
 
                                         //Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
 
@@ -1174,23 +1220,25 @@ namespace SandPaperInspection
                                         //defectLoc.X = (int)((defectLoc.X) * CommonParameters.algo.mmperPixProp);
 
                                         //Point defSize = new Point((int)(cropRect.Width * CommonParameters.algo.mmperPixProp),
-                                        //                (int)(cropRect.Height * CommonParameters.algo.mmperPixProp));
-                                        db.InsertRecord(
-                                            Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
-                                            Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")),
-                                            string.Format("{0}",CommonParameters.selectedModel),
-                                            defLocation,
-                                            imageData.defectType[CommonParameters.algo.getDefectCat(i)],
-                                            imageData.path,
-                                            CommonParameters.algo.getDefectCat(i),
-                                            defSize,
-                                            CommonParameters.finish,
-                                            CommonParameters.operation,
-                                            CommonParameters.rollNum,
-                                            CommonParameters.batchNum,
-                                            "No Image"/*fullResPath*/);
+                                          //              (int)(cropRect.Height * CommonParameters.algo.mmperPixProp));
+                
+                                        defImgData.dateTime = DateTime.Now;
 
-                                        imageData.image.Save(imageData.path);
+                                        defImgData.path = path + defImgData.dateTime.Millisecond.ToString() + string.Format("_{0}_",
+                                                            defImgData.defectType[CommonParameters.algo.getDefectCat(i)]) + ".bmp";
+
+
+
+                                        defImgData.modelName = CommonParameters.selectedModel;
+                                        defImgData.defectCode = CommonParameters.algo.getDefectCat(i);
+                                        defImgData.defSize = defSize;
+                                        defImgData.finish = CommonParameters.finish;
+                                        defImgData.operation = CommonParameters.operation;
+                                        defImgData.rollNum = CommonParameters.rollNum;
+                                        defImgData.batchNum = CommonParameters.batchNum;
+                                        defImgData.defLocation = defLocation;
+
+                                        imageData.defectImageDatas.Add(new DefectImageData(defImgData));
 
                                     }
                                     defectFound = true;
@@ -1198,12 +1246,8 @@ namespace SandPaperInspection
 
                                 if (defectFound)
                                 {
-                                    //setCardDO(1, true);
-                                    
-
-                                    //fullImage.Save(fullResPath);
-
-
+                                    imageData.image = fullImage.Clone(new Rectangle(0,0,fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb);
+                                    imageDataList.Add(new ImageData(imageData));
                                 }
                                 else
                                 {
@@ -1295,38 +1339,60 @@ namespace SandPaperInspection
                     }
                 });
                 processThread.Start();
-                //Thread saveData = new Thread(() => {
+                saveData = new Thread(() =>
+                {
 
-                //    while (true)
-                //    {
-                //        Console.WriteLine("Save thread running.");
-                //        Console.WriteLine("List size {0}", defectImageDataList.Count);
-                //        if (defectImageDataList.Count > 0)
-                //        {
-                //            Console.WriteLine("If condition entered");
-                //            foreach (DefectImageData did in defectImageDataList)
-                //            {
-                //                Console.WriteLine(defectImageDataList[0].time);
-                //            }
+                    while (true)
+                    {
+                        try
+                        {
+                            if (imageDataList.Count > 0)
+                            {
+                                Console.WriteLine("If condition entered");
+                                string fullResPath = string.Format(@"{0}\Models\{1}\DefectImagesFullRes", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
-                //            //defectImageDataList[0].
-                //            db.InsertRecord(
-                //                Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")),
-                //                Convert.ToDateTime(defectImageDataList[0].time),
-                //                CommonParameters.selectedModel,
-                //                new Point(defectImageDataList[0].cropRect.X, defectImageDataList[0].cropRect.X),
-                //                defectImageDataList[0].defectType[defectImageDataList[0].defectCode],
-                //                defectImageDataList[0].path,
-                //                2,
-                //                (Point)defectImageDataList[0].cropRect.Size);
-                //            defectImageDataList[0].image.Save(defectImageDataList[0].path);
-                //            defectImageDataList.RemoveAt(0);
+                                fullResPath = fullResPath + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("HH_mm_ss_") + DateTime.Now.Millisecond.ToString() + ".bmp";
+                                imageDataList[0].image.Save(fullResPath);
+                                foreach (DefectImageData did in imageDataList[0].defectImageDatas)
+                                {
 
-                //        }
-                //        Thread.Sleep(100);
-                //    }
-                //});
-                //saveData.Start();
+                                    did.image.Save(did.path);
+
+                                    db.InsertRecord(
+                                    Convert.ToDateTime(did.dateTime.ToString("yyyy-MM-dd")),
+                                    Convert.ToDateTime(did.dateTime.ToString("HH:mm:ss")),
+                                    did.modelName,
+                                    did.defLocation,
+                                    did.defectType[did.defectCode],
+                                    did.path,
+                                    did.defectCode,
+                                    did.defSize,
+                                    did.finish,
+                                    did.operation,
+                                    did.rollNum,
+                                    did.batchNum,
+                                    fullResPath);
+
+
+                                }
+
+
+                                //defectImageDataList[0].
+                                Thread.Sleep(50);
+                                imageDataList.RemoveAt(0);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Error in db insert thread {0}", ex.Message);
+                        }
+                        Console.WriteLine("Save thread running.");
+
+                       
+
+                    }
+                });
+                saveData.Start();
                 //timer1.Enabled = true;
                 //timer1.Start();
 
@@ -1413,11 +1479,11 @@ namespace SandPaperInspection
             setCardDO(0, false);
             Thread.Sleep(600);
             captureImages = false;
-            if (processThread != null && processThread.IsAlive)
-            {
-                processThread.Abort();
+            //if (processThread != null && processThread.IsAlive)
+            //{
+            //    processThread.Abort();
 
-            }
+            //}
             
             btnStart.Enabled = true;
             timerSpeed.Stop();
@@ -1445,8 +1511,8 @@ namespace SandPaperInspection
                     Stop(camera2);
 
                 });
-                bitmapsMerge1.Clear();
-                bitmapsMerge2.Clear();
+                //bitmapsMerge1.Clear();
+                //bitmapsMerge2.Clear();
                 //MergeImagesCam1();
                 //MergeImagesCam2();
             }
@@ -1500,6 +1566,10 @@ namespace SandPaperInspection
             if (processThread != null)
             {
                 processThread.Abort();
+            }
+            if (saveData != null)
+            {
+                saveData.Abort();
             }
             DestroyCamera(camera1, converter1);
             DestroyCamera(camera2, converter2);
@@ -2008,28 +2078,11 @@ namespace SandPaperInspection
                     if (allCameras.Count == 2)
                     {
                         captureImages = false;
-                        if (processThread != null)
-                        {
-                            processThread.Abort();
+                        btnStop_Click(sender, e);
 
-                        }
-
-                        doProcess = false;
-
-                        setCardDO(0, false);
-
-                        Parallel.Invoke(() =>
-                        {
-                            Stop(camera1);
-
-                        },
-                        () =>
-                        {
-                            Stop(camera2);
-
-                        });
-
-                        MessageBox.Show("Inspection stopped unexpectedly. Click start button to resume.");
+                        //MessageBox.Show("Inspection stopped unexpectedly. Click start button to resume.");
+                        Console.WriteLine("Inspection stopped unexpectedly. Trying to restart inspection");
+                        btnStart_Click(sender, e);
                     }
                     else
                     {
@@ -2239,14 +2292,16 @@ namespace SandPaperInspection
         {
             textBoxRollNum.Text = (Convert.ToInt32(textBoxRollNum.Text) - 1).ToString();
             TextBox_TextChanged(sender, e);
-            TextBoxModelData_Leave(sender, e);
+            TextBoxModelData_Leave(textBoxRollNum, e);
         }
 
         private void buttonRollPlus_Click(object sender, EventArgs e)
         {
             textBoxRollNum.Text = (Convert.ToInt32(textBoxRollNum.Text) + 1).ToString();
             TextBox_TextChanged(sender, e);
-            TextBoxModelData_Leave(sender, e);
+            TextBoxModelData_Leave(textBoxRollNum, e);
         }
+
+        
     }
 }
