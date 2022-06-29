@@ -86,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 316);
+            this.label3.Location = new System.Drawing.Point(29, 632);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 13);
             this.label3.TabIndex = 289;
@@ -102,6 +102,7 @@
             this.button7.TabIndex = 190;
             this.button7.Text = "Force Out";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
             // 
             // button6
             // 
@@ -113,6 +114,7 @@
             this.button6.TabIndex = 189;
             this.button6.Text = "Force Out";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
             // 
             // button5
             // 
@@ -124,6 +126,7 @@
             this.button5.TabIndex = 188;
             this.button5.Text = "Force Out";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             // 
             // textBox6
             // 
@@ -137,6 +140,7 @@
             // 
             // textBox33
             // 
+            this.textBox33.Enabled = false;
             this.textBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox33.Location = new System.Drawing.Point(16, 54);
             this.textBox33.Name = "textBox33";
@@ -154,6 +158,7 @@
             this.textBox34.TabIndex = 259;
             this.textBox34.Text = "In00";
             this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox34.Visible = false;
             // 
             // button4
             // 
@@ -165,6 +170,7 @@
             this.button4.TabIndex = 187;
             this.button4.Text = "Force Out";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             // 
             // textBox7
             // 
@@ -178,6 +184,7 @@
             // 
             // textBox32
             // 
+            this.textBox32.Enabled = false;
             this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox32.Location = new System.Drawing.Point(16, 25);
             this.textBox32.Name = "textBox32";
@@ -195,6 +202,7 @@
             this.textBox36.TabIndex = 257;
             this.textBox36.Text = "In00";
             this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox36.Visible = false;
             // 
             // tmrRefreshVals
             // 
@@ -257,7 +265,7 @@
             "Both Sides",
             "Front Side Only",
             "Back Side Only"});
-            this.comboBox1.Location = new System.Drawing.Point(175, 313);
+            this.comboBox1.Location = new System.Drawing.Point(175, 629);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 288;
@@ -290,9 +298,9 @@
             this.groupBox2.Controls.Add(this.label47);
             this.groupBox2.Controls.Add(this.label48);
             this.groupBox2.Controls.Add(this.label49);
-            this.groupBox2.Location = new System.Drawing.Point(211, 50);
+            this.groupBox2.Location = new System.Drawing.Point(126, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 250);
+            this.groupBox2.Size = new System.Drawing.Size(338, 90);
             this.groupBox2.TabIndex = 287;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Outputs";
@@ -306,6 +314,7 @@
             this.textBox35.TabIndex = 258;
             this.textBox35.Text = "In00";
             this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox35.Visible = false;
             // 
             // button3
             // 
@@ -317,6 +326,7 @@
             this.button3.TabIndex = 186;
             this.button3.Text = "Force Out";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // textBox37
             // 
@@ -327,6 +337,7 @@
             this.textBox37.TabIndex = 256;
             this.textBox37.Text = "In00";
             this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox37.Visible = false;
             // 
             // button2
             // 
@@ -338,6 +349,7 @@
             this.button2.TabIndex = 185;
             this.button2.Text = "Force Out";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // textBox38
             // 
@@ -348,6 +360,7 @@
             this.textBox38.TabIndex = 255;
             this.textBox38.Text = "In00";
             this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox38.Visible = false;
             // 
             // button1
             // 
@@ -369,6 +382,7 @@
             this.textBox39.TabIndex = 254;
             this.textBox39.Text = "In00";
             this.textBox39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox39.Visible = false;
             // 
             // label51
             // 
@@ -379,6 +393,7 @@
             this.label51.Size = new System.Drawing.Size(61, 15);
             this.label51.TabIndex = 119;
             this.label51.Text = "Output 6";
+            this.label51.Visible = false;
             // 
             // button0
             // 
@@ -400,6 +415,7 @@
             this.label50.Size = new System.Drawing.Size(61, 15);
             this.label50.TabIndex = 118;
             this.label50.Text = "Output 5";
+            this.label50.Visible = false;
             // 
             // label42
             // 
@@ -410,6 +426,7 @@
             this.label42.Size = new System.Drawing.Size(61, 15);
             this.label42.TabIndex = 101;
             this.label42.Text = "Output 7";
+            this.label42.Visible = false;
             // 
             // label43
             // 
@@ -419,6 +436,7 @@
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(0, 15);
             this.label43.TabIndex = 99;
+            this.label43.Visible = false;
             // 
             // label44
             // 
@@ -428,6 +446,7 @@
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(0, 15);
             this.label44.TabIndex = 97;
+            this.label44.Visible = false;
             // 
             // label45
             // 
@@ -438,6 +457,7 @@
             this.label45.Size = new System.Drawing.Size(61, 15);
             this.label45.TabIndex = 95;
             this.label45.Text = "Output 4";
+            this.label45.Visible = false;
             // 
             // label46
             // 
@@ -448,6 +468,7 @@
             this.label46.Size = new System.Drawing.Size(61, 15);
             this.label46.TabIndex = 93;
             this.label46.Text = "Output 3";
+            this.label46.Visible = false;
             // 
             // label47
             // 
@@ -458,6 +479,7 @@
             this.label47.Size = new System.Drawing.Size(61, 15);
             this.label47.TabIndex = 91;
             this.label47.Text = "Output 2";
+            this.label47.Visible = false;
             // 
             // label48
             // 
@@ -465,9 +487,9 @@
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.Location = new System.Drawing.Point(97, 55);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(61, 15);
+            this.label48.Size = new System.Drawing.Size(51, 15);
             this.label48.TabIndex = 89;
-            this.label48.Text = "Output 1";
+            this.label48.Text = "Buzzer";
             // 
             // label49
             // 
@@ -475,9 +497,9 @@
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.Location = new System.Drawing.Point(97, 27);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(61, 15);
+            this.label49.Size = new System.Drawing.Size(39, 15);
             this.label49.TabIndex = 87;
-            this.label49.Text = "Output 0";
+            this.label49.Text = "Light";
             // 
             // groupBox1
             // 
@@ -497,12 +519,13 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Location = new System.Drawing.Point(17, 50);
+            this.groupBox1.Location = new System.Drawing.Point(32, 373);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(188, 250);
             this.groupBox1.TabIndex = 286;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inputs ";
+            this.groupBox1.Visible = false;
             // 
             // textBox0
             // 
@@ -598,7 +621,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(301, 314);
+            this.checkBox1.Location = new System.Drawing.Point(301, 630);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(99, 17);
             this.checkBox1.TabIndex = 290;
@@ -621,7 +644,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnExit.Location = new System.Drawing.Point(405, 306);
+            this.btnExit.Location = new System.Drawing.Point(320, 195);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(144, 30);
             this.btnExit.TabIndex = 285;
@@ -633,7 +656,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 347);
+            this.ClientSize = new System.Drawing.Size(558, 275);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
@@ -641,8 +664,6 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
-            this.MaximumSize = new System.Drawing.Size(582, 386);
-            this.MinimumSize = new System.Drawing.Size(582, 386);
             this.Name = "IoMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IoMonitor";

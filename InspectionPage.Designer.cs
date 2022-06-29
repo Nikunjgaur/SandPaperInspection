@@ -752,6 +752,7 @@
             this.Text = "Inspection Page";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InspectionPage_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InspectionPage_FormClosed);
             this.Load += new System.EventHandler(this.InspectionPage_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

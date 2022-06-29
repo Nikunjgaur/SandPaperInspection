@@ -1147,6 +1147,9 @@ namespace SandPaperInspection
 
                             if (bitmapsMerge1.Count > 0 && bitmapsMerge2.Count > 0 && image1Grabbed == true && image2Grabbed == true)
                             {
+                                Thread.Sleep(10);
+                                image1Grabbed = false;
+                                image2Grabbed = false;
                                 Console.WriteLine("A1  {0}  A2 {1}", bitmapsMerge1.Count, bitmapsMerge2.Count);
                                 CommonParameters.algo.overlapC1C2Prop = GetListValueById("Overlap");
                                 int height = bitmapsMerge1[0].Height;
@@ -1156,8 +1159,8 @@ namespace SandPaperInspection
                                 fullImage = CommonParameters.algo.mergeImagesCpp(
                                                     bitmapsMerge1[0].Clone(new Rectangle(0, 0, bitmapsMerge1[0].Width - CommonParameters.algo.overlapC1C2Prop, bitmapsMerge1[0].Height), PixelFormat.Format24bppRgb),
                                                     bitmapsMerge2[0].Clone(new Rectangle(0, 0, bitmapsMerge2[0].Width, bitmapsMerge2[0].Height), PixelFormat.Format24bppRgb),
-                                                    (Bitmap)fullImage.Clone());
-                                Bitmap algoImage = CommonParameters.algo.processAllFrontThick((Bitmap)fullImage.Clone());
+                                                    fullImage.Clone(new Rectangle(0,0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
+                                Bitmap algoImage = CommonParameters.algo.processAllFrontThick(fullImage.Clone(new Rectangle(0, 0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
                                 
@@ -1248,10 +1251,11 @@ namespace SandPaperInspection
                                 {
                                     imageData.image = fullImage.Clone(new Rectangle(0,0,fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb);
                                     imageDataList.Add(new ImageData(imageData));
+                                    setCardDO(1, true);
                                 }
                                 else
                                 {
-                                   // setCardDO(1, false);
+                                    setCardDO(1, false);
                                 }
 
                                 if (CommonParameters.saveImages)
@@ -1289,8 +1293,7 @@ namespace SandPaperInspection
                                         pictureBox5.Invalidate();
                                         Console.WriteLine("Images Updated");
 
-                                        //image1Grabbed = false;
-                                        //image2Grabbed = false;
+                                        
 
                                     });
                                 }
@@ -1332,9 +1335,8 @@ namespace SandPaperInspection
                         {
                             ExceptionLogging.SendErrorToFile(ex);
                             Console.WriteLine(ex.Message);
-                            MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
+                            //MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
                             btnStop_Click(sender, e);
-                            throw;
                         }
                     }
                 });
@@ -1556,26 +1558,12 @@ namespace SandPaperInspection
 
         private void InspectionPage_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             btnStop_Click(sender, e);
-            doProcess = false;
-            setCardDO(0, false);
-            setCardDO(1, false);
+            
 
-            err = instantDiCtrl1.SnapStop();
-
-            if (processThread != null)
-            {
-                processThread.Abort();
-            }
-            if (saveData != null)
-            {
-                saveData.Abort();
-            }
-            DestroyCamera(camera1, converter1);
-            DestroyCamera(camera2, converter2);
             CloseAllOpenForm(this);
             
-            CommonParameters.InspectionPage = null;
         }
         public ThresholdSettings thresholdSettings = null;
 
@@ -2302,6 +2290,35 @@ namespace SandPaperInspection
             TextBoxModelData_Leave(textBoxRollNum, e);
         }
 
-        
+        private void InspectionPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            doProcess = false;
+            setCardDO(0, false);
+            setCardDO(1, false);
+
+
+            //if (processThread != null)
+            //{
+            //    processThread.Abort();
+            //}
+            try
+            {
+                if (saveData != null && saveData.IsAlive)
+                {
+                    saveData.Abort();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendErrorToFile(ex);
+
+            }
+
+            DestroyCamera(camera1, converter1);
+            DestroyCamera(camera2, converter2);
+            err = instantDiCtrl1.SnapStop();
+            CommonParameters.InspectionPage = null;
+
+        }
     }
 }
