@@ -1336,7 +1336,7 @@ namespace SandPaperInspection
                             ExceptionLogging.SendErrorToFile(ex);
                             Console.WriteLine(ex.Message);
                             //MessageBox.Show("Inspection closed unexpectedly. Start Inspection again");
-                            btnStop_Click(sender, e);
+                            //btnStop_Click(sender, e);
                         }
                     }
                 });
@@ -1383,12 +1383,13 @@ namespace SandPaperInspection
                                 Thread.Sleep(50);
                                 imageDataList.RemoveAt(0);
                             }
+                            
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine("Error in db insert thread {0}", ex.Message);
                         }
-                        Console.WriteLine("Save thread running.");
+                        //Console.WriteLine("Save thread running.");
 
                        
 
@@ -1428,7 +1429,7 @@ namespace SandPaperInspection
                                     defectsize as ""Defect Size"" 
                                     from public.logreport where _date = '{0}'
                                     and _time between '{1}' and '{2}' 
-                                    and serialnum = '{3}' order by _date asc, _time desc", 
+                                    and serialnum = '{3}' order by _date asc, _time desc, _location[1] desc", 
                                     DateTime.Now.ToString("yyyy-MM-dd"),
                                     DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
                                     DateTime.Now.ToString("HH:mm:ss"),
@@ -1479,7 +1480,7 @@ namespace SandPaperInspection
             doProcess = false;
             setCardDO(1, false);
             setCardDO(0, false);
-            Thread.Sleep(600);
+            Thread.Sleep(10);
             captureImages = false;
             //if (processThread != null && processThread.IsAlive)
             //{
@@ -2310,6 +2311,7 @@ namespace SandPaperInspection
             }
             catch (Exception ex)
             {
+
                 ExceptionLogging.SendErrorToFile(ex);
 
             }
@@ -2320,5 +2322,7 @@ namespace SandPaperInspection
             CommonParameters.InspectionPage = null;
 
         }
+
+        
     }
 }

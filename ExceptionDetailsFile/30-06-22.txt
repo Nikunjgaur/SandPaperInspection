@@ -1,0 +1,61 @@
+-----------Exception Details on  30-06-2022 15:07:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 30-06-2022 15:07:43
+
+Error Line No : ne 1169
+
+Error Message: ThreadAbortException
+
+Exception Type: System.Threading.ThreadAbortException
+
+Error Location : Thread was being aborted.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  30-06-2022 15:27:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 30-06-2022 15:27:35
+
+Error Line No : ne 1176
+
+Error Message: ObjectDisposedException
+
+Exception Type: System.ObjectDisposedException
+
+Error Location : Cannot access a disposed object.
+Object name: 'Label'.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  30-06-2022 17:08:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 30-06-2022 17:08:01
+
+Error Line No : ne 1157
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
