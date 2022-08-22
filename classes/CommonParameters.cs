@@ -31,7 +31,7 @@ namespace SandPaperInspection.classes
     public class ModelData
     {
         [JsonProperty]
-        public static int webDetect = 21;
+        public static int webDetect = 27;
         [JsonProperty]
         public static int blockSize = 125;
         public int okLimit = 70;

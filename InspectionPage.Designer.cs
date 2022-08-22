@@ -57,7 +57,6 @@
             this.toolStripButtonStop = new System.Windows.Forms.ToolStripButton();
             this.btnIOmonitor = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -91,7 +90,6 @@
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.toolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -372,17 +370,6 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(21, 2);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(143, 81);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 57;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // pictureBox2
             // 
@@ -706,6 +693,7 @@
             this.button2.TabIndex = 90;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewReport
@@ -739,7 +727,6 @@
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.btnSetThresholds);
             this.Controls.Add(this.btnStop);
-            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnCameraSettings);
             this.Controls.Add(this.btnIOmonitor);
             this.Controls.Add(this.label16);
@@ -759,7 +746,6 @@
             this.groupBox2.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -776,7 +762,6 @@
         #endregion
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnSetThresholds;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox2;

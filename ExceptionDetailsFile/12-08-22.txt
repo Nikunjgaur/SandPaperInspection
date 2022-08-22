@@ -1,0 +1,4280 @@
+-----------Exception Details on  12-08-2022 14:32:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:24
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while writing to stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:24
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while writing to stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:24
+
+Error Line No : ne 1159
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:25
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:25
+
+Error Line No : ne 1161
+
+Error Message: OutOfMemoryException
+
+Exception Type: System.OutOfMemoryException
+
+Error Location : Out of memory.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:26-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:26
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:27-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:27
+
+Error Line No : ne 1428
+
+Error Message: OutOfMemoryException
+
+Exception Type: System.OutOfMemoryException
+
+Error Location : Exception of type 'System.OutOfMemoryException' was thrown.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:34
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:32:46-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:32:46
+
+Error Line No : ne 1159
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:01
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:03
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:12-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:12
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:13-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:13
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:22
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:23
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:24
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:25
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:27-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:27
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:28-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:28
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1259674865": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:33:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:33:29
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:08-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:08
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:18
+
+Error Line No : ne 1159
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:19-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:19
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:20-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:20
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:21-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:21
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:22
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:23
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:24
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:32-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:32
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.2035658298": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:34:33-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:34:33
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:35:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:35:37
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:35:38-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:35:38
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:35:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:35:40
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:36:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:36:43
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:36:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:36:44
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:36:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:36:45
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:37:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:37:48
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:37:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:37:49
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:37:50-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:37:50
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:38:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:38:53
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:38:56-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:38:56
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:38:57-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:38:57
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:39:28-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:39:28
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:39:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:39:29
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:39:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:39:44
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:39:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:39:45
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:39:58-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:39:58
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:03
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:04
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1570747707": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:05-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:05
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.2048884308": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:26-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:26
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:29
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:30-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:30
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:32-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:32
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:32-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:32
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:33-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:33
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:35
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:35
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:36-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:36
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:37
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:38-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:38
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:39
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:42-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:42
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:43
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:45
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:46-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:46
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:47-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:47
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:49
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:51-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:51
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:54-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:54
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:55-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:55
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:58-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:58
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:41:59-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:41:59
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:00-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:00
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:01
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:02-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:02
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:03
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:04
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:05-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:05
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:06-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:06
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:07-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:07
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:08-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:08
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1645679832": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:09-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:09
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:10-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:10
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1290828826": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:11-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:11
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:12-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:12
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:13-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:13
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:14-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:14
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:15-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:15
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:16-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:16
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:17-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:17
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:18
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:20-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:20
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:21-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:21
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:22
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:23
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:24
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:25
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:26-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:26
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:29
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:30-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:30
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:31-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:31
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:32-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:32
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:34
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:35
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:36-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:36
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:38-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:38
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:39
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:40
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:41-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:41
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:42-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:42
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:43
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:44
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:45
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:46-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:46
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:48
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:42:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:42:53
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:13-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:13
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1810408706": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:14-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:14
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:15-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:15
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.942731408": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:16-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:16
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:23
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:29
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:34
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:37
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:43:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:43:53
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:44:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:44:18
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.2095344146": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:44:19-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:44:19
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:44:20-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:44:20
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 53200: out of memory
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:45:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:45:23
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:45:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:45:24
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:45:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:45:25
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:54:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:54:03
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:54:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:54:04
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:54:05-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:54:05
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:58:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:58:23
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.291428430": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:58:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:58:24
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.10104869": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:58:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:58:40
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 14:58:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 14:58:40
+
+Error Line No : ne 1428
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:00:33-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:00:33
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.329714553": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:00:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:00:34
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.88966382": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:00:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:00:35
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:01:38-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:01:38
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:01:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:01:39
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:01:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:01:40
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:02:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:02:43
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:02:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:02:44
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.907657823": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:02:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:02:45
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.754222685": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:03:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:03:48
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1733702094": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:03:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:03:49
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:03:50-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:03:50
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:04:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:04:53
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:04:54-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:04:54
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: parallel worker failed to initialize
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:04:55-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:04:55
+
+Error Line No : ne 1448
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:08:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:08:03
+
+Error Line No : ne 1448
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57014: canceling statement due to user request
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:08:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:08:18
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:08:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:08:34
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:08:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:08:49
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:09:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:09:04
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:09:19-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:09:19
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:09:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:09:34
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:09:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:09:49
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:10:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:10:04
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:10:19-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:10:19
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:10:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:10:35
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:10:50-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:10:50
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:11:05-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:11:05
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:11:20-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:11:20
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:11:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:11:35
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:11:50-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:11:50
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:12:06-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:12:06
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:12:21-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:12:21
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:12:36-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:12:36
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:12:51-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:12:51
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:13:06-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:13:06
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:13:21-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:13:21
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:13:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:13:37
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:13:52-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:13:52
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:14:07-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:14:07
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:14:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:14:22
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:14:37-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:14:37
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:14:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:14:53
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:15:08-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:15:08
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:15:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:15:23
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:15:38-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:15:38
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:15:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:15:53
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:16:08-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:16:08
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:16:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:16:23
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:16:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:16:39
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:16:54-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:16:54
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:17:09-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:17:09
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:17:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:17:24
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:17:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:17:39
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:17:54-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:17:54
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:18:09-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:18:09
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:18:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:18:24
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:18:39-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:18:39
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:18:54-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:18:54
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:19:09-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:19:09
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:19:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:19:25
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:19:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:19:40
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:19:55-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:19:55
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:20:10-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:20:10
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:20:25-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:20:25
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:20:40-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:20:40
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:20:55-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:20:55
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:22:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:22:03
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:22:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:22:18
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:22:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:22:34
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:22:49-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:22:49
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:23:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:23:04
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:26:28-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:26:28
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:26:43-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:26:43
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  12-08-2022 15:26:58-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 12-08-2022 15:26:58
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

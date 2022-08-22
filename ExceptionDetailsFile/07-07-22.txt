@@ -1,0 +1,160 @@
+-----------Exception Details on  07-07-2022 14:25:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 14:25:48
+
+Error Line No : ne 1428
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 15:16:21-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 15:16:21
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 15:16:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 15:16:23
+
+Error Line No : ne 1159
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 15:16:26-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 15:16:26
+
+Error Line No : ne 1159
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 15:57:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 15:57:22
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 15:57:24-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 15:57:24
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 16:09:55-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 16:09:55
+
+Error Line No : ne 1178
+
+Error Message: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Location : Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  07-07-2022 17:08:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 07-07-2022 17:08:04
+
+Error Line No : ne 1161
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

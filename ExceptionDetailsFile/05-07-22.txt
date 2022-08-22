@@ -1,0 +1,20 @@
+-----------Exception Details on  05-07-2022 22:10:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 05-07-2022 22:10:04
+
+Error Line No : ne 1159
+
+Error Message: ExternalException
+
+Exception Type: System.Runtime.InteropServices.ExternalException
+
+Error Location : A generic error occurred in GDI+.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

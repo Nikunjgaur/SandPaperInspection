@@ -1,0 +1,704 @@
+-----------Exception Details on  22-08-2022 14:37:08-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:37:08
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:37:36-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:37:36
+
+Error Line No : ne 1206
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:03-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:03
+
+Error Line No : ne 1553
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:04-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:04
+
+Error Line No : ne 1553
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 55000: lost connection to parallel worker
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:12-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:12
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:13-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:13
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:14-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:14
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:15-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:15
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:16-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:16
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:18-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:18
+
+Error Line No : ne 1533
+
+Error Message: OutOfMemoryException
+
+Exception Type: System.OutOfMemoryException
+
+Error Location : Exception of type 'System.OutOfMemoryException' was thrown.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:45-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:45
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:38:59-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:38:59
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:01
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:01
+
+Error Line No : ne 1553
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.98019486": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:02-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:02
+
+Error Line No : ne 1553
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : XX000: could not create shared memory segment "Global/PostgreSQL.1475595610": Invalid argument
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:14-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:14
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:17-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:17
+
+Error Line No : ne 1206
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:29-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:29
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:30-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:30
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:31-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:31
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:32-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:32
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:33-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:33
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:34
+
+Error Line No : ne 1553
+
+Error Message: NpgsqlException
+
+Exception Type: Npgsql.NpgsqlException
+
+Error Location : Exception while reading from stream
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:39:35-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:39:35
+
+Error Line No : ne 1533
+
+Error Message: PostgresException
+
+Exception Type: Npgsql.PostgresException
+
+Error Location : 57P03: the database system is in recovery mode
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:40:01-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:40:01
+
+Error Line No : ne 1206
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 14:53:52-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 14:53:52
+
+Error Line No : ne 1234
+
+Error Message: ObjectDisposedException
+
+Exception Type: System.ObjectDisposedException
+
+Error Location : Cannot access a disposed object.
+Object name: 'Label'.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:22:06-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:22:06
+
+Error Line No : ne 1234
+
+Error Message: ObjectDisposedException
+
+Exception Type: System.ObjectDisposedException
+
+Error Location : Cannot access a disposed object.
+Object name: 'Label'.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:37:53-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:37:53
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:38:22-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:38:22
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:38:23-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:38:23
+
+Error Line No : ne 1206
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:38:44-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:38:44
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:38:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:38:48
+
+Error Line No : ne 1205
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 15:38:52-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 15:38:52
+
+Error Line No : ne 1206
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Parameter is not valid.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 16:15:34-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 16:15:34
+
+Error Line No : ne 1234
+
+Error Message: ObjectDisposedException
+
+Exception Type: System.ObjectDisposedException
+
+Error Location : Cannot access a disposed object.
+Object name: 'Label'.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  22-08-2022 16:23:11-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 22-08-2022 16:23:11
+
+Error Line No : ne 1417
+
+Error Message: ObjectDisposedException
+
+Exception Type: System.ObjectDisposedException
+
+Error Location : Cannot access a disposed object.
+Object name: 'Label'.
+
+ Error Filename: System.Linq.Enumerable+WhereSelectArrayIterator`2[System.Diagnostics.StackFrame,<>f__AnonymousType0`1[System.String]]
+--------------------------------*End*------------------------------------------
+
+
+

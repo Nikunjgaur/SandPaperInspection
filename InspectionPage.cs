@@ -241,7 +241,7 @@ namespace SandPaperInspection
         // Occurs when an image has been acquired and is ready to be processed.
         private void OnImageGrabbed1(Object sender, ImageGrabbedEventArgs e)
         {
-
+            
             if (InvokeRequired)
             {
                 // If called from a different thread, we must use the Invoke method to marshal the call to the proper GUI thread.
@@ -276,28 +276,48 @@ namespace SandPaperInspection
                     IntPtr ptrBmp = bmpData.Scan0;
                     converter1.Convert(ptrBmp, bmpData.Stride * bitmap.Height, grabResult);
                     bitmap.UnlockBits(bmpData);
+                    Bitmap bmpNew;
+                    try
+                    {
+                        bmpNew = bitmap.Clone(new Rectangle(0, 0, bitmap.Width, bitmap.Height), PixelFormat.Format24bppRgb);
 
-                    Bitmap bmpNew = bitmap.Clone(new Rectangle(0, 0, bitmap.Width, bitmap.Height), PixelFormat.Format24bppRgb);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine("Error in cloning bitmap ImageGrab1 error: {0}", ex.Message);
+                        return;
+                    }
                     //pictureBox5.Image = bmpNew;
                     // Assign a temporary variable to dispose the bitmap after assigning the new bitmap to the display control.
-                    Bitmap bitmapOld = pictureBox.Image as Bitmap;
+                   // Bitmap bitmapOld = pictureBox.Image as Bitmap;
                     // Provide the display control with the new bitmap. This action automatically updates the display.
                     byte[] pixelData = (byte[])e.GrabResult.PixelData;
 
                     //pictureBox5.Image = bmpNew;
                     if (captureImages == true)
                     {
-                        bitmapsMerge1.Add(bmpNew);
-                        heightAddon += bmpNew.Height;
-                        imageCam1 = bmpNew;
+                        try
+                        {
+                            bitmapsMerge1.Add(bmpNew.Clone(new Rectangle(0, 0, bmpNew.Width, bmpNew.Height), PixelFormat.Format24bppRgb));
+                            heightAddon += bmpNew.Height;
+                            imageCam1 = bmpNew;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Error in cloning bitmap ImageGrab1 error: {0}", ex.Message);
+                            return;
+                        }
+                        
                     }
                     image1Grabbed = true;
                     FrameCount++;
-                    if (bitmapOld != null)
-                    {
-                        // Dispose the bitmap.
-                        bitmapOld.Dispose();
-                    }
+                    //if (bitmapOld != null)
+                    //{
+                    //    // Dispose the bitmap.
+                    //    bitmapOld.Dispose();
+                    //}
 
                     //labelDefType.Text = counter1.ToString();
 
@@ -442,6 +462,7 @@ namespace SandPaperInspection
                     //{
                     //    pictureBox4.Image = bmp;
                     //}));
+                    
                     imageCam2 = (Bitmap)bmp.Clone();
                     Console.WriteLine(bitmapsMerge2.Count());
                     Console.WriteLine("Image 2 " + imageCam2.Height);
@@ -566,12 +587,22 @@ namespace SandPaperInspection
                     IntPtr ptrBmp = bmpData.Scan0;
                     converter2.Convert(ptrBmp, bmpData.Stride * bitmap.Height, grabResult);
                     bitmap.UnlockBits(bmpData);
+                    Bitmap bmpNew = null;
+                    try
+                    {
+                        bmpNew = bitmap.Clone(new Rectangle(0, 0, bitmap.Width, bitmap.Height), PixelFormat.Format24bppRgb);
 
-                    Bitmap bmpNew = bitmap.Clone(new Rectangle(0, 0, bitmap.Width, bitmap.Height), PixelFormat.Format24bppRgb);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine("Error in cloning bitmap ImageGrabbed2 error: {0}", ex.Message);
+                    }
+
                     //pictureBox5.Image = bmpNew;
 
                     // Assign a temporary variable to dispose the bitmap after assigning the new bitmap to the display control.
-                    Bitmap bitmapOld = pictureBox.Image as Bitmap;
+                    //Bitmap bitmapOld = pictureBox.Image as Bitmap;
                     // Provide the display control with the new bitmap. This action automatically updates the display.
                     //Console.WriteLine("SizeX:{0}", e.GrabResult.Width);
                     //Console.WriteLine("SizeY:{0}", e.GrabResult.Height);
@@ -579,8 +610,17 @@ namespace SandPaperInspection
 
                     if (captureImages == true)
                     {
-                        bitmapsMerge2.Add(bmpNew);
-                        imageCam2 = bmpNew;
+                        try
+                        {
+                            bitmapsMerge2.Add(bmpNew.Clone(new Rectangle(0, 0, bmpNew.Width, bmpNew.Height), PixelFormat.Format24bppRgb));
+                            imageCam2 = bmpNew;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Error in cloning bitmap ImageGrabbed2 error: {0}", ex.Message);
+                        }
+
                     }
 
                     // Console.WriteLine("Gray value of first pixel:{0}", pixelData[0]);
@@ -588,11 +628,11 @@ namespace SandPaperInspection
 
                     //labelDefArea.Text = counter2.ToString();
 
-                    if (bitmapOld != null)
-                    {
-                        // Dispose the bitmap.
-                        bitmapOld.Dispose();
-                    }
+                    //if (bitmapOld != null)
+                    //{
+                    //    // Dispose the bitmap.
+                    //    bitmapOld.Dispose();
+                    //}
                 }
             }
             catch (Exception exception)
@@ -607,8 +647,8 @@ namespace SandPaperInspection
         }
         private void ShowException(Exception exception)
         {
-            MessageBox.Show("Exception caught:\n" + exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            // MessageBox.Show("Exception caught:\n" + exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Console.WriteLine(exception.Message);
         }
         
         public int GetListValueById(string id)
@@ -704,6 +744,8 @@ namespace SandPaperInspection
             }
             catch (Exception exception)
             {
+                allCameras.Remove(allCameras[0]);
+                MessageBox.Show("Error in starting Camera 1.\nPlease reconnect camera from system and start again.");
                 ShowException(exception);
             }
         }
@@ -864,6 +906,10 @@ namespace SandPaperInspection
             }
             catch (Exception exception)
             {
+                allCameras.Remove(allCameras[0]);
+
+                MessageBox.Show("Error in starting Camera 2.\nPlease reconnect camera from system and start again.");
+
                 ShowException(exception);
             }
         }
@@ -1105,6 +1151,8 @@ namespace SandPaperInspection
             return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
 
+        bool saveRecord = true;
+
         private void btnStart_Click(object sender, EventArgs e)
         {
 
@@ -1155,12 +1203,22 @@ namespace SandPaperInspection
                                 int height = bitmapsMerge1[0].Height;
                                 int width = (bitmapsMerge1[0].Width * 2) - CommonParameters.algo.overlapC1C2Prop;
                                 Bitmap fullImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+                                Bitmap algoImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
                                 //Bitmap fullImage = MergeImagesSidewaysOverlap((Bitmap)bitmapsMerge1[0].Clone(), (Bitmap)bitmapsMerge2[0].Clone(), GetListValueById("Overlap"));
-                                fullImage = CommonParameters.algo.mergeImagesCpp(
+                                try
+                                {
+                                    fullImage = CommonParameters.algo.mergeImagesCpp(
                                                     bitmapsMerge1[0].Clone(new Rectangle(0, 0, bitmapsMerge1[0].Width - CommonParameters.algo.overlapC1C2Prop, bitmapsMerge1[0].Height), PixelFormat.Format24bppRgb),
                                                     bitmapsMerge2[0].Clone(new Rectangle(0, 0, bitmapsMerge2[0].Width, bitmapsMerge2[0].Height), PixelFormat.Format24bppRgb),
-                                                    fullImage.Clone(new Rectangle(0,0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
-                                Bitmap algoImage = CommonParameters.algo.processAllFrontThick(fullImage.Clone(new Rectangle(0, 0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
+                                                    fullImage.Clone(new Rectangle(0, 0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
+                                    algoImage = CommonParameters.algo.processAllFrontThick(fullImage.Clone(new Rectangle(0, 0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb));
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    Console.WriteLine("Error in cloning bitmap btnstartClick error: {0}", ex.Message);
+                                }
+
                                 string path = string.Format(@"{0}\Models\{1}\DefectImages", CommonParameters.projectDirectory, CommonParameters.selectedModel);
 
                                 
@@ -1214,8 +1272,16 @@ namespace SandPaperInspection
                                     if (cropRect.X + cropRect.Width < algoImage.Width && cropRect.Y + cropRect.Height < algoImage.Height && cropRect.X > 0 && cropRect.Y > 0)
                                     {
 
+                                        try
+                                        {
+                                            defImgData.image = fullImage.Clone(cropRect, PixelFormat.Format24bppRgb);
 
-                                        defImgData.image = fullImage.Clone(cropRect, PixelFormat.Format24bppRgb);
+                                        }
+                                        catch (Exception ex)
+                                        {
+
+                                            Console.WriteLine("Error in cloning bitmap btnstartClick cropdef error: {0}", ex.Message);
+                                        }
 
                                         //Point defectLoc = CommonParameters.algo.getTopLeftPoint(i);
 
@@ -1249,7 +1315,17 @@ namespace SandPaperInspection
 
                                 if (defectFound)
                                 {
-                                    imageData.image = fullImage.Clone(new Rectangle(0,0,fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb);
+                                    try
+                                    {
+                                        imageData.image = fullImage.Clone(new Rectangle(0, 0, fullImage.Width, fullImage.Height), PixelFormat.Format24bppRgb);
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        Console.WriteLine("Error in cloning bitmap btnstartClick fullImage error: {0}", ex.Message);
+                                        return;
+                                    }
                                     imageDataList.Add(new ImageData(imageData));
                                     setCardDO(1, true);
                                 }
@@ -1266,7 +1342,18 @@ namespace SandPaperInspection
                                     {
                                         Directory.CreateDirectory(path);
                                     }
-                                    Bitmap bitmap = (Bitmap)fullImage.Clone();
+                                    Bitmap bitmap;
+                                    try
+                                    {
+                                        bitmap = (Bitmap)fullImage.Clone();
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        Console.WriteLine("Error in cloning bitmap btnstartClick fullImageSave error: {0}", ex.Message);
+                                        return;
+                                    }
                                     path = path + @"\" + DateTime.Now.ToString("dd_MM_yyyy_") + DateTime.Now.ToString("hh_mm_ss_");
 
                                     //bitmap.Save(path + @"\"+ DateTime.Now.Date.ToString("dd_MM_yyyy")+ DateTime.Now.TimeOfDay.ToString("hh:mm:ss") + DateTime.Now.Millisecond.ToString() +".bmp");
@@ -1275,6 +1362,10 @@ namespace SandPaperInspection
 
                                 }
 
+                                File.AppendAllText("BufferLog.txt",string.Format("---------------------{0}----------------{1}",
+                                                    DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss"), Environment.NewLine));
+                                File.AppendAllText("BufferLog.txt", string.Format("Image list1 {0} list2 {1} list3 {2} List4 {3} {4}", bitmapsMerge1.Count, bitmapsMerge2.Count, imageData.defectImageDatas.Count, imageDataList.Count,Environment.NewLine));
+                                Console.WriteLine(string.Format("Image list1 {0} list2 {1} list3 {2} List4 {3} {4}", bitmapsMerge1.Count, bitmapsMerge2.Count, imageData.defectImageDatas.Count, imageDataList.Count,Environment.NewLine));
                                 if (pictureBox5.InvokeRequired)
                                 {
                                     pictureBox5.BeginInvoke((Action)delegate
@@ -1289,19 +1380,35 @@ namespace SandPaperInspection
                                         //    pictureBox5.Invalidate();
                                         //}
                                         pbFrame++;
-                                        pictureBox5.Image = algoImage;
-                                        pictureBox5.Invalidate();
-                                        Console.WriteLine("Images Updated");
+                                        try
+                                        {
+                                            pictureBox5.Image = algoImage;
+                                            pictureBox5.Invalidate();
+                                            Console.WriteLine("Images Updated");
+                                        }
+                                        catch (Exception ex)
+                                        {
 
+                                            Console.WriteLine("Error in displaying algo image on pb {0}",ex.Message);
+                                        }
                                         
 
                                     });
                                 }
                                 else
                                 {
-                                    pbFrame++;
-                                    pictureBox5.Image = algoImage;
-                                    Console.WriteLine("Images Updated");
+                                    try
+                                    {
+                                        pbFrame++;
+                                        pictureBox5.Image = algoImage;
+                                        Console.WriteLine("Images Updated");
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                        Console.WriteLine("Error in displaying algo image on pb {0}", ex.Message);
+                                    }
+
 
                                 }
 
@@ -1319,7 +1426,17 @@ namespace SandPaperInspection
                                 //Thread.Sleep(50);
                                 bitmapsMerge1.RemoveAt(0);
                                 bitmapsMerge2.RemoveAt(0);
-
+                                if (bitmapsMerge1.Count > 20)
+                                {
+                                    Console.WriteLine("bitmapsMerge1 size exceeded from 20 and cleared.");
+                                    bitmapsMerge1.Clear();
+                                }
+                                if (bitmapsMerge2.Count > 20)
+                                {
+                                    Console.WriteLine("bitmapsMerge2 size exceeded from 20 and cleared.");
+                                    bitmapsMerge2.Clear();
+                                }
+                                Console.WriteLine("================================Both Lists Cleared==========================");
 
                                 labelJumboWidth.Invoke((Action)delegate
                                 {
@@ -1344,7 +1461,7 @@ namespace SandPaperInspection
                 saveData = new Thread(() =>
                 {
 
-                    while (true)
+                    while (saveRecord)
                     {
                         try
                         {
@@ -1380,7 +1497,6 @@ namespace SandPaperInspection
 
 
                                 //defectImageDataList[0].
-                                Thread.Sleep(50);
                                 imageDataList.RemoveAt(0);
                             }
                             
@@ -1388,10 +1504,12 @@ namespace SandPaperInspection
                         catch (Exception ex)
                         {
                             Console.WriteLine("Error in db insert thread {0}", ex.Message);
+                            imageDataList.RemoveAt(0);
+
                         }
                         //Console.WriteLine("Save thread running.");
 
-                       
+
 
                     }
                 });
@@ -1419,54 +1537,64 @@ namespace SandPaperInspection
 
         public void ShowReport()
         {
-            using (NpgsqlConnection con = db.GetConnection())
+            try
             {
-                con.Open();
+                using (NpgsqlConnection con = db.GetConnection())
+                {
+                    con.Open();
 
-                string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Finish"",
+                    string query = string.Format(@"select _date as ""Date"", _time as ""Time"", serialnum as ""Finish"",
                                    _location as ""Location"", 
                                     deftype as ""Defect Type"",
                                     defectsize as ""Defect Size"" 
                                     from public.logreport where _date = '{0}'
                                     and _time between '{1}' and '{2}' 
-                                    and serialnum = '{3}' order by _date asc, _time desc, _location[1] desc", 
-                                    DateTime.Now.ToString("yyyy-MM-dd"),
-                                    DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
-                                    DateTime.Now.ToString("HH:mm:ss"),
-                                    CommonParameters.selectedModel.ToString()
-                                    );
+                                    and serialnum = '{3}' order by _date asc, _time desc, _location[1] desc",
+                                        DateTime.Now.ToString("yyyy-MM-dd"),
+                                        DateTime.Now.AddMinutes(-3).ToString("HH:mm:ss"),
+                                        DateTime.Now.ToString("HH:mm:ss"),
+                                        CommonParameters.selectedModel.ToString()
+                                        );
 
-                NpgsqlCommand cmd = new NpgsqlCommand(query, con);
-                //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
-                //cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
-                //cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
-                //cmd.Parameters.AddWithValue("@srnum", CommonParameters.finish.ToString());
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                
+                    NpgsqlCommand cmd = new NpgsqlCommand(query, con);
+                    //cmd.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
+                    //cmd.Parameters.AddWithValue("@time1", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                    //cmd.Parameters.AddWithValue("@time2", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                    //cmd.Parameters.AddWithValue("@srnum", CommonParameters.finish.ToString());
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    dt.Clear();
-                    dt.Load(reader);
-                    dataGridViewReport.DataSource = dt;
-                    //Console.WriteLine("report populated");
+
+                    if (reader.HasRows)
+                    {
+                        dt.Clear();
+                        dt.Load(reader);
+                        dataGridViewReport.DataSource = dt;
+                        //Console.WriteLine("report populated");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data");
+                        //Console.WriteLine(query);
+
+                    }
+
+                    foreach (DataGridViewColumn dgvc in dataGridViewReport.Columns)
+                    {
+                        dgvc.Width = 200;
+                    }
+
+                    reader.Close();
+                    con.CloseAsync();
 
                 }
-                else
-                {
-                    Console.WriteLine("No data");
-                    //Console.WriteLine(query);
-
-                }
-
-                foreach  (DataGridViewColumn dgvc in dataGridViewReport.Columns)
-                {
-                    dgvc.Width = 200;
-                }
-
-                reader.Close();
-
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ExceptionLogging.SendErrorToFile(ex);
+            }
+            
         }
 
         void ProcessImages()
@@ -2027,7 +2155,7 @@ namespace SandPaperInspection
                     //        bitmap = fullImage.Clone(cropRect, PixelFormat.Format24bppRgb);
 
 
-                    
+
                     //        //using (var graphics = Graphics.FromImage(algoImage))
                     //        //{
                     //        //    //graphics.DrawLine(pen, new Point(algo.out1Prop, 0), new Point(algo.out1Prop, 2500));
@@ -2053,10 +2181,18 @@ namespace SandPaperInspection
                     //    }
 
                     //}
+                    try
+                    {
+                        pictureBox5.Image = algoImage;
+                        pictureBox5.Invalidate();
+                        sw.Stop();
+                    }
+                    catch (Exception ex)
+                    {
 
-                    pictureBox5.Image = algoImage;
-                    pictureBox5.Invalidate();
-                    sw.Stop();
+                        Console.WriteLine("Error in displaying algo image on pb event btn1click {0}", ex.Message);
+                    }
+                    
 
                     Console.WriteLine("Time Taken -->{0}", sw.ElapsedMilliseconds);
                 }
@@ -2296,25 +2432,13 @@ namespace SandPaperInspection
             doProcess = false;
             setCardDO(0, false);
             setCardDO(1, false);
-
+            saveRecord = false;
 
             //if (processThread != null)
             //{
             //    processThread.Abort();
             //}
-            try
-            {
-                if (saveData != null && saveData.IsAlive)
-                {
-                    saveData.Abort();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                ExceptionLogging.SendErrorToFile(ex);
-
-            }
+            
 
             DestroyCamera(camera1, converter1);
             DestroyCamera(camera2, converter2);
